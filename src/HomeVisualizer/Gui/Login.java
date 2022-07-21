@@ -54,12 +54,12 @@ public class Login extends Frame {
 
         loginButton = new JButton();
         loginButton.setBounds(130, 240, 110, 38);
-        loginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loginButton.png")));
+        loginButton.setIcon(new javax.swing.ImageIcon("/home/marius/Documents/Home-Visualizer/Images/loginButton.png"));
         panel.add(loginButton);
 
         signUpButton = new JButton();
         signUpButton.setBounds(250, 240, 130, 38);
-        signUpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/signUpButton.png")));
+        signUpButton.setIcon(new javax.swing.ImageIcon("/home/marius/Documents/Home-Visualizer/Images/signUpButton.png"));
         panel.add(signUpButton);
     }
 }
