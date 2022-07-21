@@ -11,6 +11,9 @@ This project contains a software, which visualize your home. You can login and c
      > - [settings.json] 
 - **`bin`: the folder with compiled output files**
      > - **`HomeVisualizer`**
+     >   - **`Gui`**
+     >       - [Frame.class]
+     >       - [Login.class]
      >   - [Main.class] 
      > - **`Tests`**
 - **`doc`: the folder contains the documentation and diagrams**
@@ -21,15 +24,22 @@ This project contains a software, which visualize your home. You can login and c
      > - [junit-4.13.2.jar]
 - **`src`: the folder to maintain sources**
      > - **`HomeVisualizer`**
+     >   - **`Gui`**
+     >       - [Frame.java]
+     >       - [Login.java]
      >   - [Main.java]
      > - **`Tests`**
 
 <br/>
 
 [settings.json]:https://github.com/Raboro/Home-Visualizer/blob/master/.vscode/settings.json 
+[Frame.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/Frame.class
+[Login.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/Login.class
 [Main.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Main.class
 [classdiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/classdiagram.md
 [documentation.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/documentation.md
 [hamcrest-core-1.3.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/hamcrest-core-1.3.jar
 [junit-4.13.2.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/junit-4.13.2.jar
+[Frame.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/Frame.java
+[Login.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/Login.java
 [Main.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Main.java
