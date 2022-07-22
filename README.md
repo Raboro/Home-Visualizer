@@ -42,7 +42,7 @@ This project contains a software, which visualize your home. You can login and c
 [settings.json]:https://github.com/Raboro/Home-Visualizer/blob/master/.vscode/settings.json 
 [LoginDatabase.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/LoginDatabase.class 
 [Frame.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/Frame.class
-[Login.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/Login.class
+[LoginGui.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/Login.class
 [Main.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Main.class
 [classdiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/classdiagram.md
 [documentation.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/documentation.md
