@@ -1,9 +1,9 @@
 package HomeVisualizer;
 
-import HomeVisualizer.Gui.Login;
+import HomeVisualizer.Gui.LoginGui;
 
 public class Main {
     public static void main(String[] args) {
-        new Login();
+        new LoginGui();
     }
 }

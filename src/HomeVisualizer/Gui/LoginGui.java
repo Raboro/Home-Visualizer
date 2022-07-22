@@ -1,5 +1,8 @@
 package HomeVisualizer.Gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -7,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class Login extends Frame {
+public class LoginGui extends Frame {
 
     private static final String TITLE = "Login";
     private static final int WIDTH = 500;
@@ -21,13 +24,14 @@ public class Login extends Frame {
     private JButton loginButton, signUpButton;
     private JCheckBox showPassword;
 
-    public Login() {
+    public LoginGui() {
         super(TITLE, WIDTH, HEIGHT);
         panel = new JPanel();
         panel.setLayout(null);
 
         this.add(panel);
         createLayout();
+        addActionListener();
         this.setVisible(true);
     }
 
@@ -61,5 +65,26 @@ public class Login extends Frame {
         signUpButton.setBounds(250, 240, 130, 38);
         signUpButton.setIcon(new javax.swing.ImageIcon("/home/marius/Documents/Home-Visualizer/Images/signUpButton.png"));
         panel.add(signUpButton);
+    }
+
+    public void addActionListener() {
+        showPassword.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (showPassword.isSelected()) {
+                    // show each char of password
+                    password.setEchoChar((char) 0);
+                } else {
+                    // hide each char of password 
+                    char c = '*';
+                    password.setEchoChar(c);
+                }
+            }
+
+        });
+
+        
     }
 }

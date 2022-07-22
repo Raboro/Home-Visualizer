@@ -3,6 +3,7 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "/home/marius/Documents/mariadb-java-client-2.7.3.jar"
+        "/home/marius/Documents/mariadb-java-client-2.7.3.jar",
+        "/home/marius/Documents/Java/BaseClasses/BaseClasses.jar"
     ]
 }
