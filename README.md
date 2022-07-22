@@ -1,5 +1,9 @@
 ## **_\~Home Visualizer\~_**
 
+<p align="center">
+<img src="https://img.shields.io/github/last-commit/Raboro/Home-Visualizer">
+</p>
+
 This project contains a software, which visualize your home. You can login and create and load your apartment or house. Your home will be 3d rendered. You can design your appartment, costumize the size and add facility to it.
 
 <br />
