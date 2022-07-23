@@ -17,10 +17,15 @@ This project contains a software, which visualize your home. You can login and c
      > - **`HomeVisualizer`**
      >   - **`Database`**
      >       - [LoginDatabase.class]
+     >   - **`Encryption`**
+     >       - [Hash.class]
+     >       - [RsaEncryption.class]
      >   - **`Gui`**
      >       - [Frame.class]
      >       - [LoginGui.class]
-     >   - [Main.class] 
+     >   - **`Logic`**
+     >       - [LoginLogic.class]
+     >   - [Main.class]
      > - **`Tests`**
 - **`doc`: the folder contains the documentation and diagrams**
      > - [classdiagram.md]
@@ -35,9 +40,14 @@ This project contains a software, which visualize your home. You can login and c
      > - **`HomeVisualizer`**
      >   - **`Database`**
      >       - [LoginDatabase.java]
+     >   - **`Encryption`**
+     >       - [Hash.java]
+     >       - [RsaEncryption.java]
      >   - **`Gui`**
      >       - [Frame.java]
      >       - [LoginGui.java]
+     >   - **`Logic`**
+     >       - [LoginLogic.java]
      >   - [Main.java]
      > - **`Tests`**
 
@@ -45,6 +55,9 @@ This project contains a software, which visualize your home. You can login and c
 
 [settings.json]:https://github.com/Raboro/Home-Visualizer/blob/master/.vscode/settings.json 
 [LoginDatabase.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/LoginDatabase.class 
+[Hash.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encrytion/Hash.class
+[RsaEncryption.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encrytion/RsaEncryption.class
+[LoginLogic.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Logic/LoginLogic.class
 [Frame.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/Frame.class
 [LoginGui.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/LoginGui.class
 [Main.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Main.class
@@ -55,6 +68,9 @@ This project contains a software, which visualize your home. You can login and c
 [hamcrest-core-1.3.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/hamcrest-core-1.3.jar
 [junit-4.13.2.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/junit-4.13.2.jar
 [LoginDatabase.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/LoginDatabase.java
+[Hash.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Encryption/Hash.java
+[RsaEncryption.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Encryption/RsaEncryption.java
 [Frame.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/Frame.java
 [LoginGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/LoginGui.java
+[LoginLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/LoginLogic.java
 [Main.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Main.java

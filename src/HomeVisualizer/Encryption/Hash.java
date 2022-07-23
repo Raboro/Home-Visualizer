@@ -1,4 +1,4 @@
-package HomeVisualizer.Encrytion;
+package HomeVisualizer.Encryption;
 
 import java.util.Objects;
 

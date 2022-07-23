@@ -1,4 +1,4 @@
-package HomeVisualizer.Encrytion;
+package HomeVisualizer.Encryption;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-public class RsaEncrytpion {
+public class RsaEncryption {
 
     private static PublicKey getPublicKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
         File publicKeyFile = new File("/home/marius/Documents/abgabe_info/abgabe/public.key");

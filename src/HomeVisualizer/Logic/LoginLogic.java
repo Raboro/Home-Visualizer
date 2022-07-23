@@ -8,8 +8,8 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import HomeVisualizer.Encrytion.Hash;
-import HomeVisualizer.Encrytion.RsaEncrytpion;
+import HomeVisualizer.Encryption.Hash;
+import HomeVisualizer.Encryption.RsaEncryption;
 
 public class LoginLogic {
     private String username;
@@ -29,12 +29,12 @@ public class LoginLogic {
 
     public void encryptPassword() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, IOException {
-        this.encrytPassword = RsaEncrytpion.encrypt(password);
+        this.encrytPassword = RsaEncryption.encrypt(password);
     }
 
     public void decryptPassword() throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
             NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException {
-        String pw = RsaEncrytpion.decrypt(encrytPassword);
+        String pw = RsaEncryption.decrypt(encrytPassword);
         System.out.println(pw);
     }
 }
