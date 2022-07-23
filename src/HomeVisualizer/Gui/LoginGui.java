@@ -2,13 +2,22 @@ package HomeVisualizer.Gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import HomeVisualizer.Logic.LoginLogic;
 
 public class LoginGui extends Frame {
 
@@ -72,7 +81,6 @@ public class LoginGui extends Frame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 if (showPassword.isSelected()) {
                     // show each char of password
                     password.setEchoChar((char) 0);
@@ -85,6 +93,29 @@ public class LoginGui extends Frame {
 
         });
 
-        
+        loginButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //dispose();
+                LoginLogic logic = new LoginLogic(username.getText(), new String(password.getPassword()));
+
+                logic.encryptUsername();
+
+                try {
+                    logic.encryptPassword();
+                } catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
+                        | InvalidKeySpecException | IllegalBlockSizeException | BadPaddingException | IOException e2) {
+                    e2.printStackTrace();
+                }
+
+                try {
+                    logic.decryptPassword();
+                } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException
+                        | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
     }
 }
