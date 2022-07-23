@@ -55,8 +55,8 @@ This project contains a software, which visualize your home. You can login and c
 
 [settings.json]:https://github.com/Raboro/Home-Visualizer/blob/master/.vscode/settings.json 
 [LoginDatabase.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/LoginDatabase.class 
-[Hash.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encrytion/Hash.class
-[RsaEncryption.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encrytion/RsaEncryption.class
+[Hash.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encryption/Hash.class
+[RsaEncryption.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encryption/RsaEncryption.class
 [LoginLogic.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Logic/LoginLogic.class
 [Frame.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/Frame.class
 [LoginGui.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/LoginGui.class
