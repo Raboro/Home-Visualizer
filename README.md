@@ -16,6 +16,8 @@ This project contains a software, which visualize your home. You can login and c
 - **`bin`: the folder with compiled output files**
      > - **`HomeVisualizer`**
      >   - **`Database`**
+     >       - [Database.class]  
+     >       - [InitializeDatabase.class]
      >       - [LoginDatabase.class]
      >   - **`Encryption`**
      >       - [Hash.class]
@@ -39,6 +41,8 @@ This project contains a software, which visualize your home. You can login and c
 - **`src`: the folder to maintain sources**
      > - **`HomeVisualizer`**
      >   - **`Database`**
+     >       - [Database.java]
+     >       - [InitializeDatabase.java]
      >       - [LoginDatabase.java]
      >   - **`Encryption`**
      >       - [Hash.java]
@@ -54,6 +58,8 @@ This project contains a software, which visualize your home. You can login and c
 <br/>
 
 [settings.json]:https://github.com/Raboro/Home-Visualizer/blob/master/.vscode/settings.json 
+[Database.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/Database.class
+[InitializeDatabase.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/InitializeDatabase.class
 [LoginDatabase.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/LoginDatabase.class 
 [Hash.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encryption/Hash.class
 [RsaEncryption.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encryption/RsaEncryption.class
@@ -67,6 +73,8 @@ This project contains a software, which visualize your home. You can login and c
 [signUpButton.png]:https://github.com/Raboro/Home-Visualizer/blob/master/Images/signUpButton.png
 [hamcrest-core-1.3.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/hamcrest-core-1.3.jar
 [junit-4.13.2.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/junit-4.13.2.jar
+[Database.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/Database.java
+[InitializeDatabase.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/InitializeDatabase.java
 [LoginDatabase.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/LoginDatabase.java
 [Hash.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Encryption/Hash.java
 [RsaEncryption.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Encryption/RsaEncryption.java
