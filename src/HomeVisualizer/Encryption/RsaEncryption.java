@@ -59,9 +59,6 @@ public class RsaEncryption {
             NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         PrivateKey privateKey = getprivateKey();
 
-        // String encodedMessage = Base64.getEncoder().encodeToString(message);  <- store in databasee
-        // byte[] msg = Base64.getDecoder().decode(encodedMessage); <- change to byte[] to decode
-
         Cipher decryptCipher = Cipher.getInstance("RSA");
         decryptCipher.init(Cipher.DECRYPT_MODE, privateKey);
 
