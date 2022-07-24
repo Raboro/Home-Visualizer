@@ -1,20 +1,40 @@
 package HomeVisualizer.Database;
 
-import DatabaseInforamtion.databseConnectionHomeVisualizer;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginDatabase {
+public class LoginDatabase extends Database {
 
-    public LoginDatabase() {
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(databseConnectionHomeVisualizer.URL, databseConnectionHomeVisualizer.USER, databseConnectionHomeVisualizer.PASSWORD);
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public void add(int username, String password) throws SQLException {
+        if (userNotInDatabase(username)) {
+            PreparedStatement addToDatabase = connection.prepareStatement(
+                    "INSERT INTO UserDatabase (USERNAME, PASSWORD) VALUES ('" + username + "', '" + password + "')");
+            addToDatabase.executeUpdate();
         }
-        System.out.println(connection);
+    }
+
+    public boolean userNotInDatabase(int username) throws SQLException {
+        PreparedStatement userExistsCheck = connection.prepareStatement("SELECT * FROM UserDatabase");
+        ResultSet result = userExistsCheck.executeQuery();
+
+        while (result.next()) {
+            if (result.getInt("USERNAME") == username) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public String get(int username) throws SQLException {
+        PreparedStatement userExistsCheck = connection.prepareStatement("SELECT * FROM UserDatabase");
+        ResultSet result = userExistsCheck.executeQuery();
+        
+        while (result.next()) {
+            if (result.getInt("USERNAME") == username) {
+                return result.getString("PASSWORD");
+            }
+        }
+        return null;
     }
 }

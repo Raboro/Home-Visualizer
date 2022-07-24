@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.sql.SQLException;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -17,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import HomeVisualizer.Main;
 import HomeVisualizer.Logic.LoginLogic;
 
 public class LoginGui extends Frame {
@@ -97,22 +99,44 @@ public class LoginGui extends Frame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                //dispose();
                 LoginLogic logic = new LoginLogic(username.getText(), new String(password.getPassword()));
-
-                logic.encryptUsername();
+                boolean loginSuccessful = false;
 
                 try {
-                    logic.encryptPassword();
-                } catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
-                        | InvalidKeySpecException | IllegalBlockSizeException | BadPaddingException | IOException e2) {
-                    e2.printStackTrace();
+                    loginSuccessful = logic.login();
+                } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException
+                        | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | SQLException
+                        | IOException e1) {
+                    e1.printStackTrace();
                 }
 
+                String usernameToContinue;
+                if (!loginSuccessful) {
+                    usernameToContinue = null;
+                } else{
+                    usernameToContinue = username.getText();
+                }
+                dispose();
+                continueAfterLogin(usernameToContinue);
+            }
+
+            private void continueAfterLogin(String usernameToContinue) {
+                Main.continueAfterLogin(usernameToContinue);
+            }
+
+        });
+
+        signUpButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginLogic logic = new LoginLogic(username.getText(), new String(password.getPassword()));
+
                 try {
-                    logic.decryptPassword();
-                } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException
-                        | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | IOException e1) {
+                    logic.signUp();
+                } catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
+                        | InvalidKeySpecException | IllegalBlockSizeException | BadPaddingException | SQLException
+                        | IOException e1) {
                     e1.printStackTrace();
                 }
             }
