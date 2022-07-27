@@ -42,6 +42,7 @@ public class LoginGui extends Frame {
         this.add(panel);
         createLayout();
         addActionListener();
+        this.setLocation(730, 650);
         this.setVisible(true);
     }
 
