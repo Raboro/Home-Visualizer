@@ -1,4 +1,4 @@
-package HomeVisualizer.Gui;
+package HomeVisualizer.Gui.Login;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +18,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import HomeVisualizer.Main;
+import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Logic.LoginLogic;
 
 public class LoginGui extends Frame {
