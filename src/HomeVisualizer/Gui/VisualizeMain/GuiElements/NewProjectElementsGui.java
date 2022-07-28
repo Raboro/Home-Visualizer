@@ -50,6 +50,15 @@ public class NewProjectElementsGui {
         return inputSteps;
     }
 
+    public static JButton[] changeLocationStepsCenter(JButton[] inputButtons) {
+        inputButtons[0].setBounds(580, 400, 100, 100);
+        inputButtons[1].setBounds(730, 400, 100, 100);
+        inputButtons[2].setBounds(880, 400, 100, 100);
+        inputButtons[3].setBounds(1030, 400, 100, 100);
+
+        return inputButtons;
+    }
+
     public static JButton getStartStep() {
         startSteps.setBackground(START_STEPS_COLOR);
         startSteps.setBounds(755, 600, 200, 60);

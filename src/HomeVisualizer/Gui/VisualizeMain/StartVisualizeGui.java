@@ -16,13 +16,13 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import HomeVisualizer.Gui.Frame;
+import HomeVisualizer.Gui.VisualizeMain.GuiElements.ColorState;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 
 public class StartVisualizeGui extends Frame implements ActionListener, Runnable {
 
     private static final int HEIGHT = 1000;
     private static final int WIDTH = 1700;
-    private String USER;
 
     private JPanel panel;
     private JMenu menuProjects, submenuProjects;
@@ -31,16 +31,20 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
     private JDialog creatingProjectNotFinished = new JDialog();
     private JButton startSteps, continueButton;
     private JButton[] buttonsSteps;
-    private boolean isUserEditing = false;
+    private boolean isUserStartingEditing = false;
     private boolean running;
     private Thread thread;
     private boolean stepButtonsAdded;
     private int stepsState = 0;
     private boolean userWorking = false;
+    private ColorState[] colorsLines = new ColorState[3];
 
     public StartVisualizeGui(String user) {
         super(user, WIDTH, HEIGHT);
-        this.USER = user;
+
+        for (int line = 0; line < this.colorsLines.length; line++) {
+            colorsLines[line] = ColorState.UNFULFILLED;
+        }
 
         this.panel = new JPanel();
         this.panel.setLayout(null);
@@ -108,11 +112,29 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
         this.panel.invalidate();
     }
 
+    private void updateButtonsCenter() {
+        this.buttonsSteps = NewProjectElementsGui.changeLocationStepsCenter(this.buttonsSteps);
+        this.panel.invalidate();
+    }
+
     private void getContinueButton() {
         this.continueButton = NewProjectElementsGui.getContinueStep();
+        this.continueButton.addActionListener(this);
         this.panel.add(this.continueButton);
         this.continueButton.setVisible(true);
         this.panel.invalidate();
+    }
+
+    private Color getColorToDrawLine(int index) {
+        switch (this.colorsLines[index]) {
+            case UNFULFILLED:
+                return NewProjectElementsGui.UNFULFILLED_STEP_COLOR;
+            case FINISHED:
+                return NewProjectElementsGui.FINISHED_STEP_COLOR;
+            case IN_WORK:
+                return NewProjectElementsGui.IN_WORK_STEP_COLOR;
+        }
+        return null;
     }
 
     public void render() {
@@ -124,51 +146,55 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
         }
 
         Graphics g = bs.getDrawGraphics();
-        if (this.stepButtonsAdded || (this.isUserEditing && !this.userWorking)) {
+        if (this.stepButtonsAdded || (this.isUserStartingEditing && !this.userWorking)) {
             // line connection between button 1 & 2
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR_BORDER);
+            g.setColor(getColorToDrawLine(0));
             g.drawLine(680, 509, 730, 509);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR);
+            g.setColor(getColorToDrawLine(0));
             g.drawLine(680, 510, 730, 510);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR_BORDER);
+            g.setColor(getColorToDrawLine(0));
             g.drawLine(680, 511, 730, 511);
 
             // line connection between button 2 & 3
+            g.setColor(getColorToDrawLine(1));
             g.drawLine(830, 509, 880, 509);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR);
+            g.setColor(getColorToDrawLine(1));
             g.drawLine(830, 510, 880, 510);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR_BORDER);
+            g.setColor(getColorToDrawLine(1));
             g.drawLine(830, 511, 880, 511);
 
             // line connection between button 3 & 4
+            g.setColor(getColorToDrawLine(2));
             g.drawLine(980, 509, 1030, 509);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR);
+            g.setColor(getColorToDrawLine(2));
             g.drawLine(980, 510, 1030, 510);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR_BORDER);
+            g.setColor(getColorToDrawLine(2));
             g.drawLine(980, 511, 1030, 511);
         }
 
         if (this.userWorking) {
             // line connection between button 1 & 2
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR_BORDER);
+            g.setColor(getColorToDrawLine(0));
             g.drawLine(1360, 939, 1400, 939);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR);
+            g.setColor(getColorToDrawLine(0));
             g.drawLine(1360, 940, 1400, 940);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR_BORDER);
+            g.setColor(getColorToDrawLine(0));
             g.drawLine(1360, 941, 1400, 941);
 
             // line connection between button 2 & 3
+            g.setColor(getColorToDrawLine(1));
             g.drawLine(1460, 939, 1500, 939);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR);
+            g.setColor(getColorToDrawLine(1));
             g.drawLine(1460, 940, 1500, 940);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR_BORDER);
+            g.setColor(getColorToDrawLine(1));
             g.drawLine(1460, 941, 1500, 941);
 
             // line connection between button 3 & 4
+            g.setColor(getColorToDrawLine(2));
             g.drawLine(1560, 939, 1600, 939);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR);
+            g.setColor(getColorToDrawLine(2));
             g.drawLine(1560, 940, 1600, 940);
-            g.setColor(NewProjectElementsGui.UNFULFILLED_STEP_COLOR_BORDER);
+            g.setColor(getColorToDrawLine(2));
             g.drawLine(1560, 941, 1600, 941);
         }
 
@@ -178,8 +204,8 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == this.newProject) {
-            if (!isUserEditing) {
-                isUserEditing = true;
+            if (!isUserStartingEditing) {
+                isUserStartingEditing = true;
                 loadNewProjectGui();
             } else {
                 // TODO add more checks for when the creating Phase is over -> he can save
@@ -198,6 +224,32 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
             this.stepButtonsAdded = false;
             getContinueButton();
             this.startSteps.setVisible(false);
+        }
+
+        if (event.getSource() == this.continueButton) {
+            if (this.userWorking == true) {
+                this.userWorking = false;
+                this.buttonsSteps[this.stepsState].setBackground(NewProjectElementsGui.FINISHED_STEP_COLOR);
+                this.buttonsSteps[this.stepsState]
+                        .setBorder(BorderFactory.createLineBorder(NewProjectElementsGui.FINISHED_STEP_COLOR_BORDER, 6));
+                updateButtonsCenter();
+
+                if (this.stepsState < 3) {
+                    this.colorsLines[this.stepsState] = ColorState.IN_WORK;
+                } else {
+                    this.continueButton.setEnabled(false);
+                    this.continueButton.setVisible(false);
+                }
+
+            } else {
+                this.colorsLines[this.stepsState] = ColorState.FINISHED;
+                this.stepsState += 1;
+                this.userWorking = true;
+                this.buttonsSteps[this.stepsState].setBackground(NewProjectElementsGui.IN_WORK_STEP_COLOR);
+                this.buttonsSteps[this.stepsState]
+                        .setBorder(BorderFactory.createLineBorder(NewProjectElementsGui.IN_WORK_STEP_COLOR_BORDER, 6));
+                updateButtonsRightBottom();
+            }
         }
 
     }
