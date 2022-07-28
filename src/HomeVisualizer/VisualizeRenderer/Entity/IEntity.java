@@ -1,4 +1,4 @@
-package HomeVisualizer.VisualizeRenderer.Entity.Builder;
+package HomeVisualizer.VisualizeRenderer.Entity;
 
 import java.awt.Graphics;
 
