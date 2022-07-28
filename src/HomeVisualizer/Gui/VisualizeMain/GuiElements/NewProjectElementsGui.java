@@ -1,9 +1,11 @@
 package HomeVisualizer.Gui.VisualizeMain.GuiElements;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class NewProjectElementsGui {
     private static JButton firstStep = new JButton("STEP 1");
@@ -24,6 +26,9 @@ public class NewProjectElementsGui {
     public static final Color IN_WORK_STEP_COLOR_BORDER = new Color(247, 220, 111);
     public static final Color FINISHED_STEP_COLOR = new Color(82, 190, 128);
     public static final Color FINISHED_STEP_COLOR_BORDER = new Color(125, 206, 160);
+
+    public static JLabel stepName = new JLabel("");
+
 
     public static JButton[] getStepButtons() {
 
@@ -69,10 +74,38 @@ public class NewProjectElementsGui {
 
     public static JButton getContinueStep() {
         continueSteps.setBackground(START_STEPS_COLOR);
-        continueSteps.setBounds(755, 850, 200, 60);
+        continueSteps.setBounds(765, 850, 200, 60);
         continueSteps.setBorder(BorderFactory.createLineBorder(START_STEPS_COLOR_BORDER, 6));
         continueSteps.setVisible(false);
         return continueSteps;
+    }
+
+    public static JLabel getStateName(JLabel label) {
+        switch (label.getText()) {
+            case "":
+                label.setText("Create Apartment");
+                label.setBounds(720, 30, 300, 50);
+                label.setVisible(false);
+                label.setFont(new Font("Arial", Font.BOLD, 30));
+                return label;
+
+            case "Create Apartment":
+                label.setText("Create Rooms");
+                label.setBounds(745, 30, 300, 50);
+                return label;
+
+            case "Create Rooms":
+                label.setText("Create Room Names");
+                label.setBounds(700, 30, 400, 50);
+                return label;
+
+            case "Create Room Names":
+                label.setText("Create Doors");
+                label.setBounds(755, 30, 300, 50);
+                return label;
+
+        }
+        return null;
     }
 
 }

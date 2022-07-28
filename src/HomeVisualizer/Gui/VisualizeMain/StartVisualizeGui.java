@@ -31,6 +31,7 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
     private JDialog creatingProjectNotFinished = new JDialog();
     private JButton startSteps, continueButton;
     private JButton[] buttonsSteps;
+    private JLabel stepName;
     private boolean isUserStartingEditing = false;
     private boolean running;
     private Thread thread;
@@ -51,12 +52,14 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
 
         this.add(this.panel);
         createLayout();
+        this.menuBar.setVisible(true);
         this.setLocation(110, 300);
         this.setVisible(true);
     }
 
     private void createLayout() {
         this.menuBar = new JMenuBar();
+        this.menuBar.setVisible(false);
         this.menuProjects = new JMenu("Projects");
         this.submenuProjects = new JMenu("Open");
 
@@ -88,6 +91,7 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
     }
 
     private void loadNewProjectGui() {
+        this.stepName = NewProjectElementsGui.getStateName(NewProjectElementsGui.stepName);
         this.buttonsSteps = NewProjectElementsGui.getStepButtons();
         this.startSteps = NewProjectElementsGui.getStartStep();
         this.startSteps.addActionListener(this);
@@ -96,6 +100,7 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
             this.panel.add(this.buttonsSteps[i]);
         }
         this.panel.add(this.startSteps);
+        this.panel.add(this.stepName);
         this.panel.invalidate();
 
         for (int i = 0; i < this.buttonsSteps.length; i++) {
@@ -149,27 +154,27 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
         if (this.stepButtonsAdded || (this.isUserStartingEditing && !this.userWorking)) {
             // line connection between button 1 & 2
             g.setColor(getColorToDrawLine(0));
-            g.drawLine(680, 509, 730, 509);
+            g.drawLine(680, 509, 729, 509);
             g.setColor(getColorToDrawLine(0));
-            g.drawLine(680, 510, 730, 510);
+            g.drawLine(680, 510, 729, 510);
             g.setColor(getColorToDrawLine(0));
-            g.drawLine(680, 511, 730, 511);
+            g.drawLine(680, 511, 729, 511);
 
             // line connection between button 2 & 3
             g.setColor(getColorToDrawLine(1));
-            g.drawLine(830, 509, 880, 509);
+            g.drawLine(830, 509, 879, 509);
             g.setColor(getColorToDrawLine(1));
-            g.drawLine(830, 510, 880, 510);
+            g.drawLine(830, 510, 879, 510);
             g.setColor(getColorToDrawLine(1));
-            g.drawLine(830, 511, 880, 511);
+            g.drawLine(830, 511, 879, 511);
 
             // line connection between button 3 & 4
             g.setColor(getColorToDrawLine(2));
-            g.drawLine(980, 509, 1030, 509);
+            g.drawLine(980, 509, 1029, 509);
             g.setColor(getColorToDrawLine(2));
-            g.drawLine(980, 510, 1030, 510);
+            g.drawLine(980, 510, 1029, 510);
             g.setColor(getColorToDrawLine(2));
-            g.drawLine(980, 511, 1030, 511);
+            g.drawLine(980, 511, 1029, 511);
         }
 
         if (this.userWorking) {
@@ -223,18 +228,23 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
             this.userWorking = true;
             this.stepButtonsAdded = false;
             getContinueButton();
+            this.stepName.setVisible(true);
             this.startSteps.setVisible(false);
         }
 
         if (event.getSource() == this.continueButton) {
             if (this.userWorking == true) {
                 this.userWorking = false;
+                this.stepName.setVisible(false);
                 this.buttonsSteps[this.stepsState].setBackground(NewProjectElementsGui.FINISHED_STEP_COLOR);
                 this.buttonsSteps[this.stepsState]
                         .setBorder(BorderFactory.createLineBorder(NewProjectElementsGui.FINISHED_STEP_COLOR_BORDER, 6));
                 updateButtonsCenter();
 
+                this.stepName.setVisible(false);
+
                 if (this.stepsState < 3) {
+                    this.stepName = NewProjectElementsGui.getStateName(this.stepName);
                     this.colorsLines[this.stepsState] = ColorState.IN_WORK;
                 } else {
                     this.continueButton.setEnabled(false);
@@ -242,6 +252,7 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
                 }
 
             } else {
+                this.stepName.setVisible(true);
                 this.colorsLines[this.stepsState] = ColorState.FINISHED;
                 this.stepsState += 1;
                 this.userWorking = true;
