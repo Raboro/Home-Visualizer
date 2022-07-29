@@ -14,10 +14,13 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.ColorState;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
+import HomeVisualizer.Gui.VisualizeMain.GuiElements.StepStates;
+import HomeVisualizer.Gui.VisualizeMain.StatesGui.CreateApartmentGui;
 
 public class StartVisualizeGui extends Frame implements ActionListener, Runnable {
 
@@ -30,15 +33,20 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
     private JMenuBar menuBar;
     private JDialog creatingProjectNotFinished = new JDialog();
     private JButton startSteps, continueButton;
+    private JButton finishedApartmentGeneration = CreateApartmentGui.getFinishedCreation();
     private JButton[] buttonsSteps;
+    private JButton[] chooseWalls = CreateApartmentGui.getChooseWallsButtons();
     private JLabel stepName;
-    private boolean isUserStartingEditing = false;
+    private JLabel[] apartmentParameter;
+    private JTextField[] getApartmentParameter;
+    private boolean isUserStartingEditing, finishedStartSteps = false;
     private boolean running;
     private Thread thread;
     private boolean stepButtonsAdded;
     private int stepsState = 0;
     private boolean userWorking = false;
     private ColorState[] colorsLines = new ColorState[3];
+    private StepStates currentState;
 
     public StartVisualizeGui(String user) {
         super(user, WIDTH, HEIGHT);
@@ -142,6 +150,66 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
         return null;
     }
 
+    private void selectMethodForCurrentStep() {
+        switch (this.currentState) {
+            case CREATE_APARTMENT:
+                this.create_Apartment();
+            case CREATE_DOORS:
+                break;
+            case CREATE_ROOMS:
+                break;
+            case CREATE_ROOM_NAMES:
+                break;
+        }
+    }
+
+    private void create_Apartment() {
+        this.panel.add(this.chooseWalls[0]);
+        this.panel.add(this.chooseWalls[1]);
+        this.panel.invalidate();
+
+        this.chooseWalls[0].setVisible(true);
+        this.chooseWalls[1].setVisible(true);
+
+        this.chooseWalls[0].addActionListener(this);
+
+        this.panel.invalidate();
+    }
+
+    private void fourWalls() {
+        this.panel.add(this.finishedApartmentGeneration);
+        this.panel.invalidate();
+        this.finishedApartmentGeneration.setVisible(true);
+        this.panel.invalidate();
+        this.finishedApartmentGeneration.addActionListener(this);
+
+        this.apartmentParameter = CreateApartmentGui.getLabels();
+
+        for (int i = 0; i < this.apartmentParameter.length; i++) {
+            this.panel.add(this.apartmentParameter[i]);
+        }
+
+        this.panel.invalidate();
+
+        for (int i = 0; i < this.apartmentParameter.length; i++) {
+            this.apartmentParameter[i].setVisible(true);
+        }
+
+        this.getApartmentParameter = CreateApartmentGui.getTextFields();
+
+        for (int i = 0; i < this.getApartmentParameter.length; i++) {
+            this.panel.add(this.getApartmentParameter[i]);
+        }
+
+        this.panel.invalidate();
+
+        for (int i = 0; i < this.getApartmentParameter.length; i++) {
+            this.getApartmentParameter[i].setVisible(true);
+        }
+
+        this.panel.invalidate();
+    }
+
     public void render() {
         BufferStrategy bs = this.getBufferStrategy();
 
@@ -230,6 +298,8 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
             getContinueButton();
             this.stepName.setVisible(true);
             this.startSteps.setVisible(false);
+            this.currentState = StepStates.CREATE_APARTMENT;
+            this.selectMethodForCurrentStep();
         }
 
         if (event.getSource() == this.continueButton) {
@@ -249,6 +319,7 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
                 } else {
                     this.continueButton.setEnabled(false);
                     this.continueButton.setVisible(false);
+                    this.finishedStartSteps = true;
                 }
 
             } else {
@@ -261,6 +332,13 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
                         .setBorder(BorderFactory.createLineBorder(NewProjectElementsGui.IN_WORK_STEP_COLOR_BORDER, 6));
                 updateButtonsRightBottom();
             }
+
+        }
+
+        if (event.getSource() == this.chooseWalls[0]) {
+            this.chooseWalls[0].setVisible(false);
+            this.chooseWalls[1].setVisible(false);
+            this.fourWalls();
         }
 
     }

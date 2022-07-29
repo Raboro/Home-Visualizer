@@ -23,7 +23,7 @@ public class Display extends Canvas implements Runnable {
     public static final int WIDTH = 1200;
     public static final int HEIGHT = 900;
 
-    public Display() {
+    public Display(double lengthApartment, double hightApartment, double widthApartment) {
         this.frame = new JFrame();
         Dimension size = new Dimension(WIDTH, HEIGHT);
         this.setPreferredSize(size);
