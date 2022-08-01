@@ -21,6 +21,7 @@ import HomeVisualizer.Gui.VisualizeMain.GuiElements.ColorState;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StepStates;
 import HomeVisualizer.Gui.VisualizeMain.StatesGui.CreateApartmentGui;
+import HomeVisualizer.VisualizeRenderer.Display;
 
 public class StartVisualizeGui extends Frame implements ActionListener, Runnable {
 
@@ -222,6 +223,22 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
         return true;
     }
 
+    private void createDisplay() {
+        double length = Integer.parseInt(this.getApartmentParameter[0].getText());
+        double height = Integer.parseInt(this.getApartmentParameter[1].getText());
+        double width = Integer.parseInt(this.getApartmentParameter[2].getText());
+
+        Display display = new Display(length, height, width);
+        display.frame.add(display);
+        display.frame.pack();
+        display.frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        display.frame.setLocationRelativeTo(null);
+        display.frame.setResizable(false);
+        display.frame.setVisible(true);
+
+        display.start();
+    }
+
     public void render() {
         BufferStrategy bs = this.getBufferStrategy();
 
@@ -366,6 +383,8 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
                 
                 this.finishedApartmentGeneration.setVisible(false);
                 this.finishedApartmentGeneration.setEnabled(false);
+
+                this.createDisplay();
             }
         }
 

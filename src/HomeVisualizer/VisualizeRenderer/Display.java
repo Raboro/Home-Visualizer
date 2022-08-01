@@ -28,7 +28,7 @@ public class Display extends Canvas implements Runnable {
         Dimension size = new Dimension(WIDTH, HEIGHT);
         this.setPreferredSize(size);
         this.userInput = new UserInput();
-        this.entityManager = new EntityManager();
+        this.entityManager = new EntityManager(lengthApartment, hightApartment, widthApartment);
 
         this.addMouseListener(this.userInput.mouse);
         this.addMouseMotionListener(this.userInput.mouse);

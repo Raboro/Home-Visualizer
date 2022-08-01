@@ -21,21 +21,31 @@ public class EntityManager {
     private MyVector lightVector = MyVector.normalize(new MyVector(1, 1, 1));
     private UserInput userInput;
     private Camera camera;
-    private double moveSpeed = 10;
+    private double moveSpeed = 100;
+    private double lengthApartment, hightApartment, widthApartment;
+    private int meterIntoPixel = 2000;
 
-    public EntityManager() {
+    public EntityManager(double lengthApartment, double hightApartment, double widthApartment) {
         this.entities = new ArrayList<IEntity>();
         this.camera = new Camera(-1500, 0, 0);
+        this.lengthApartment = lengthApartment * meterIntoPixel;
+        this.hightApartment = hightApartment * meterIntoPixel;
+        this.widthApartment = widthApartment * meterIntoPixel;
     }
 
     public void init(UserInput userInput) {
         this.userInput = userInput;
         // create apartment:
-        this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 1000, 10, 300, -1000, 0, 0)); // left
-        this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 1000, 10, 300, -1000, 1000, 0)); // right
-        this.entities.add(BasicEntityBuilder.createRectangle(Color.GRAY, 1000, 1010, 10, -1000, 500, -155)); // bottom
-        this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 10, 1000, 300, -500, 500, 0)); // front
-        this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 10, 1000, 300, -2000, 500, 0)); // back
+        this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, this.lengthApartment, 10, this.hightApartment, -this.lengthApartment, this.lengthApartment / 5, 0)); // left
+        this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, this.lengthApartment, 10, this.hightApartment, -this.lengthApartment, this.lengthApartment - this.lengthApartment / 5, 0)); // right
+        this.entities.add(BasicEntityBuilder.createRectangle(Color.GRAY, this.lengthApartment, this.widthApartment + 10, 10, -this.lengthApartment, this.lengthApartment / 2, -this.hightApartment / 2 - 5)); // bottom
+        this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 10, this.widthApartment, this.hightApartment, -this.lengthApartment / 2, this.lengthApartment / 2, 0)); // front
+        this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 10, this.widthApartment, this.hightApartment, -this.lengthApartment * 2, this.lengthApartment / 2, 0)); // back
+        // this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 1000, 10, 300, -1000, 0, 0)); // left
+        // this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 1000, 10, 300, -1000, 1000, 0)); // right
+        // this.entities.add(BasicEntityBuilder.createRectangle(Color.GRAY, 1000, 1010, 10, -1000, 500, -155)); // bottom
+        // this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 10, 1000, 300, -500, 500, 0)); // front
+        // this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, 10, 1000, 300, -2000, 500, 0)); // back
 
         // add into apartment
         //this.entities.add(BasicEntityBuilder.createCube(100, -800, 500, 100));
