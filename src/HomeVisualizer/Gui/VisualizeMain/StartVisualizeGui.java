@@ -208,6 +208,18 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
         }
 
         this.panel.invalidate();
+        this.continueButton.setEnabled(false);
+    }
+
+    private boolean isUserInputIsCorrectStepOne() {
+        for (int parameter = 0; parameter < this.getApartmentParameter.length; parameter++) {
+            try {
+                int testValue = Integer.parseInt(this.getApartmentParameter[parameter].getText());
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void render() {
@@ -339,6 +351,22 @@ public class StartVisualizeGui extends Frame implements ActionListener, Runnable
             this.chooseWalls[0].setVisible(false);
             this.chooseWalls[1].setVisible(false);
             this.fourWalls();
+        }
+
+        if (event.getSource() == this.finishedApartmentGeneration) {
+            if (isUserInputIsCorrectStepOne()) {
+                this.continueButton.setEnabled(true);
+
+                for(int i = 0; i < this.apartmentParameter.length; i++) {
+                    this.apartmentParameter[i].setVisible(false);
+                    this.apartmentParameter[i].setEnabled(false);
+                    this.getApartmentParameter[i].setVisible(false);
+                    this.getApartmentParameter[i].setEnabled(false);
+                }
+                
+                this.finishedApartmentGeneration.setVisible(false);
+                this.finishedApartmentGeneration.setEnabled(false);
+            }
         }
 
     }
