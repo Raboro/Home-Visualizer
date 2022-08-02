@@ -5,20 +5,22 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class NewProjectElementsGui {
-    private static JButton firstStep = new JButton("STEP 1");
-    private static JButton secondStep = new JButton("STEP 2");
-    private static JButton thirdStep = new JButton("STEP 3");
-    private static JButton fourthStep = new JButton("STEP 4");
-    private static JButton[] steps = { firstStep, secondStep, thirdStep, fourthStep };
+    public static JButton firstStep = new JButton("STEP 1");
+    public static JButton secondStep = new JButton("STEP 2");
+    public static JButton thirdStep = new JButton("STEP 3");
+    public static JButton fourthStep = new JButton("STEP 4");
+    public static JButton[] buttonsSteps = { firstStep, secondStep, thirdStep, fourthStep };
 
-    private static JButton startSteps = new JButton("Start");
-    private static JButton continueSteps = new JButton("Continue");
+    public static JButton startSteps = new JButton("Start");
+    public static JButton continueSteps = new JButton("Continue");
 
-    private static final Color START_STEPS_COLOR = new Color(46, 134, 193);
-    private static final Color START_STEPS_COLOR_BORDER = new Color(46, 134, 255);
+    public static final Color START_STEPS_COLOR = new Color(46, 134, 193);
+    public static final Color START_STEPS_COLOR_BORDER = new Color(46, 134, 255);
 
     public static final Color UNFULFILLED_STEP_COLOR = new Color(238, 75, 43);
     public static final Color UNFULFILLED_STEP_COLOR_BORDER = new Color(255, 105, 43);
@@ -29,83 +31,76 @@ public class NewProjectElementsGui {
 
     public static JLabel stepName = new JLabel("");
 
+    public static JDialog creatingProjectNotFinished = new JDialog();
 
-    public static JButton[] getStepButtons() {
+    public static void initStepButtons() {
+        stepButtonsCenter();
 
+        for (int step = 0; step < buttonsSteps.length; step++) {
+            buttonsSteps[step].setBackground(UNFULFILLED_STEP_COLOR);
+            buttonsSteps[step].setBorder(BorderFactory.createLineBorder(UNFULFILLED_STEP_COLOR_BORDER, 6));
+            buttonsSteps[step].setVisible(false);
+            buttonsSteps[step].setEnabled(false);
+        }
+    }
+
+    public static void stepButtonsRightBottom() {
+        firstStep.setBounds(1300, 850, 60, 60);
+        secondStep.setBounds(1400, 850, 60, 60);
+        thirdStep.setBounds(1500, 850, 60, 60);
+        fourthStep.setBounds(1600, 850, 60, 60);
+    }
+
+    public static void stepButtonsCenter() {
         firstStep.setBounds(580, 400, 100, 100);
         secondStep.setBounds(730, 400, 100, 100);
         thirdStep.setBounds(880, 400, 100, 100);
         fourthStep.setBounds(1030, 400, 100, 100);
-
-        for (int step = 0; step < steps.length; step++) {
-            steps[step].setBackground(UNFULFILLED_STEP_COLOR);
-            steps[step].setBorder(BorderFactory.createLineBorder(UNFULFILLED_STEP_COLOR_BORDER, 6));
-            steps[step].setVisible(false);
-            steps[step].setEnabled(false);
-        }
-        return steps;
     }
 
-    public static JButton[] changeLocationStepsRightBottom(JButton[] inputSteps) {
-        inputSteps[0].setBounds(1300, 850, 60, 60);
-        inputSteps[1].setBounds(1400, 850, 60, 60);
-        inputSteps[2].setBounds(1500, 850, 60, 60);
-        inputSteps[3].setBounds(1600, 850, 60, 60);
-
-        return inputSteps;
-    }
-
-    public static JButton[] changeLocationStepsCenter(JButton[] inputButtons) {
-        inputButtons[0].setBounds(580, 400, 100, 100);
-        inputButtons[1].setBounds(730, 400, 100, 100);
-        inputButtons[2].setBounds(880, 400, 100, 100);
-        inputButtons[3].setBounds(1030, 400, 100, 100);
-
-        return inputButtons;
-    }
-
-    public static JButton getStartStep() {
+    public static void initStartStep() {
         startSteps.setBackground(START_STEPS_COLOR);
         startSteps.setBounds(755, 600, 200, 60);
         startSteps.setBorder(BorderFactory.createLineBorder(START_STEPS_COLOR_BORDER, 6));
         startSteps.setVisible(false);
-        return startSteps;
     }
 
-    public static JButton getContinueStep() {
+    public static void initContinueStep() {
         continueSteps.setBackground(START_STEPS_COLOR);
         continueSteps.setBounds(765, 850, 200, 60);
         continueSteps.setBorder(BorderFactory.createLineBorder(START_STEPS_COLOR_BORDER, 6));
         continueSteps.setVisible(false);
-        return continueSteps;
     }
 
-    public static JLabel getStateName(JLabel label) {
-        switch (label.getText()) {
-            case "":
-                label.setText("Create Apartment");
-                label.setBounds(720, 30, 300, 50);
-                label.setVisible(false);
-                label.setFont(new Font("Arial", Font.BOLD, 30));
-                return label;
+    public static void initStateName() {
+        stepName.setText("Create Apartment");
+        stepName.setBounds(720, 30, 300, 50);
+        stepName.setVisible(false);
+        stepName.setFont(new Font("Arial", Font.BOLD, 30));
+    }
 
+    public static void changeStateName() {
+        switch (stepName.getText()) {
             case "Create Apartment":
-                label.setText("Create Rooms");
-                label.setBounds(745, 30, 300, 50);
-                return label;
+                stepName.setText("Create Rooms");
+                stepName.setBounds(745, 30, 300, 50);
 
             case "Create Rooms":
-                label.setText("Create Room Names");
-                label.setBounds(700, 30, 400, 50);
-                return label;
+                stepName.setText("Create Room Names");
+                stepName.setBounds(700, 30, 400, 50);
 
             case "Create Room Names":
-                label.setText("Create Doors");
-                label.setBounds(755, 30, 300, 50);
-                return label;
-
+                stepName.setText("Create Doors");
+                stepName.setBounds(755, 30, 300, 50);
         }
-        return null;
     }
 
+    public static void showPopUpCreatingProjectNotFinished() {
+        creatingProjectNotFinished.setSize(420, 100);
+        creatingProjectNotFinished.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        creatingProjectNotFinished
+                .add(new JLabel("Can`t open other or new project until you finished the creating phase"));
+
+        creatingProjectNotFinished.setVisible(true);
+    }
 }

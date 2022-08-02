@@ -14,8 +14,7 @@ public class Main {
 
     public static void continueAfterLogin(String username) {
         if (!(username == null)) {
-            StartVisualizeGui s = new StartVisualizeGui(username);
-            s.start();
+            new StartVisualizeGui(username);
         }
     }
 }
