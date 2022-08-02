@@ -22,6 +22,8 @@ public class StartVisualizerActionListener implements ActionListener {
             }
         }
 
+        if (event.getSource() == StartVisualizeElementsGui.threeDVisualizer) {}
+
         if (event.getSource() == NewProjectElementsGui.startSteps) {
             StartVisualizeGui.startSteps();
         }

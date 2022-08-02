@@ -7,8 +7,8 @@ import javax.swing.JMenuItem;
 public class StartVisualizeElementsGui {
 
     public static JMenuBar menuBar;
-    public static JMenu menuProjects, submenuOpenProjects;
-    public static JMenuItem newProject, openProject, renameProject, deleteProject;
+    public static JMenu menuProjects, submenuOpenProjects, tutorial, help, submenuControl;
+    public static JMenuItem newProject, openProject, renameProject, deleteProject, threeDVisualizer;
 
     private static void initMenuElements() {
         menuBar = new JMenuBar();
@@ -16,11 +16,15 @@ public class StartVisualizeElementsGui {
 
         menuProjects = new JMenu("Projects");
         submenuOpenProjects = new JMenu("Open");
+        tutorial = new JMenu("Tutorial");
+        help = new JMenu("Help");
+        submenuControl = new JMenu("Control");
 
         newProject = new JMenuItem("New");
         openProject = new JMenuItem("Open Project");
         renameProject = new JMenuItem("Rename Project");
         deleteProject = new JMenuItem("Delete Project");
+        threeDVisualizer = new JMenuItem("3D Visualizer");
     }
 
     private static void addMenuElementsToMenu() {
@@ -31,7 +35,13 @@ public class StartVisualizeElementsGui {
         menuProjects.add(newProject);
         menuProjects.add(submenuOpenProjects);
 
+        submenuControl.add(threeDVisualizer);
+
+        help.add(submenuControl);
+
         menuBar.add(menuProjects);
+        menuBar.add(tutorial);
+        menuBar.add(help);
     }
 
     public static void initMenu() {

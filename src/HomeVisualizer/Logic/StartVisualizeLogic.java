@@ -47,6 +47,7 @@ public class StartVisualizeLogic {
         ActionListener actionListener = new StartVisualizerActionListener();
 
         StartVisualizeElementsGui.newProject.addActionListener(actionListener);
+        StartVisualizeElementsGui.threeDVisualizer.addActionListener(actionListener);
         NewProjectElementsGui.startSteps.addActionListener(actionListener);
         NewProjectElementsGui.continueSteps.addActionListener(actionListener);
         CreateApartmentGui.chooseWalls[0].addActionListener(actionListener);
