@@ -21,7 +21,7 @@ public class CreateApartmentGui {
 
     public static JTextField getLength = new JTextField("all");
     public static JTextField getHeight = new JTextField("in");
-    public static JTextField getWidth = new JTextField("meter");
+    public static JTextField getWidth = new JTextField("cm");
     public static JTextField[] getApartmentParameter = { getLength, getHeight, getWidth };
 
     public static JButton finishedCreation = new JButton("Create");

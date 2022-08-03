@@ -12,7 +12,48 @@ import HomeVisualizer.VisualizeRenderer.Shapes.MyPolygon;
 import HomeVisualizer.VisualizeRenderer.Shapes.Tetrahedron;
 
 public class BasicEntityBuilder {
-    
+
+    public static IEntity apartment(double length, double height, double width) {
+
+        double moveBackForView = length * 3;
+
+        MyPoint pLeftBottomUpBack = new MyPoint(0 - moveBackForView, -width / 2, 0);
+        MyPoint pRightBottomUpBack = new MyPoint(0 - moveBackForView, width / 2, 0);
+
+        MyPoint pLeftBottomUpFront = new MyPoint(length - moveBackForView, -width / 2, 0);
+        MyPoint pRightBottomUpFront = new MyPoint(length - moveBackForView, width / 2, 0);
+
+        MyPoint pLeftTopBack = new MyPoint(0 - moveBackForView, -width / 2, height);
+        MyPoint pLeftTopFront = new MyPoint(length - moveBackForView, -width / 2, height);
+
+        MyPoint pRightTopBack = new MyPoint(0 - moveBackForView, width / 2, height);
+        MyPoint pRightTopFront = new MyPoint(length - moveBackForView, width / 2, height);
+
+        Tetrahedron tetraBottom = new Tetrahedron(
+                new MyPolygon(pLeftBottomUpFront, pRightBottomUpFront, pRightBottomUpBack, pLeftBottomUpBack));
+
+        Tetrahedron tetraLeftWall = new Tetrahedron(
+                new MyPolygon(pLeftBottomUpFront, pLeftTopFront, pLeftTopBack, pLeftBottomUpBack));
+
+        Tetrahedron tetraRightWall = new Tetrahedron(
+                new MyPolygon(pRightBottomUpFront, pRightTopFront, pRightTopBack, pRightBottomUpBack));
+
+        Tetrahedron tetraBackWall = new Tetrahedron(
+                new MyPolygon(pLeftBottomUpBack, pLeftTopBack, pRightTopBack, pRightBottomUpBack));
+
+        Tetrahedron tetraFrontWall = new Tetrahedron(
+                new MyPolygon(pLeftBottomUpFront, pLeftTopFront, pRightTopFront, pRightBottomUpFront));
+
+        List<Tetrahedron> tetras = new ArrayList<Tetrahedron>();
+        tetras.add(tetraBottom);
+        tetras.add(tetraLeftWall);
+        tetras.add(tetraRightWall);
+        tetras.add(tetraBackWall);
+        tetras.add(tetraFrontWall);
+
+        return new Entity(tetras);
+    }
+
     public static IEntity createWallWithDoor(Color color, double length, double height, double centerX,
             double centerY, double centerZ, IEntity wall) {
 
@@ -44,15 +85,23 @@ public class BasicEntityBuilder {
         MyPoint p2 = wallFrontPoints[1];
         MyPoint p3 = wallFrontPoints[2];
         MyPoint p4 = wallFrontPoints[3];
-        MyPoint p5 = new MyPoint(wallBackPoints[0].x , wallBackPoints[0].y - (centerY + length / 2), wallBackPoints[0].z);
-        MyPoint p6 = new MyPoint(wallBackPoints[1].x , wallBackPoints[1].y - (centerY + length / 2), wallBackPoints[1].z);
-        MyPoint p7 = new MyPoint(wallBackPoints[2].x , wallBackPoints[2].y - (centerY + length / 2), wallBackPoints[2].z);
-        MyPoint p8 = new MyPoint(wallBackPoints[3].x , wallBackPoints[3].y - (centerY + length / 2), wallBackPoints[3].z);
+        MyPoint p5 = new MyPoint(wallBackPoints[0].x, wallBackPoints[0].y - (centerY + length / 2),
+                wallBackPoints[0].z);
+        MyPoint p6 = new MyPoint(wallBackPoints[1].x, wallBackPoints[1].y - (centerY + length / 2),
+                wallBackPoints[1].z);
+        MyPoint p7 = new MyPoint(wallBackPoints[2].x, wallBackPoints[2].y - (centerY + length / 2),
+                wallBackPoints[2].z);
+        MyPoint p8 = new MyPoint(wallBackPoints[3].x, wallBackPoints[3].y - (centerY + length / 2),
+                wallBackPoints[3].z);
 
-        MyPoint p9 = new MyPoint(wallFrontPoints[0].x , wallFrontPoints[0].y + (centerY + length / 2), wallFrontPoints[0].z);
-        MyPoint p10 = new MyPoint(wallFrontPoints[1].x , wallFrontPoints[1].y + (centerY + length / 2), wallFrontPoints[1].z);
-        MyPoint p11 = new MyPoint(wallFrontPoints[2].x , wallFrontPoints[2].y + (centerY + length / 2), wallFrontPoints[2].z);
-        MyPoint p12 = new MyPoint(wallFrontPoints[3].x , wallFrontPoints[3].y + (centerY + length / 2), wallFrontPoints[3].z);
+        MyPoint p9 = new MyPoint(wallFrontPoints[0].x, wallFrontPoints[0].y + (centerY + length / 2),
+                wallFrontPoints[0].z);
+        MyPoint p10 = new MyPoint(wallFrontPoints[1].x, wallFrontPoints[1].y + (centerY + length / 2),
+                wallFrontPoints[1].z);
+        MyPoint p11 = new MyPoint(wallFrontPoints[2].x, wallFrontPoints[2].y + (centerY + length / 2),
+                wallFrontPoints[2].z);
+        MyPoint p12 = new MyPoint(wallFrontPoints[3].x, wallFrontPoints[3].y + (centerY + length / 2),
+                wallFrontPoints[3].z);
         MyPoint p13 = wallBackPoints[0]; // left down back
         MyPoint p14 = wallBackPoints[1];
         MyPoint p15 = wallBackPoints[2];
@@ -62,15 +111,18 @@ public class BasicEntityBuilder {
         MyPoint p18 = new MyPoint(wallFrontPoints[0].x, centerY + length / 2, centerZ + height / 2); // right down front
         MyPoint p19 = new MyPoint(wallFrontPoints[0].x, centerY + length / 2, centerZ + height / 4); // right up front
         MyPoint p20 = new MyPoint(wallFrontPoints[0].x, centerY + -length / 4, centerZ + height / 4); // left up front
-        MyPoint p21 = new MyPoint(wallBackPoints[0].x - 10, centerY + -length / 4, centerZ + height / 2); // left down back
-        MyPoint p22 = new MyPoint(wallBackPoints[0].x - 10, centerY + length / 2, centerZ + height / 2); // right down back
-        MyPoint p23 = new MyPoint(wallBackPoints[0].x - 10, centerY + length / 2, centerZ + height / 4); // right up back
-        MyPoint p24 = new MyPoint(wallBackPoints[0].x - 10, centerY + -length / 4, centerZ + height / 4); // left up back
-
+        MyPoint p21 = new MyPoint(wallBackPoints[0].x - 10, centerY + -length / 4, centerZ + height / 2); // left down
+                                                                                                          // back
+        MyPoint p22 = new MyPoint(wallBackPoints[0].x - 10, centerY + length / 2, centerZ + height / 2); // right down
+                                                                                                         // back
+        MyPoint p23 = new MyPoint(wallBackPoints[0].x - 10, centerY + length / 2, centerZ + height / 4); // right up
+                                                                                                         // back
+        MyPoint p24 = new MyPoint(wallBackPoints[0].x - 10, centerY + -length / 4, centerZ + height / 4); // left up
+                                                                                                          // back
 
         Tetrahedron tetraLeft = new Tetrahedron(
-                    color,
-                    false,
+                color,
+                false,
                 new MyPolygon(p5, p6, p7, p8), // back
                 new MyPolygon(p1, p5, p6, p2), // down
                 new MyPolygon(wallLeftPoints[0], wallLeftPoints[1], wallLeftPoints[2], wallLeftPoints[3]), // left
@@ -79,24 +131,24 @@ public class BasicEntityBuilder {
                 new MyPolygon(p1, p2, p3, p4)); // front
 
         Tetrahedron tetraRight = new Tetrahedron(
-                    color,
-                    false,
-                    new MyPolygon(p13, p14, p15, p16), // back
-                    new MyPolygon(p9, p13, p14, p10), // down
-                    new MyPolygon(p9, p13, p16, p12), // left
-                    new MyPolygon(wallBackPoints[0], wallBackPoints[1], wallBackPoints[2], wallBackPoints[3]), // right
-                    new MyPolygon(p12, p11, p15, p16), // Up
-                    new MyPolygon(p9, p10, p11, p12)); // front
-        
+                color,
+                false,
+                new MyPolygon(p13, p14, p15, p16), // back
+                new MyPolygon(p9, p13, p14, p10), // down
+                new MyPolygon(p9, p13, p16, p12), // left
+                new MyPolygon(wallBackPoints[0], wallBackPoints[1], wallBackPoints[2], wallBackPoints[3]), // right
+                new MyPolygon(p12, p11, p15, p16), // Up
+                new MyPolygon(p9, p10, p11, p12)); // front
+
         Tetrahedron tetraUp = new Tetrahedron(
-                    color,
-                    false,
-                    new MyPolygon(p21, p22, p23, p24), // back
-                    new MyPolygon(p17, p21, p22, p18), // down
-                    new MyPolygon(p17, p21, p24, p20), // left
-                    new MyPolygon(p18, p22, p23, p19), // right
-                    new MyPolygon(p20, p19, p23, p24), // Up
-                    new MyPolygon(p17, p18, p19, p20)); // front
+                color,
+                false,
+                new MyPolygon(p21, p22, p23, p24), // back
+                new MyPolygon(p17, p21, p22, p18), // down
+                new MyPolygon(p17, p21, p24, p20), // left
+                new MyPolygon(p18, p22, p23, p19), // right
+                new MyPolygon(p20, p19, p23, p24), // Up
+                new MyPolygon(p17, p18, p19, p20)); // front
 
         List<Tetrahedron> tetras = new ArrayList<Tetrahedron>();
         tetras.add(tetraLeft);

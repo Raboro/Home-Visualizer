@@ -7,7 +7,7 @@ import HomeVisualizer.VisualizeRenderer.Display;
 public class PointConverter {
 
     private static double scale = 4;
-    private static final double ZOOMFACTOR = 1.2;
+    private static final double ZOOMFACTOR = 1.5;
 
     private static double[] scale(double x3d, double y3d, double depth) {
         double distance = Math.sqrt(x3d * x3d + y3d * y3d);
