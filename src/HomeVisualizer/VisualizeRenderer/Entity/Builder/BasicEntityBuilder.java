@@ -13,7 +13,13 @@ import HomeVisualizer.VisualizeRenderer.Shapes.Tetrahedron;
 
 public class BasicEntityBuilder {
 
-    public static IEntity apartment(double length, double height, double width) {
+    public static IEntity apartmentUndefinedWalls(double length, double height, double width) {
+        List<Tetrahedron> tetras = new ArrayList<Tetrahedron>();
+        return new Entity(tetras);
+    }
+
+
+    public static IEntity apartmentFourWalls(double length, double height, double width) {
 
         double moveBackForView = length * 3;
 

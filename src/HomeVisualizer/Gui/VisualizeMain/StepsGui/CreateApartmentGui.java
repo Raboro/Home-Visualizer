@@ -29,6 +29,20 @@ public class CreateApartmentGui {
     public static final Color CHOOSE_BUTTON_COLOR = new Color(46, 134, 193);
     public static final Color CHOOSE_BUTTON_COLOR_BORDER = new Color(46, 134, 255);
 
+    public static JLabel xPos = new JLabel("X Position");
+    public static JLabel yPos = new JLabel("Y Position");
+    public static JLabel zPos = new JLabel("Z Position");
+    public static JLabel[] undefinedApartmentParameter = { xPos, yPos, zPos };
+
+    public static JTextField getXPos = new JTextField("all");
+    public static JTextField getYPos = new JTextField("in");
+    public static JTextField getZPos = new JTextField("cm");
+    public static JTextField[] getUndefinedApartmentParameter = { getXPos, getYPos, getZPos };
+
+    public static JButton oneMoreWall = new JButton("One more wall");
+    public static JButton finishedAddingWalls = new JButton("Create");
+
+
     public static void initChooseWallsButtons() {
         fourWalls.setBounds(730, 400, 100, 100);
         moreThenFourWalls.setBounds(880, 400, 100, 100);

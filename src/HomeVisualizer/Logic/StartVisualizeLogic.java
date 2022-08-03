@@ -20,6 +20,7 @@ public class StartVisualizeLogic {
     public static boolean userStartNewProject = false;
     public static boolean userIsWorking = false;
     public static boolean finishedStartSteps = false;
+    public static boolean userChooseFourWalls;
 
     public static void initNewProject() {
         NewProjectElementsGui.initStateName();
@@ -51,6 +52,7 @@ public class StartVisualizeLogic {
         NewProjectElementsGui.startSteps.addActionListener(actionListener);
         NewProjectElementsGui.continueSteps.addActionListener(actionListener);
         CreateApartmentGui.chooseWalls[0].addActionListener(actionListener);
+        CreateApartmentGui.chooseWalls[1].addActionListener(actionListener);
         CreateApartmentGui.finishedCreation.addActionListener(actionListener);
     }
 
@@ -136,7 +138,15 @@ public class StartVisualizeLogic {
     public static void userChooseFourWalls() {
         CreateApartmentGui.chooseWalls[0].setVisible(false);
         CreateApartmentGui.chooseWalls[1].setVisible(false);
+        userChooseFourWalls = true;
         fourWalls();
+    }
+
+    public static void userChooseMoreThenFourWalls() {
+        CreateApartmentGui.chooseWalls[0].setVisible(false);
+        CreateApartmentGui.chooseWalls[1].setVisible(false);
+        userChooseFourWalls = false;
+        moreThenFourWalls();
     }
 
     public static void fourWalls() {
@@ -156,6 +166,10 @@ public class StartVisualizeLogic {
         }
         StartVisualizeGui.panel.invalidate();
         NewProjectElementsGui.continueSteps.setEnabled(false);
+    }
+
+    public static void moreThenFourWalls() {
+        
     }
 
     public static boolean isUserInputIsCorrectStepOne() {

@@ -40,8 +40,12 @@ public class StartVisualizerActionListener implements ActionListener {
             StartVisualizeLogic.userChooseFourWalls();
         }
 
+        if (event.getSource() == CreateApartmentGui.chooseWalls[1]) {
+            StartVisualizeLogic.userChooseMoreThenFourWalls();
+        }
+
         if (event.getSource() == CreateApartmentGui.finishedCreation) {
-            if (StartVisualizeLogic.isUserInputIsCorrectStepOne()) {
+            if (StartVisualizeLogic.isUserInputIsCorrectStepOne() && StartVisualizeLogic.userChooseFourWalls) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 StartVisualizeLogic.finishedStepOne();
             }

@@ -36,7 +36,7 @@ public class EntityManager {
     public void init(UserInput userInput) {
         this.userInput = userInput;
 
-        this.entities.add(BasicEntityBuilder.apartment(lengthApartment, hightApartment, widthApartment));
+        this.entities.add(BasicEntityBuilder.apartmentFourWalls(lengthApartment, hightApartment, widthApartment));
 
         // this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, this.lengthApartment, 10, this.hightApartment, -this.lengthApartment, this.lengthApartment / 5, 0)); // left
         // this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, this.lengthApartment, 10, this.hightApartment, -this.lengthApartment, this.lengthApartment - this.lengthApartment / 5, 0)); // right

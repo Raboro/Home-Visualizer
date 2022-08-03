@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import DatabaseInforamtion.databseConnectionHomeVisualizer;
+import DatabaseInformation.databseConnectionHomeVisualizer;
 
 public abstract class Database {
     protected Connection connection = null;
