@@ -58,7 +58,7 @@ This project contains a software, which visualize your home. You can login and c
 [hamcrest-core-1.3.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/hamcrest-core-1.3.jar
 [junit-4.13.2.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/junit-4.13.2.jar
 [mariadb-java-client-2.7.3.jar.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/mariadb-java-client-2.7.3.jar.jar
-[StartVisualizeActionListener.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/StartVisualizeActionListener.java
+[StartVisualizeActionListener.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/StartVisualizerActionListener.java
 [Database.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/Database.java
 [InitializeDatabase.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/InitializeDatabase.java
 [LoginDatabase.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/LoginDatabase.java
