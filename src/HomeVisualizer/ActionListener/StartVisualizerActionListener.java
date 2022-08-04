@@ -45,7 +45,18 @@ public class StartVisualizerActionListener implements ActionListener {
         }
 
         if (event.getSource() == CreateApartmentGui.finishedCreation) {
-            if (StartVisualizeLogic.isUserInputIsCorrectStepOne() && StartVisualizeLogic.userChooseFourWalls) {
+            if (StartVisualizeLogic.isUserInputCorrectStepOne()) {
+                NewProjectElementsGui.continueSteps.setEnabled(true);
+                StartVisualizeLogic.finishedStepOne();
+            }
+        }
+
+        if (event.getSource() == CreateApartmentGui.oneMoreWall) {
+
+        }
+
+        if (event.getSource() == CreateApartmentGui.finishedAddingWalls) {
+            if (StartVisualizeLogic.isUserInputCorrectStepOne()) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 StartVisualizeLogic.finishedStepOne();
             }

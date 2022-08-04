@@ -22,6 +22,16 @@ public class StartVisualizeLogic {
     public static boolean finishedStartSteps = false;
     public static boolean userChooseFourWalls;
 
+    private static <T> void addElementsToPanel(T[] addElement) {
+        for (int i = 0; i < addElement.length; i++) {
+            StartVisualizeGui.panel.add((Component) addElement[i]);
+        }
+    }
+
+    private static <T> void addElementToPanel(T addElement) {
+        StartVisualizeGui.panel.add((Component) addElement);
+    }
+
     public static void initNewProject() {
         NewProjectElementsGui.initStateName();
         NewProjectElementsGui.initStepButtons();
@@ -34,14 +44,58 @@ public class StartVisualizeLogic {
         CreateApartmentGui.initTextFields();
     }
 
-    public static <T> void addElementsToPanel(T[] addElement) {
-        for (int i = 0; i < addElement.length; i++) {
-            StartVisualizeGui.panel.add((Component) addElement[i]);
+    private static void selectCurrentStep() {
+        switch (currentState) {
+            case CREATE_APARTMENT:
+                create_Apartment();
+            case CREATE_DOORS:
+                break;
+            case CREATE_ROOMS:
+                break;
+            case CREATE_ROOM_NAMES:
+                break;
         }
     }
 
-    public static <T> void addElementToPanel(T addElement) {
-        StartVisualizeGui.panel.add((Component) addElement);
+    private static void fourWalls() {
+        addElementToPanel(CreateApartmentGui.finishedCreation);
+        addElementsToPanel(CreateApartmentGui.apartmentParameter);
+        addElementsToPanel(CreateApartmentGui.getApartmentParameter);
+
+        CreateApartmentGui.finishedCreation.setVisible(true);
+
+        for (int i = 0; i < CreateApartmentGui.apartmentParameter.length; i++) {
+            CreateApartmentGui.apartmentParameter[i].setVisible(true);
+            CreateApartmentGui.getApartmentParameter[i].setVisible(true);
+        }
+
+        StartVisualizeGui.panel.invalidate();
+        NewProjectElementsGui.continueSteps.setEnabled(false);
+    }
+
+    private static void moreThenFourWalls() {
+        // only need x,y,z and height -> height for all the same -> only one call
+        // don´t need length and width
+
+        addElementToPanel(CreateApartmentGui.finishedAddingWalls);
+        addElementToPanel(CreateApartmentGui.oneMoreWall);
+        addElementsToPanel(CreateApartmentGui.apartmentParameter);
+        addElementsToPanel(CreateApartmentGui.getApartmentParameter);
+        addElementsToPanel(CreateApartmentGui.undefinedApartmentParameter);
+        addElementsToPanel(CreateApartmentGui.getUndefinedApartmentParameter);
+
+        CreateApartmentGui.finishedAddingWalls.setVisible(true);
+        CreateApartmentGui.oneMoreWall.setVisible(true);
+
+        for (int i = 0; i < CreateApartmentGui.apartmentParameter.length; i++) {
+            CreateApartmentGui.apartmentParameter[i].setVisible(true);
+            CreateApartmentGui.getApartmentParameter[i].setVisible(true);
+            CreateApartmentGui.undefinedApartmentParameter[i].setVisible(true);
+            CreateApartmentGui.getUndefinedApartmentParameter[i].setVisible(true);
+        }
+
+        StartVisualizeGui.panel.invalidate();
+        NewProjectElementsGui.continueSteps.setEnabled(false);
     }
 
     public static void addActionListenerToElements() {
@@ -54,6 +108,8 @@ public class StartVisualizeLogic {
         CreateApartmentGui.chooseWalls[0].addActionListener(actionListener);
         CreateApartmentGui.chooseWalls[1].addActionListener(actionListener);
         CreateApartmentGui.finishedCreation.addActionListener(actionListener);
+        CreateApartmentGui.finishedAddingWalls.addActionListener(actionListener);
+        CreateApartmentGui.oneMoreWall.addActionListener(actionListener);
     }
 
     public static void loadNewProjectGui() {
@@ -68,19 +124,6 @@ public class StartVisualizeLogic {
         }
 
         NewProjectElementsGui.startSteps.setVisible(true);
-    }
-
-    public static void selectCurrentStep() {
-        switch (currentState) {
-            case CREATE_APARTMENT:
-                create_Apartment();
-            case CREATE_DOORS:
-                break;
-            case CREATE_ROOMS:
-                break;
-            case CREATE_ROOM_NAMES:
-                break;
-        }
     }
 
     public static void startSteps() {
@@ -149,33 +192,15 @@ public class StartVisualizeLogic {
         moreThenFourWalls();
     }
 
-    public static void fourWalls() {
-        addElementToPanel(CreateApartmentGui.finishedCreation);
-        StartVisualizeGui.panel.invalidate();
-        CreateApartmentGui.finishedCreation.setVisible(true);
-        StartVisualizeGui.panel.invalidate();
-
-        addElementsToPanel(CreateApartmentGui.apartmentParameter);
-        StartVisualizeGui.panel.invalidate();
-        addElementsToPanel(CreateApartmentGui.getApartmentParameter);
-        StartVisualizeGui.panel.invalidate();
-
-        for (int i = 0; i < CreateApartmentGui.apartmentParameter.length; i++) {
-            CreateApartmentGui.apartmentParameter[i].setVisible(true);
-            CreateApartmentGui.getApartmentParameter[i].setVisible(true);
-        }
-        StartVisualizeGui.panel.invalidate();
-        NewProjectElementsGui.continueSteps.setEnabled(false);
-    }
-
-    public static void moreThenFourWalls() {
-        
-    }
-
-    public static boolean isUserInputIsCorrectStepOne() {
+    public static boolean isUserInputCorrectStepOne() {
         for (int parameter = 0; parameter < CreateApartmentGui.getApartmentParameter.length; parameter++) {
             try {
-                Integer.parseInt(CreateApartmentGui.getApartmentParameter[parameter].getText());
+                if (userChooseFourWalls) {
+                    Integer.parseInt(CreateApartmentGui.getApartmentParameter[parameter].getText());
+                } else {
+                    Integer.parseInt(CreateApartmentGui.getApartmentParameter[parameter].getText());
+                    Integer.parseInt(CreateApartmentGui.getUndefinedApartmentParameter[parameter].getText());
+                }
             } catch (Exception e) {
                 return false;
             }
@@ -189,10 +214,14 @@ public class StartVisualizeLogic {
             CreateApartmentGui.apartmentParameter[i].setEnabled(false);
             CreateApartmentGui.getApartmentParameter[i].setVisible(false);
             CreateApartmentGui.getApartmentParameter[i].setEnabled(false);
+            CreateApartmentGui.undefinedApartmentParameter[i].setVisible(false);
+            CreateApartmentGui.undefinedApartmentParameter[i].setEnabled(false);
+            CreateApartmentGui.getUndefinedApartmentParameter[i].setVisible(false);
+            CreateApartmentGui.getUndefinedApartmentParameter[i].setEnabled(false);
+            CreateApartmentGui.actionButtons[i].setVisible(false);
+            CreateApartmentGui.actionButtons[i].setEnabled(false);
         }
 
-        CreateApartmentGui.finishedCreation.setVisible(false);
-        CreateApartmentGui.finishedCreation.setEnabled(false);
         StartVisualizeGui.createDisplay();
     }
 }

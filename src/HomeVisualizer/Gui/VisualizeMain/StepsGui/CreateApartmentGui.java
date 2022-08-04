@@ -29,9 +29,9 @@ public class CreateApartmentGui {
     public static final Color CHOOSE_BUTTON_COLOR = new Color(46, 134, 193);
     public static final Color CHOOSE_BUTTON_COLOR_BORDER = new Color(46, 134, 255);
 
-    public static JLabel xPos = new JLabel("X Position");
-    public static JLabel yPos = new JLabel("Y Position");
-    public static JLabel zPos = new JLabel("Z Position");
+    public static JLabel xPos = new JLabel("X Pos");
+    public static JLabel yPos = new JLabel("Y Pos");
+    public static JLabel zPos = new JLabel("Z Pos");
     public static JLabel[] undefinedApartmentParameter = { xPos, yPos, zPos };
 
     public static JTextField getXPos = new JTextField("all");
@@ -42,6 +42,7 @@ public class CreateApartmentGui {
     public static JButton oneMoreWall = new JButton("One more wall");
     public static JButton finishedAddingWalls = new JButton("Create");
 
+    public static JButton[] actionButtons = { finishedCreation, oneMoreWall, finishedAddingWalls };
 
     public static void initChooseWallsButtons() {
         fourWalls.setBounds(730, 400, 100, 100);
@@ -56,9 +57,14 @@ public class CreateApartmentGui {
 
     public static void initFinishedCreation() {
         finishedCreation.setBounds(790, 500, 150, 60);
-        finishedCreation.setBackground(CHOOSE_BUTTON_COLOR);
-        finishedCreation.setBorder(BorderFactory.createLineBorder(CHOOSE_BUTTON_COLOR_BORDER, 6));
-        finishedCreation.setVisible(false);
+        finishedAddingWalls.setBounds(900, 500, 150, 60);
+        oneMoreWall.setBounds(670, 500, 200, 60);
+
+        for (int i = 0; i < actionButtons.length; i++) {
+            actionButtons[i].setBackground(CHOOSE_BUTTON_COLOR);
+            actionButtons[i].setBorder(BorderFactory.createLineBorder(CHOOSE_BUTTON_COLOR_BORDER, 6));
+            actionButtons[i].setVisible(false);
+        }
     }
 
     public static void initLabels() {
@@ -66,9 +72,15 @@ public class CreateApartmentGui {
         height.setBounds(837, 400, 70, 20);
         width.setBounds(1037, 400, 70, 20);
 
+        xPos.setBounds(637, 300, 70, 20);
+        yPos.setBounds(837, 300, 70, 20);
+        zPos.setBounds(1037, 300, 70, 20);
+
         for (int parameter = 0; parameter < apartmentParameter.length; parameter++) {
             apartmentParameter[parameter].setVisible(false);
             apartmentParameter[parameter].setFont(new Font("Arial", Font.BOLD, 15));
+            undefinedApartmentParameter[parameter].setVisible(false);
+            undefinedApartmentParameter[parameter].setFont(new Font("Arial", Font.BOLD, 15));
         }
     }
 
@@ -77,8 +89,13 @@ public class CreateApartmentGui {
         getHeight.setBounds(837, 420, 55, 28);
         getWidth.setBounds(1037, 420, 50, 28);
 
+        getXPos.setBounds(637, 320, 60, 28);
+        getYPos.setBounds(837, 320, 55, 28);
+        getZPos.setBounds(1037, 320, 50, 28);
+
         for (int parameter = 0; parameter < apartmentParameter.length; parameter++) {
             getApartmentParameter[parameter].setVisible(false);
+            getUndefinedApartmentParameter[parameter].setVisible(false);
         }
     }
 }
