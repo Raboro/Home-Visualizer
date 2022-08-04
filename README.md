@@ -21,10 +21,8 @@ This project contains a software, which visualize your home. You can login and c
      > - [loginButton.png] 
      > - [signUpButton.png]
 - **`lib`: the folder to maintain dependencies**
-     > - [BaseClasses.jar]
      > - [hamcrest-core-1.3.jar]
      > - [junit-4.13.2.jar]
-     > - [mariadb-java-client-2.7.3.jar]
 - **`src`: the folder to maintain sources**
      > - **`HomeVisualizer`**
      >   - **`ActionListener`**
@@ -54,10 +52,8 @@ This project contains a software, which visualize your home. You can login and c
 [documentation.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/documentation.md
 [loginButton.png]:https://github.com/Raboro/Home-Visualizer/blob/master/Images/loginButton.png
 [signUpButton.png]:https://github.com/Raboro/Home-Visualizer/blob/master/Images/signUpButton.png
-[BaseClasses.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/BaseClasses.jar
 [hamcrest-core-1.3.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/hamcrest-core-1.3.jar
 [junit-4.13.2.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/junit-4.13.2.jar
-[mariadb-java-client-2.7.3.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/mariadb-java-client-2.7.3.jar.jar
 [StartVisualizeActionListener.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/StartVisualizerActionListener.java
 [Database.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/Database.java
 [InitializeDatabase.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/InitializeDatabase.java
