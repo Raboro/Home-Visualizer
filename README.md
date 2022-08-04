@@ -14,21 +14,6 @@ This project contains a software, which visualize your home. You can login and c
 - **`.vscode`: settings for vscode**
      > - [settings.json] 
 - **`bin`: the folder with compiled output files**
-     > - **`HomeVisualizer`**
-     >   - **`Database`**
-     >       - [Database.class]  
-     >       - [InitializeDatabase.class]
-     >       - [LoginDatabase.class]
-     >   - **`Encryption`**
-     >       - [Hash.class]
-     >       - [RsaEncryption.class]
-     >   - **`Gui`**
-     >       - [Frame.class]
-     >       - [LoginGui.class]
-     >   - **`Logic`**
-     >       - [LoginLogic.class]
-     >   - [Main.class]
-     > - **`Tests`**
 - **`doc`: the folder contains the documentation and diagrams**
      > - [classdiagram.md]
      > - [documentation.md]
@@ -36,10 +21,14 @@ This project contains a software, which visualize your home. You can login and c
      > - [loginButton.png] 
      > - [signUpButton.png]
 - **`lib`: the folder to maintain dependencies**
+     > - [BaseClasses.jar]
      > - [hamcrest-core-1.3.jar]
      > - [junit-4.13.2.jar]
+     > - [mariadb-java-client-2.7.3.jar]
 - **`src`: the folder to maintain sources**
      > - **`HomeVisualizer`**
+     >   - **`ActionListener`**
+     >       - [StartVisualizeActionListener.java]
      >   - **`Database`**
      >       - [Database.java]
      >       - [InitializeDatabase.java]
@@ -48,37 +37,35 @@ This project contains a software, which visualize your home. You can login and c
      >       - [Hash.java]
      >       - [RsaEncryption.java]
      >   - **`Gui`**
+     >       - **`Login`**
+     >         - [LoginGui.java]
+     >       - **`VisualizeMain`**
      >       - [Frame.java]
-     >       - [LoginGui.java]
      >   - **`Logic`**
      >       - [LoginLogic.java]
+     >       - [StartVisualizeLogic.java]
      >   - [Main.java]
      > - **`Tests`**
 
 <br/>
 
 [settings.json]:https://github.com/Raboro/Home-Visualizer/blob/master/.vscode/settings.json 
-[Database.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/Database.class
-[InitializeDatabase.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/InitializeDatabase.class
-[LoginDatabase.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Database/LoginDatabase.class 
-[Hash.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encryption/Hash.class
-[RsaEncryption.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Encryption/RsaEncryption.class
-[LoginLogic.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Logic/LoginLogic.class
-[Frame.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/Frame.class
-[LoginGui.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Gui/LoginGui.class
-[Main.class]:https://github.com/Raboro/Home-Visualizer/blob/master/bin/HomeVisualizer/Main.class
 [classdiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/classdiagram.md
 [documentation.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/documentation.md
 [loginButton.png]:https://github.com/Raboro/Home-Visualizer/blob/master/Images/loginButton.png
 [signUpButton.png]:https://github.com/Raboro/Home-Visualizer/blob/master/Images/signUpButton.png
+[BaseClasses.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/BaseClasses.jar
 [hamcrest-core-1.3.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/hamcrest-core-1.3.jar
 [junit-4.13.2.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/junit-4.13.2.jar
+[mariadb-java-client-2.7.3.jar.jar]:https://github.com/Raboro/Home-Visualizer/blob/master/lib/mariadb-java-client-2.7.3.jar.jar
+[StartVisualizeActionListener.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/StartVisualizeActionListener.java
 [Database.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/Database.java
 [InitializeDatabase.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/InitializeDatabase.java
 [LoginDatabase.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Database/LoginDatabase.java
 [Hash.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Encryption/Hash.java
 [RsaEncryption.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Encryption/RsaEncryption.java
 [Frame.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/Frame.java
-[LoginGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/LoginGui.java
+[LoginGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/Login/LoginGui.java
 [LoginLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/LoginLogic.java
+[StartVisualizeLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizeLogic.java
 [Main.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Main.java
