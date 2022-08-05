@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
+import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.VisualizeRenderer.Entity.Builder.BasicEntityBuilder;
 import HomeVisualizer.VisualizeRenderer.Entity.Builder.ComplexEntitiyBuilder;
 import HomeVisualizer.VisualizeRenderer.Input.ClickType;
@@ -36,7 +37,11 @@ public class EntityManager {
     public void init(UserInput userInput) {
         this.userInput = userInput;
 
-        this.entities.add(BasicEntityBuilder.apartmentFourWalls(lengthApartment, hightApartment, widthApartment));
+        if (StartVisualizeLogic.userChooseFourWalls) {
+            this.entities.add(BasicEntityBuilder.apartmentFourWalls(lengthApartment, hightApartment, widthApartment));
+        } else {
+            this.entities.add(BasicEntityBuilder.apartmentUndefinedWalls());
+        }
 
         // this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, this.lengthApartment, 10, this.hightApartment, -this.lengthApartment, this.lengthApartment / 5, 0)); // left
         // this.entities.add(BasicEntityBuilder.createRectangle(Color.GREEN, this.lengthApartment, 10, this.hightApartment, -this.lengthApartment, this.lengthApartment - this.lengthApartment / 5, 0)); // right

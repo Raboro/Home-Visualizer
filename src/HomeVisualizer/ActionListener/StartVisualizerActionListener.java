@@ -52,7 +52,7 @@ public class StartVisualizerActionListener implements ActionListener {
         }
 
         if (event.getSource() == CreateApartmentGui.oneMoreWall) {
-
+            StartVisualizeLogic.userChooseMoreThenFourWalls();
         }
 
         if (event.getSource() == CreateApartmentGui.finishedAddingWalls) {

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.VisualizeRenderer.Entity.Entity;
 import HomeVisualizer.VisualizeRenderer.Entity.IEntity;
 import HomeVisualizer.VisualizeRenderer.Point.MyPoint;
@@ -13,8 +14,27 @@ import HomeVisualizer.VisualizeRenderer.Shapes.Tetrahedron;
 
 public class BasicEntityBuilder {
 
-    public static IEntity apartmentUndefinedWalls(double length, double height, double width) {
+    public static IEntity apartmentUndefinedWalls() {
         List<Tetrahedron> tetras = new ArrayList<Tetrahedron>();
+        double moveBackForView = 2000 * 3;
+
+        MyPoint startBottom = new MyPoint(0- moveBackForView, 0, 0);
+        MyPoint startTop = new MyPoint(0- moveBackForView, 0, StartVisualizeLogic.constantHeight);
+
+        for (int wall = 0; wall < StartVisualizeLogic.wallPoints.size(); wall++) {
+                if (wall == 0) {
+                        MyPoint wallBottom = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], 0);
+                        MyPoint wallTop = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], StartVisualizeLogic.constantHeight);
+
+                        Tetrahedron tetra = new Tetrahedron(
+                                new MyPolygon(startBottom, startTop, wallTop, wallBottom)
+                        );
+                        tetras.add(tetra);
+                }
+
+        }
+
+
         return new Entity(tetras);
     }
 

@@ -48,11 +48,18 @@ public class StartVisualizeGui extends Frame {
     }
 
     public static void createDisplay() {
+        Display display;
+        
+        if (StartVisualizeLogic.userChooseFourWalls) {
         double length = Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText());
         double height = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText());
         double width = Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText());
 
-        Display display = new Display(length, height, width);
+
+        display = new Display(length, height, width);
+        } else {
+            display = new Display(0, 0, 0);
+        }
         display.frame.add(display);
         display.frame.pack();
         display.frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
