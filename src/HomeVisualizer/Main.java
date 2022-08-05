@@ -12,6 +12,7 @@ public class Main {
         new LoginGui();
     }
 
+    
     public static void continueAfterLogin(String username) {
         if (!(username == null)) {
             new StartVisualizeGui(username);
