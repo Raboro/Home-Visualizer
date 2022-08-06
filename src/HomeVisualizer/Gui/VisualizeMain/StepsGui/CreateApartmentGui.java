@@ -11,8 +11,8 @@ import java.awt.Font;
 public class CreateApartmentGui {
 
     public static JButton fourWalls = new JButton("4 Walls");
-    public static JButton moreThenFourWalls = new JButton(">4/<4 Walls");
-    public static JButton[] chooseWalls = { fourWalls, moreThenFourWalls };
+    public static JButton undefinedWalls = new JButton(">4/<4 Walls");
+    public static JButton[] chooseWalls = { fourWalls, undefinedWalls };
 
     public static JLabel length = new JLabel("Length");
     public static JLabel height = new JLabel("Height");
@@ -44,7 +44,7 @@ public class CreateApartmentGui {
 
     public static void initChooseWallsButtons() {
         fourWalls.setBounds(730, 400, 100, 100);
-        moreThenFourWalls.setBounds(880, 400, 100, 100);
+        undefinedWalls.setBounds(880, 400, 100, 100);
 
         for (int button = 0; button < chooseWalls.length; button++) {
             chooseWalls[button].setBackground(CHOOSE_BUTTON_COLOR);

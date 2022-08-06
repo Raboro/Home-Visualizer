@@ -17,7 +17,7 @@ import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 public class StartVisualizeLogic {
 
     private static int stepState = 0;
-    private static boolean moreThenFourWallsHeightInput = true;
+    private static boolean undefinedWallsHeightInput = true;
     private static boolean startAddingWalls = false;
 
     public static StepStates currentState;
@@ -79,10 +79,10 @@ public class StartVisualizeLogic {
         NewProjectElementsGui.continueSteps.setEnabled(false);
     }
 
-    private static void moreThenFourWalls() {
+    private static void undefinedWalls() {
         // only need x,y,z and height -> height for all the same -> only one call
         // don´t need length and width
-        if (moreThenFourWallsHeightInput) {
+        if (undefinedWallsHeightInput) {
             addElementToPanel(CreateApartmentGui.height);
             addElementToPanel(CreateApartmentGui.getHeight);
 
@@ -90,7 +90,7 @@ public class StartVisualizeLogic {
             CreateApartmentGui.getHeight.setVisible(true);
             CreateApartmentGui.getHeight.setText("in cm");
 
-            moreThenFourWallsHeightInput = false;
+            undefinedWallsHeightInput = false;
         } else {
             if (startAddingWalls) {
                 double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()); 
@@ -219,7 +219,7 @@ public class StartVisualizeLogic {
         CreateApartmentGui.chooseWalls[0].setVisible(false);
         CreateApartmentGui.chooseWalls[1].setVisible(false);
         userChooseFourWalls = false;
-        moreThenFourWalls();
+        undefinedWalls();
     }
 
     public static boolean isUserInputCorrectStepOne() {
