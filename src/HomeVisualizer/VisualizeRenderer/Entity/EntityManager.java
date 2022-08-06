@@ -1,14 +1,12 @@
 package HomeVisualizer.VisualizeRenderer.Entity;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import HomeVisualizer.Logic.StartVisualizeLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.VisualizeRenderer.Entity.Builder.BasicEntityBuilder;
-import HomeVisualizer.VisualizeRenderer.Entity.Builder.ComplexEntitiyBuilder;
 import HomeVisualizer.VisualizeRenderer.Input.ClickType;
 import HomeVisualizer.VisualizeRenderer.Input.UserInput;
 import HomeVisualizer.VisualizeRenderer.Point.MyVector;
@@ -37,7 +35,7 @@ public class EntityManager {
     public void init(UserInput userInput) {
         this.userInput = userInput;
 
-        if (StartVisualizeLogic.userChooseFourWalls) {
+        if (CreateApartmentLogic.userChooseFourWalls) {
             this.entities.add(BasicEntityBuilder.apartmentFourWalls(lengthApartment, hightApartment, widthApartment));
         } else {
             this.entities.add(BasicEntityBuilder.apartmentUndefinedWalls());

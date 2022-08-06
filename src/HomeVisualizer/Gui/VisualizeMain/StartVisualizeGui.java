@@ -6,6 +6,7 @@ import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Logic.StartVisualizeLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.VisualizeRenderer.Display;
 
 public class StartVisualizeGui extends Frame {
@@ -50,7 +51,7 @@ public class StartVisualizeGui extends Frame {
     public static void createDisplay() {
         Display display;
         
-        if (StartVisualizeLogic.userChooseFourWalls) {
+        if (CreateApartmentLogic.userChooseFourWalls) {
         double length = Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText());
         double height = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText());
         double width = Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText());

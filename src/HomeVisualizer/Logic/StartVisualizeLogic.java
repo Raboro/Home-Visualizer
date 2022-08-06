@@ -2,8 +2,6 @@ package HomeVisualizer.Logic;
 
 import java.awt.Component;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 
@@ -17,24 +15,19 @@ import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 public class StartVisualizeLogic {
 
     private static int stepState = 0;
-    private static boolean undefinedWallsHeightInput = true;
-    private static boolean startAddingWalls = false;
 
     public static StepStates currentState;
     public static boolean userStartNewProject = false;
     public static boolean userIsWorking = false;
     public static boolean finishedStartSteps = false;
-    public static double constantHeight;
-    public static boolean userChooseFourWalls;
-    public static List<double[]> wallPoints = new ArrayList<>() ;
 
-    private static <T> void addElementsToPanel(T[] addElement) {
+    public static <T> void addElementsToPanel(T[] addElement) {
         for (int i = 0; i < addElement.length; i++) {
             StartVisualizeGui.panel.add((Component) addElement[i]);
         }
     }
 
-    private static <T> void addElementToPanel(T addElement) {
+    public static <T> void addElementToPanel(T addElement) {
         StartVisualizeGui.panel.add((Component) addElement);
     }
 
@@ -61,71 +54,6 @@ public class StartVisualizeLogic {
             case CREATE_ROOM_NAMES:
                 break;
         }
-    }
-
-    private static void fourWalls() {
-        addElementToPanel(CreateApartmentGui.finishedCreation);
-        addElementsToPanel(CreateApartmentGui.apartmentParameter);
-        addElementsToPanel(CreateApartmentGui.getApartmentParameter);
-
-        CreateApartmentGui.finishedCreation.setVisible(true);
-
-        for (int i = 0; i < CreateApartmentGui.apartmentParameter.length; i++) {
-            CreateApartmentGui.apartmentParameter[i].setVisible(true);
-            CreateApartmentGui.getApartmentParameter[i].setVisible(true);
-        }
-
-        StartVisualizeGui.panel.invalidate();
-        NewProjectElementsGui.continueSteps.setEnabled(false);
-    }
-
-    private static void undefinedWalls() {
-        // only need x,y,z and height -> height for all the same -> only one call
-        // don´t need length and width
-        if (undefinedWallsHeightInput) {
-            addElementToPanel(CreateApartmentGui.height);
-            addElementToPanel(CreateApartmentGui.getHeight);
-
-            CreateApartmentGui.height.setVisible(true);
-            CreateApartmentGui.getHeight.setVisible(true);
-            CreateApartmentGui.getHeight.setText("in cm");
-
-            undefinedWallsHeightInput = false;
-        } else {
-            if (startAddingWalls) {
-                double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()); 
-                double yPos = Integer.parseInt(CreateApartmentGui.getYPos.getText());
-                double[] point = { xPos, yPos};
-                wallPoints.add(point);
-            }
- 
-
-            constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText());
-            CreateApartmentGui.height.setVisible(false);
-            CreateApartmentGui.getHeight.setVisible(false);
-            CreateApartmentGui.oneMoreWall.setText("One more Wall");
-            
-            addElementsToPanel(CreateApartmentGui.undefinedApartmentParameter);
-            addElementsToPanel(CreateApartmentGui.getUndefinedApartmentParameter);
-            
-            for (int i = 0; i < CreateApartmentGui.undefinedApartmentParameter.length; i++) {
-                CreateApartmentGui.undefinedApartmentParameter[i].setVisible(true);
-                CreateApartmentGui.getUndefinedApartmentParameter[i].setVisible(true);
-            }
-
-            if (!startAddingWalls) {
-                startAddingWalls = true;
-            }
-        }
-
-        addElementToPanel(CreateApartmentGui.finishedAddingWalls);
-        addElementToPanel(CreateApartmentGui.oneMoreWall);
-
-        CreateApartmentGui.finishedAddingWalls.setVisible(true);
-        CreateApartmentGui.oneMoreWall.setVisible(true);
-
-        StartVisualizeGui.panel.invalidate();
-        NewProjectElementsGui.continueSteps.setEnabled(false);
     }
 
     public static void addActionListenerToElements() {
@@ -206,62 +134,5 @@ public class StartVisualizeLogic {
         CreateApartmentGui.chooseWalls[0].setVisible(true);
         CreateApartmentGui.chooseWalls[1].setVisible(true);
         StartVisualizeGui.panel.invalidate();
-    }
-
-    public static void userChooseFourWalls() {
-        CreateApartmentGui.chooseWalls[0].setVisible(false);
-        CreateApartmentGui.chooseWalls[1].setVisible(false);
-        userChooseFourWalls = true;
-        fourWalls();
-    }
-
-    public static void userChooseMoreThenFourWalls() {
-        CreateApartmentGui.chooseWalls[0].setVisible(false);
-        CreateApartmentGui.chooseWalls[1].setVisible(false);
-        userChooseFourWalls = false;
-        undefinedWalls();
-    }
-
-    public static boolean isUserInputCorrectStepOne() {
-        for (int parameter = 0; parameter < CreateApartmentGui.getApartmentParameter.length; parameter++) {
-            try {
-                if (userChooseFourWalls) {
-                    Integer.parseInt(CreateApartmentGui.getApartmentParameter[parameter].getText());
-                } else {
-                    if (!startAddingWalls) {
-                        Integer.parseInt(CreateApartmentGui.getHeight.getText());
-                        continue;
-                    }
-                    Integer.parseInt(CreateApartmentGui.getXPos.getText());
-                    Integer.parseInt(CreateApartmentGui.getYPos.getText());
-                }
-            } catch (Exception e) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static void finishedStepOne() {
-        if (userChooseFourWalls) {
-            for (int i = 0; i < CreateApartmentGui.apartmentParameter.length; i++) {
-                CreateApartmentGui.apartmentParameter[i].setVisible(false);
-                CreateApartmentGui.apartmentParameter[i].setEnabled(false);
-                CreateApartmentGui.getApartmentParameter[i].setVisible(false);
-                CreateApartmentGui.getApartmentParameter[i].setEnabled(false);
-                CreateApartmentGui.actionButtons[i].setVisible(false);
-                CreateApartmentGui.actionButtons[i].setEnabled(false);
-            }
-    
-        } else {
-            CreateApartmentGui.actionButtons[1].setVisible(false);
-            CreateApartmentGui.actionButtons[2].setVisible(false);
-            CreateApartmentGui.getXPos.setVisible(false);
-            CreateApartmentGui.getYPos.setVisible(false);
-            CreateApartmentGui.xPos.setVisible(false);
-            CreateApartmentGui.yPos.setVisible(false);
-        }
-        StartVisualizeGui.createDisplay();
-        
     }
 }

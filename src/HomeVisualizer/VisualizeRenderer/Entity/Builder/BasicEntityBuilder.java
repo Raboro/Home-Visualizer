@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import HomeVisualizer.Logic.StartVisualizeLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.VisualizeRenderer.Entity.Entity;
 import HomeVisualizer.VisualizeRenderer.Entity.IEntity;
 import HomeVisualizer.VisualizeRenderer.Point.MyPoint;
@@ -17,18 +17,18 @@ public class BasicEntityBuilder {
     public static IEntity apartmentUndefinedWalls() {
         List<Tetrahedron> tetras = new ArrayList<Tetrahedron>();
         double moveBackForView = 2000 * 3;
-        MyPoint[] wallBottomPoints = new MyPoint[StartVisualizeLogic.wallPoints.size() + 1];
+        MyPoint[] wallBottomPoints = new MyPoint[CreateApartmentLogic.wallPoints.size() + 1];
 
         MyPoint startBottom = new MyPoint(0- moveBackForView, 0, 0);
-        MyPoint startTop = new MyPoint(0- moveBackForView, 0, StartVisualizeLogic.constantHeight);
+        MyPoint startTop = new MyPoint(0- moveBackForView, 0, CreateApartmentLogic.constantHeight);
 
         wallBottomPoints[0] = startBottom;
         
         // add walls
-        for (int wall = 0; wall < StartVisualizeLogic.wallPoints.size(); wall++) {
+        for (int wall = 0; wall < CreateApartmentLogic.wallPoints.size(); wall++) {
                 if (wall == 0) {
-                        MyPoint wallBottom = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], 0);
-                        MyPoint wallTop = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], StartVisualizeLogic.constantHeight);
+                        MyPoint wallBottom = new MyPoint(CreateApartmentLogic.wallPoints.get(wall)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall)[1], 0);
+                        MyPoint wallTop = new MyPoint(CreateApartmentLogic.wallPoints.get(wall)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall)[1], CreateApartmentLogic.constantHeight);
 
                         Tetrahedron tetra = new Tetrahedron(
                                 new MyPolygon(startBottom, startTop, wallTop, wallBottom)
@@ -36,10 +36,10 @@ public class BasicEntityBuilder {
                         tetras.add(tetra);
                         wallBottomPoints[wall + 1] = wallBottom;
                 } else {
-                        MyPoint wallBottomBefore = new MyPoint(StartVisualizeLogic.wallPoints.get(wall-1)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall-1)[1], 0);
-                        MyPoint wallTopBefore = new MyPoint(StartVisualizeLogic.wallPoints.get(wall-1)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall-1)[1], StartVisualizeLogic.constantHeight); 
-                        MyPoint wallBottom = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], 0);
-                        MyPoint wallTop = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], StartVisualizeLogic.constantHeight);
+                        MyPoint wallBottomBefore = new MyPoint(CreateApartmentLogic.wallPoints.get(wall-1)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall-1)[1], 0);
+                        MyPoint wallTopBefore = new MyPoint(CreateApartmentLogic.wallPoints.get(wall-1)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall-1)[1], CreateApartmentLogic.constantHeight); 
+                        MyPoint wallBottom = new MyPoint(CreateApartmentLogic.wallPoints.get(wall)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall)[1], 0);
+                        MyPoint wallTop = new MyPoint(CreateApartmentLogic.wallPoints.get(wall)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall)[1], CreateApartmentLogic.constantHeight);
                
                         Tetrahedron tetra = new Tetrahedron(
                                 new MyPolygon(wallBottomBefore, wallTopBefore, wallTop, wallBottom)
@@ -47,8 +47,6 @@ public class BasicEntityBuilder {
                         tetras.add(tetra);
                         wallBottomPoints[wall + 1] = wallBottom;
                 }
-
-
         }
 
         // add bottom
@@ -59,7 +57,6 @@ public class BasicEntityBuilder {
         tetras.add(tetra);
         return new Entity(tetras);
     }
-
 
     public static IEntity apartmentFourWalls(double length, double height, double width) {
 

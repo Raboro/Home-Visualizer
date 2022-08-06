@@ -8,6 +8,7 @@ import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Logic.StartVisualizeLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 
 public class StartVisualizerActionListener implements ActionListener {
 
@@ -37,28 +38,28 @@ public class StartVisualizerActionListener implements ActionListener {
         }
 
         if (event.getSource() == CreateApartmentGui.chooseWalls[0]) {
-            StartVisualizeLogic.userChooseFourWalls();
+            CreateApartmentLogic.userChooseFourWalls();
         }
 
         if (event.getSource() == CreateApartmentGui.chooseWalls[1]) {
-            StartVisualizeLogic.userChooseMoreThenFourWalls();
+            CreateApartmentLogic.userChooseMoreThenFourWalls();
         }
 
         if (event.getSource() == CreateApartmentGui.finishedCreation) {
-            if (StartVisualizeLogic.isUserInputCorrectStepOne()) {
+            if (CreateApartmentLogic.isUserInputCorrectStepOne()) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
-                StartVisualizeLogic.finishedStepOne();
+                CreateApartmentLogic.finishedStepOne();
             }
         }
 
         if (event.getSource() == CreateApartmentGui.oneMoreWall) {
-            StartVisualizeLogic.userChooseMoreThenFourWalls();
+            CreateApartmentLogic.userChooseMoreThenFourWalls();
         }
 
         if (event.getSource() == CreateApartmentGui.finishedAddingWalls) {
-            if (StartVisualizeLogic.isUserInputCorrectStepOne() && StartVisualizeLogic.wallPoints.size() > 2) {
+            if (CreateApartmentLogic.isUserInputCorrectStepOne() && CreateApartmentLogic.wallPoints.size() > 2) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
-                StartVisualizeLogic.finishedStepOne();
+                CreateApartmentLogic.finishedStepOne();
             }
         }
     }
