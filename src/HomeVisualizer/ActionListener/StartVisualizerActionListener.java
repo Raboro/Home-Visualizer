@@ -56,7 +56,7 @@ public class StartVisualizerActionListener implements ActionListener {
         }
 
         if (event.getSource() == CreateApartmentGui.finishedAddingWalls) {
-            if (StartVisualizeLogic.isUserInputCorrectStepOne()) {
+            if (StartVisualizeLogic.isUserInputCorrectStepOne() && StartVisualizeLogic.wallPoints.size() > 2) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 StartVisualizeLogic.finishedStepOne();
             }
