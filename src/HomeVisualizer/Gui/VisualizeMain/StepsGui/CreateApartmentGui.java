@@ -11,7 +11,7 @@ import java.awt.Font;
 public class CreateApartmentGui {
 
     public static JButton fourWalls = new JButton("4 Walls");
-    public static JButton moreThenFourWalls = new JButton(">4 Walls");
+    public static JButton moreThenFourWalls = new JButton(">4/<4 Walls");
     public static JButton[] chooseWalls = { fourWalls, moreThenFourWalls };
 
     public static JLabel length = new JLabel("Length");
@@ -33,8 +33,8 @@ public class CreateApartmentGui {
     public static JLabel yPos = new JLabel("Y Pos");
     public static JLabel[] undefinedApartmentParameter = { xPos, yPos };
 
-    public static JTextField getXPos = new JTextField("all");
-    public static JTextField getYPos = new JTextField("in");
+    public static JTextField getXPos = new JTextField();
+    public static JTextField getYPos = new JTextField();
     public static JTextField[] getUndefinedApartmentParameter = { getXPos, getYPos };
 
     public static JButton oneMoreWall = new JButton("Add first wall");

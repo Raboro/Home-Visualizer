@@ -88,6 +88,7 @@ public class StartVisualizeLogic {
 
             CreateApartmentGui.height.setVisible(true);
             CreateApartmentGui.getHeight.setVisible(true);
+            CreateApartmentGui.getHeight.setText("in cm");
 
             moreThenFourWallsHeightInput = false;
         } else {
