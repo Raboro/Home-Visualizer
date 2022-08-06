@@ -17,10 +17,14 @@ public class BasicEntityBuilder {
     public static IEntity apartmentUndefinedWalls() {
         List<Tetrahedron> tetras = new ArrayList<Tetrahedron>();
         double moveBackForView = 2000 * 3;
+        MyPoint[] wallBottomPoints = new MyPoint[StartVisualizeLogic.wallPoints.size() + 1];
 
         MyPoint startBottom = new MyPoint(0- moveBackForView, 0, 0);
         MyPoint startTop = new MyPoint(0- moveBackForView, 0, StartVisualizeLogic.constantHeight);
 
+        wallBottomPoints[0] = startBottom;
+        
+        // add walls
         for (int wall = 0; wall < StartVisualizeLogic.wallPoints.size(); wall++) {
                 if (wall == 0) {
                         MyPoint wallBottom = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], 0);
@@ -30,11 +34,29 @@ public class BasicEntityBuilder {
                                 new MyPolygon(startBottom, startTop, wallTop, wallBottom)
                         );
                         tetras.add(tetra);
+                        wallBottomPoints[wall + 1] = wallBottom;
+                } else {
+                        MyPoint wallBottomBefore = new MyPoint(StartVisualizeLogic.wallPoints.get(wall-1)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall-1)[1], 0);
+                        MyPoint wallTopBefore = new MyPoint(StartVisualizeLogic.wallPoints.get(wall-1)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall-1)[1], StartVisualizeLogic.constantHeight); 
+                        MyPoint wallBottom = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], 0);
+                        MyPoint wallTop = new MyPoint(StartVisualizeLogic.wallPoints.get(wall)[0] - moveBackForView, StartVisualizeLogic.wallPoints.get(wall)[1], StartVisualizeLogic.constantHeight);
+               
+                        Tetrahedron tetra = new Tetrahedron(
+                                new MyPolygon(wallBottomBefore, wallTopBefore, wallTop, wallBottom)
+                        );
+                        tetras.add(tetra);
+                        wallBottomPoints[wall + 1] = wallBottom;
                 }
+
 
         }
 
+        // add bottom
+        Tetrahedron tetra = new Tetrahedron(
+                new MyPolygon(wallBottomPoints)
+        );
 
+        tetras.add(tetra);
         return new Entity(tetras);
     }
 
