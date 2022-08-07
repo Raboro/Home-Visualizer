@@ -21,6 +21,19 @@ public class StartVisualizeLogic {
     public static boolean userIsWorking = false;
     public static boolean finishedStartSteps = false;
 
+    private static void selectCurrentStep() {
+        switch (currentState) {
+            case CREATE_APARTMENT:
+                create_Apartment();
+            case CREATE_DOORS:
+                break;
+            case CREATE_ROOMS:
+                break;
+            case CREATE_ROOM_NAMES:
+                break;
+        }
+    }
+
     public static <T> void addElementsToPanel(T[] addElement) {
         for (int i = 0; i < addElement.length; i++) {
             StartVisualizeGui.panel.add((Component) addElement[i]);
@@ -41,19 +54,6 @@ public class StartVisualizeLogic {
         CreateApartmentGui.initFinishedCreation();
         CreateApartmentGui.initLabels();
         CreateApartmentGui.initTextFields();
-    }
-
-    private static void selectCurrentStep() {
-        switch (currentState) {
-            case CREATE_APARTMENT:
-                create_Apartment();
-            case CREATE_DOORS:
-                break;
-            case CREATE_ROOMS:
-                break;
-            case CREATE_ROOM_NAMES:
-                break;
-        }
     }
 
     public static void addActionListenerToElements() {
