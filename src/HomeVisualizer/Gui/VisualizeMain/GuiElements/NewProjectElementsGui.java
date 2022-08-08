@@ -84,14 +84,17 @@ public class NewProjectElementsGui {
             case "Create Apartment":
                 stepName.setText("Create Rooms");
                 stepName.setBounds(745, 30, 300, 50);
+                break;
 
             case "Create Rooms":
                 stepName.setText("Create Room Names");
                 stepName.setBounds(700, 30, 400, 50);
+                break;
 
             case "Create Room Names":
                 stepName.setText("Create Doors");
                 stepName.setBounds(755, 30, 300, 50);
+                break;
         }
     }
 

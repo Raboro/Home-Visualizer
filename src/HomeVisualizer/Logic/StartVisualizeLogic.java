@@ -15,6 +15,7 @@ import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 public class StartVisualizeLogic {
 
     private static int stepState = 0;
+    private static StepStates[] stepArray = {StepStates.CREATE_APARTMENT, StepStates.CREATE_DOORS, StepStates.CREATE_DOORS, StepStates.CREATE_ROOM_NAMES};
 
     public static StepStates currentState;
     public static boolean userStartNewProject = false;
@@ -25,9 +26,9 @@ public class StartVisualizeLogic {
         switch (currentState) {
             case CREATE_APARTMENT:
                 create_Apartment();
-            case CREATE_DOORS:
-                break;
             case CREATE_ROOMS:
+                break;
+            case CREATE_DOORS:
                 break;
             case CREATE_ROOM_NAMES:
                 break;
