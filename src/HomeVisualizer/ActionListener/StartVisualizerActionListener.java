@@ -6,9 +6,11 @@ import java.awt.event.ActionListener;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 public class StartVisualizerActionListener implements ActionListener {
 
@@ -60,6 +62,19 @@ public class StartVisualizerActionListener implements ActionListener {
             if (CreateApartmentLogic.isUserInputCorrectStepOne() && CreateApartmentLogic.wallPoints.size() > 2) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 CreateApartmentLogic.finishedStepOne();
+            }
+        }
+
+        if (event.getSource() == CreateRoomsGui.addWalls) {
+            if (CreateRoomsLogic.isUserInputCorrectStepTwo()) {
+                CreateRoomsLogic.addWallsToArray();
+            }
+        }
+
+        if (event.getSource() == CreateRoomsGui.finishedAddingWalls) {
+            if (CreateRoomsLogic.isUserInputCorrectStepTwo() && CreateRoomsLogic.wallPoints.size() > 2) {
+                NewProjectElementsGui.continueSteps.setEnabled(true);
+                CreateRoomsLogic.finishedStepTwo();
             }
         }
     }

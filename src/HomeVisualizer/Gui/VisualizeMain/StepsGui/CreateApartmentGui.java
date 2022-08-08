@@ -94,10 +94,13 @@ public class CreateApartmentGui {
 
         for (int parameter = 0; parameter < apartmentParameter.length; parameter++) {
             getApartmentParameter[parameter].setVisible(false);
+            getApartmentParameter[parameter].setFont(new Font("Arial", Font.BOLD, 15));
+
 
             if (parameter > 1) {continue;}
 
             getUndefinedApartmentParameter[parameter].setVisible(false);
+            getUndefinedApartmentParameter[parameter].setFont(new Font("Arial", Font.BOLD, 15));
         }
     }
 }

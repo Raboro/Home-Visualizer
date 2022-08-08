@@ -11,11 +11,13 @@ import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StepStates;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 public class StartVisualizeLogic {
 
     private static int stepState = 0;
-    private static StepStates[] stepArray = {StepStates.CREATE_APARTMENT, StepStates.CREATE_DOORS, StepStates.CREATE_DOORS, StepStates.CREATE_ROOM_NAMES};
+    private static StepStates[] stepArray = {StepStates.CREATE_APARTMENT, StepStates.CREATE_ROOMS, StepStates.CREATE_ROOM_NAMES, StepStates.CREATE_DOORS};
 
     public static StepStates currentState;
     public static boolean userStartNewProject = false;
@@ -26,12 +28,12 @@ public class StartVisualizeLogic {
         switch (currentState) {
             case CREATE_APARTMENT:
                 create_Apartment();
+                break;
             case CREATE_ROOMS:
-                break;
-            case CREATE_DOORS:
-                break;
+                CreateRoomsLogic.init();
             case CREATE_ROOM_NAMES:
                 break;
+            case CREATE_DOORS:
         }
     }
 
@@ -55,6 +57,10 @@ public class StartVisualizeLogic {
         CreateApartmentGui.initFinishedCreation();
         CreateApartmentGui.initLabels();
         CreateApartmentGui.initTextFields();
+
+        CreateRoomsGui.initButtons();
+        CreateRoomsGui.initLabels();
+        CreateRoomsGui.initTextFields();
     }
 
     public static void addActionListenerToElements() {
@@ -69,6 +75,8 @@ public class StartVisualizeLogic {
         CreateApartmentGui.finishedCreation.addActionListener(actionListener);
         CreateApartmentGui.finishedAddingWalls.addActionListener(actionListener);
         CreateApartmentGui.oneMoreWall.addActionListener(actionListener);
+        CreateRoomsGui.addWalls.addActionListener(actionListener);
+        CreateRoomsGui.finishedAddingWalls.addActionListener(actionListener);
     }
 
     public static void loadNewProjectGui() {
@@ -121,11 +129,13 @@ public class StartVisualizeLogic {
     public static void continueAfterUserIsNotWorking() {
         NewProjectElementsGui.stepName.setVisible(true);
         stepState += 1;
+        currentState = stepArray[stepState];
         userIsWorking = true;
         NewProjectElementsGui.buttonsSteps[stepState].setBackground(NewProjectElementsGui.IN_WORK_STEP_COLOR);
         NewProjectElementsGui.buttonsSteps[stepState]
                 .setBorder(BorderFactory.createLineBorder(NewProjectElementsGui.IN_WORK_STEP_COLOR_BORDER, 6));
         NewProjectElementsGui.stepButtonsRightBottom();
+        selectCurrentStep();
     }
 
     public static void create_Apartment() {

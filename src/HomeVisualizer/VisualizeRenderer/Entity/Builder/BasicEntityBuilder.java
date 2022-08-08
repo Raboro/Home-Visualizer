@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 import HomeVisualizer.VisualizeRenderer.Entity.Entity;
 import HomeVisualizer.VisualizeRenderer.Entity.IEntity;
 import HomeVisualizer.VisualizeRenderer.Point.MyPoint;
@@ -13,6 +14,27 @@ import HomeVisualizer.VisualizeRenderer.Shapes.MyPolygon;
 import HomeVisualizer.VisualizeRenderer.Shapes.Tetrahedron;
 
 public class BasicEntityBuilder {
+
+    public static IEntity createRooms() {
+        List<Tetrahedron> tetras = new ArrayList<Tetrahedron>();
+        double moveBackForView = 2000 * 3;
+
+        for (int wall = 0; wall < CreateRoomsLogic.wallPoints.size(); wall++) {
+                MyPoint leftBottom = new MyPoint(CreateRoomsLogic.wallPoints.get(wall)[0] - moveBackForView, CreateRoomsLogic.wallPoints.get(wall)[1], 0);
+                MyPoint leftTop = new MyPoint(CreateRoomsLogic.wallPoints.get(wall)[0] - moveBackForView, CreateRoomsLogic.wallPoints.get(wall)[1], CreateApartmentLogic.constantHeight);
+                MyPoint rightBottom = new MyPoint(CreateRoomsLogic.wallPoints.get(wall)[2] - moveBackForView, CreateRoomsLogic.wallPoints.get(wall)[3], 0);
+                MyPoint rightTop = new MyPoint(CreateRoomsLogic.wallPoints.get(wall)[2] - moveBackForView, CreateRoomsLogic.wallPoints.get(wall)[3], CreateApartmentLogic.constantHeight);;
+
+                Tetrahedron tetra = new Tetrahedron(
+                        new MyPolygon(leftBottom, leftTop, rightTop, rightBottom)
+                );
+                
+                tetras.add(tetra);
+        }
+        
+
+        return new Entity(tetras);
+    }
 
     public static IEntity apartmentUndefinedWalls() {
         List<Tetrahedron> tetras = new ArrayList<Tetrahedron>();

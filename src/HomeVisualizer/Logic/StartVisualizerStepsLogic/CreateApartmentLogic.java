@@ -115,6 +115,7 @@ public class CreateApartmentLogic {
 
     public static void finishedStepOne() {
         if (userChooseFourWalls) {
+            constantHeight = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText());
             for (int i = 0; i < CreateApartmentGui.apartmentParameter.length; i++) {
                 CreateApartmentGui.apartmentParameter[i].setVisible(false);
                 CreateApartmentGui.apartmentParameter[i].setEnabled(false);
@@ -132,6 +133,5 @@ public class CreateApartmentLogic {
             CreateApartmentGui.xPos.setVisible(false);
             CreateApartmentGui.yPos.setVisible(false);
         }
-        StartVisualizeGui.createDisplay();
     }
 }
