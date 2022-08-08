@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
+import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 
@@ -28,6 +29,7 @@ public class CreateRoomsLogic {
         StartVisualizeLogic.addElementsToPanel(CreateRoomsGui.actionButtons);
         
         setVisibleElements(true);
+        NewProjectElementsGui.continueSteps.setEnabled(false);
     }
 
     public static boolean isUserInputCorrectStepTwo() {
@@ -57,6 +59,7 @@ public class CreateRoomsLogic {
 
     public static void finishedStepTwo() {
         setVisibleElements(false);
+        NewProjectElementsGui.continueSteps.setEnabled(true);
         StartVisualizeGui.createDisplay();
     }
 }
