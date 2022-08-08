@@ -22,14 +22,13 @@ public class EntityManager {
     private Camera camera;
     private double moveSpeed = 100;
     private double lengthApartment, hightApartment, widthApartment;
-    private int meterIntoPixel = 2;
 
     public EntityManager(double lengthApartment, double hightApartment, double widthApartment) {
         this.entities = new ArrayList<IEntity>();
         this.camera = new Camera(-1500, 0, 0);
-        this.lengthApartment = lengthApartment * meterIntoPixel;
-        this.hightApartment = hightApartment * meterIntoPixel;
-        this.widthApartment = widthApartment * meterIntoPixel;
+        this.lengthApartment = lengthApartment;
+        this.hightApartment = hightApartment;
+        this.widthApartment = widthApartment;
     }
 
     public void init(UserInput userInput) {

@@ -12,6 +12,7 @@ public class CreateApartmentLogic {
     
     private static boolean undefinedWallsHeightInput = true;
     private static boolean startAddingWalls = false;
+    private static int meterIntoPixel = 2;
 
     public static boolean userChooseFourWalls;
     public static double constantHeight;
@@ -45,13 +46,13 @@ public class CreateApartmentLogic {
             undefinedWallsHeightInput = false;
         } else {
             if (startAddingWalls) {
-                double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()); 
-                double yPos = Integer.parseInt(CreateApartmentGui.getYPos.getText());
+                double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * meterIntoPixel; 
+                double yPos = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * meterIntoPixel;
                 double[] point = { xPos, yPos};
                 wallPoints.add(point);
             }
  
-            constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText());
+            constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText()) * meterIntoPixel;
             CreateApartmentGui.height.setVisible(false);
             CreateApartmentGui.getHeight.setVisible(false);
             CreateApartmentGui.oneMoreWall.setText("One more Wall");
@@ -115,7 +116,7 @@ public class CreateApartmentLogic {
 
     public static void finishedStepOne() {
         if (userChooseFourWalls) {
-            constantHeight = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText());
+            constantHeight = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText()) * meterIntoPixel;
             for (int i = 0; i < CreateApartmentGui.apartmentParameter.length; i++) {
                 CreateApartmentGui.apartmentParameter[i].setVisible(false);
                 CreateApartmentGui.apartmentParameter[i].setEnabled(false);

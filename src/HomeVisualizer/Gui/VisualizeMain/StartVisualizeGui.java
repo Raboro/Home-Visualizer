@@ -52,9 +52,9 @@ public class StartVisualizeGui extends Frame {
         Display display;
         
         if (CreateApartmentLogic.userChooseFourWalls) {
-        double length = Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText());
-        double height = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText());
-        double width = Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText());
+        double length = Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * 2;
+        double height = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText()) * 2;
+        double width = Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * 2;
 
 
         display = new Display(length, height, width);

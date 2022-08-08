@@ -82,19 +82,19 @@ public class BasicEntityBuilder {
 
     public static IEntity apartmentFourWalls(double length, double height, double width) {
 
-        double moveBackForView = length * 3;
+        double moveBackForView = 2000 * 3;
 
-        MyPoint pLeftBottomUpBack = new MyPoint(0 - moveBackForView, -width / 2, 0);
-        MyPoint pRightBottomUpBack = new MyPoint(0 - moveBackForView, width / 2, 0);
+        MyPoint pLeftBottomUpBack = new MyPoint(-moveBackForView - length, 0, 0);
+        MyPoint pRightBottomUpBack = new MyPoint(-moveBackForView - length, width, 0);
 
-        MyPoint pLeftBottomUpFront = new MyPoint(length - moveBackForView, -width / 2, 0);
-        MyPoint pRightBottomUpFront = new MyPoint(length - moveBackForView, width / 2, 0);
+        MyPoint pLeftBottomUpFront = new MyPoint(-moveBackForView, 0, 0);
+        MyPoint pRightBottomUpFront = new MyPoint(-moveBackForView, width, 0);
 
-        MyPoint pLeftTopBack = new MyPoint(0 - moveBackForView, -width / 2, height);
-        MyPoint pLeftTopFront = new MyPoint(length - moveBackForView, -width / 2, height);
+        MyPoint pLeftTopBack = new MyPoint(-moveBackForView - length, 0, height);
+        MyPoint pLeftTopFront = new MyPoint(-moveBackForView, 0, height);
 
-        MyPoint pRightTopBack = new MyPoint(0 - moveBackForView, width / 2, height);
-        MyPoint pRightTopFront = new MyPoint(length - moveBackForView, width / 2, height);
+        MyPoint pRightTopBack = new MyPoint(-moveBackForView - length, width, height);
+        MyPoint pRightTopFront = new MyPoint(-moveBackForView, width, height);
 
         Tetrahedron tetraBottom = new Tetrahedron(
                 new MyPolygon(pLeftBottomUpFront, pRightBottomUpFront, pRightBottomUpBack, pLeftBottomUpBack));
