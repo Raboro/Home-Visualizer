@@ -111,7 +111,7 @@ This project contains a software, which visualize your home. You can login and c
 [LoginLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/LoginLogic.java
 [StartVisualizeLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizeLogic.java
 [BasicEntityBuilder.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Entity/Builder/BasicEntityBuilder.java
-[ComplexEntityBuilder.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Entity/Builder/ComplexEntityBuilder.java
+[ComplexEntityBuilder.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Entity/Builder/ComplexEntitiyBuilder.java
 [Entity.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Entity/Entity.java
 [EntityManager.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Entity/EntityManager.java
 [IEntity.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Entity/IEntity.java
