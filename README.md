@@ -106,8 +106,8 @@ This project contains a software, which visualize your home. You can login and c
 [CreateApartmentGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/CreateApartmentGui.java
 [CreateRoomsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/CreateRoomsGui.java
 [StartVisualizeGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StartVisualizeGui.java
-[CreateApartmentLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/StartVisualizeStepsLogic/CreateApartmentLogic.java
-[CreateRoomsLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/StartVisualizeStepsLogic/CreateRoomsLogic.java
+[CreateApartmentLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateApartmentLogic.java
+[CreateRoomsLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateRoomsLogic.java
 [LoginLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/LoginLogic.java
 [StartVisualizeLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizeLogic.java
 [BasicEntityBuilder.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Entity/Builder/BasicEntityBuilder.java
