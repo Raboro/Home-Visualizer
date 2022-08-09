@@ -103,9 +103,9 @@ This project contains a software, which visualize your home. You can login and c
 [NewProjectElementsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/NewProjectElementsGui.java
 [StartVisualizeElementsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/StartVisualizeElementsGui.java
 [StepStates.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/StepStates.java
-[CreateApartmentGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepStates.java
-[CreateRoomsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepStates.java
-[StartVisualizeGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepStates.java
+[CreateApartmentGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/CreateApartmentGui.java
+[CreateRoomsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/CreateRoomsGui.java
+[StartVisualizeGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StartVisualizeGui.java
 [CreateApartmentLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/StartVisualizeStepsLogic/CreateApartmentLogic.java
 [CreateRoomsLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/StartVisualizeStepsLogic/CreateRoomsLogic.java
 [LoginLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/LoginLogic.java
