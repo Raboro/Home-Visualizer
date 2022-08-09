@@ -123,7 +123,7 @@ This project contains a software, which visualize your home. You can login and c
 [MyVector.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Point/MyVector.java
 [PointConverter.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Point/PointConverter.java
 [MyPolygon.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Shapes/MyPolygon.java
-[Tetrahedon.java]:https://github.com/RaboroShapes/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Shapes/Tetrahedon.java
+[Tetrahedon.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Shapes/Tetrahedron.java
 [Camera.java]:https://github.com/RaboroShapes/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/World/Camera.java
 [Display.java]:https://github.com/RaboroShapes/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Display.java
 [Main.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Main.java
