@@ -14,28 +14,26 @@ import HomeVisualizer.Encryption.Hash;
 import HomeVisualizer.Encryption.RsaEncryption;
 
 public class LoginLogic {
-    private String username;
-    private String password;
+    private String username, password, encodedPassword;
     private int hashedUsername;
     private byte[] encrytPassword;
-    private String encodedPassword;
 
     public LoginLogic(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public void encryptUsername() {
+    private void encryptUsername() {
         hashedUsername = Hash.hashUsername(username);
     }
 
-    public void encryptPassword() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
+    private void encryptPassword() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, IOException {
         encrytPassword = RsaEncryption.encrypt(password);
         encodedPassword = Base64.getEncoder().encodeToString(encrytPassword);
     }
 
-    public String decryptPassword(byte[] encryptedPasswordOfDatabase)
+    private String decryptPassword(byte[] encryptedPasswordOfDatabase)
             throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
             NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException {
         String decryptedPassword = RsaEncryption.decrypt(encryptedPasswordOfDatabase);

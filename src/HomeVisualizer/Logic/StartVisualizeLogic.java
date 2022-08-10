@@ -17,7 +17,7 @@ import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 public class StartVisualizeLogic {
 
     private static int stepState = 0;
-    private static StepStates[] stepArray = {StepStates.CREATE_APARTMENT, StepStates.CREATE_ROOMS, StepStates.CREATE_ROOM_NAMES, StepStates.CREATE_DOORS};
+    private static StepStates[] stepArray = { StepStates.CREATE_APARTMENT, StepStates.CREATE_ROOMS, StepStates.CREATE_ROOM_NAMES, StepStates.CREATE_DOORS };
 
     public static StepStates currentState;
     public static boolean userStartNewProject = false;
@@ -31,6 +31,7 @@ public class StartVisualizeLogic {
                 break;
             case CREATE_ROOMS:
                 CreateRoomsLogic.init();
+                break;
             case CREATE_ROOM_NAMES:
                 break;
             case CREATE_DOORS:
