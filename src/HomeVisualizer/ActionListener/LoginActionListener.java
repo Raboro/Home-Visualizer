@@ -2,10 +2,13 @@ package HomeVisualizer.ActionListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.io.IOException;
+
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+
 import java.sql.SQLException;
 
 import javax.crypto.BadPaddingException;
@@ -13,7 +16,9 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
 import HomeVisualizer.Main;
+
 import HomeVisualizer.Gui.Login.LoginGui;
+
 import HomeVisualizer.Logic.LoginLogic;
 
 public class LoginActionListener implements ActionListener {

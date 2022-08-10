@@ -1,15 +1,21 @@
 package HomeVisualizer.Logic;
 
 import java.io.IOException;
+
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+
 import java.sql.SQLException;
+
 import java.util.Base64;
+
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+
 import HomeVisualizer.Database.LoginDatabase;
+
 import HomeVisualizer.Encryption.Hash;
 import HomeVisualizer.Encryption.RsaEncryption;
 

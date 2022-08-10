@@ -10,6 +10,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import HomeVisualizer.ActionListener.LoginActionListener;
+
 import HomeVisualizer.Gui.Frame;
 
 public class LoginGui extends Frame {

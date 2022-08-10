@@ -6,6 +6,7 @@ import java.util.List;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
+
 import HomeVisualizer.Logic.StartVisualizeLogic;
 
 public class CreateRoomsLogic {
@@ -42,7 +43,6 @@ public class CreateRoomsLogic {
                 }
             catch (Exception e) {
                 return false;
-            
             }
         }
         return true;

@@ -3,6 +3,7 @@ package HomeVisualizer;
 import java.sql.SQLException;
 
 import HomeVisualizer.Database.InitializeDatabase;
+
 import HomeVisualizer.Gui.Login.LoginGui;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 

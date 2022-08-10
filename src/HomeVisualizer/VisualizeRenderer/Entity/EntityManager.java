@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
+
 import HomeVisualizer.VisualizeRenderer.Entity.Builder.BasicEntityBuilder;
 import HomeVisualizer.VisualizeRenderer.Input.ClickType;
 import HomeVisualizer.VisualizeRenderer.Input.UserInput;

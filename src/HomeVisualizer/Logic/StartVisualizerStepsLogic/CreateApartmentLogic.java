@@ -6,6 +6,7 @@ import java.util.List;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+
 import HomeVisualizer.Logic.StartVisualizeLogic;
 
 public class CreateApartmentLogic {
@@ -48,7 +49,7 @@ public class CreateApartmentLogic {
             if (startAddingWalls) {
                 double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * meterIntoPixel; 
                 double yPos = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * meterIntoPixel;
-                double[] point = { xPos, yPos};
+                double[] point = { xPos, yPos };
                 wallPoints.add(point);
             }
  

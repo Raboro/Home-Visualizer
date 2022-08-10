@@ -5,8 +5,10 @@ import javax.swing.JPanel;
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+
 import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
+
 import HomeVisualizer.VisualizeRenderer.Display;
 
 public class StartVisualizeGui extends Frame {
