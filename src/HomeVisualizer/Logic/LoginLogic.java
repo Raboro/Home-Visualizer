@@ -20,6 +20,8 @@ import HomeVisualizer.Encryption.Hash;
 import HomeVisualizer.Encryption.RsaEncryption;
 
 public class LoginLogic {
+
+    private LoginDatabase loginDatabase = new LoginDatabase();
     private String username, password, encodedPassword;
     private int hashedUsername;
     private byte[] encrytPassword;
@@ -42,13 +44,11 @@ public class LoginLogic {
     private String decryptPassword(byte[] encryptedPasswordOfDatabase)
             throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
             NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException {
-        String decryptedPassword = RsaEncryption.decrypt(encryptedPasswordOfDatabase);
-        return decryptedPassword;
+        return new String(RsaEncryption.decrypt(encryptedPasswordOfDatabase));
     }
 
     public void signUp() throws SQLException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, IOException {
-        LoginDatabase loginDatabase = new LoginDatabase();
         encryptUsername();
         encryptPassword();
         loginDatabase.add(hashedUsername, encodedPassword);
@@ -56,20 +56,19 @@ public class LoginLogic {
 
     public boolean login() throws SQLException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
             NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException {
-        LoginDatabase loginDatabase = new LoginDatabase();
         encryptUsername();
         String passwordOfDatabase = loginDatabase.get(hashedUsername);
-        
+
         if (passwordOfDatabase == null) {
             return false;
         }
 
         byte[] encryptedPasswordOfDatabase = Base64.getDecoder().decode(passwordOfDatabase);
         String decodedPasswordOfDatabase = decryptPassword(encryptedPasswordOfDatabase);
-        
+
         if (decodedPasswordOfDatabase.equals(password)) {
             return true;
-        } 
+        }
         return false;
     }
 }

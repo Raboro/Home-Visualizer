@@ -13,7 +13,7 @@ public class CreateApartmentLogic {
     
     private static boolean undefinedWallsHeightInput = true;
     private static boolean startAddingWalls = false;
-    private static int meterIntoPixel = 2;
+    private static final int METER_INTO_PIXEL = 2;
 
     public static boolean userChooseFourWalls;
     public static double constantHeight;
@@ -47,13 +47,13 @@ public class CreateApartmentLogic {
             undefinedWallsHeightInput = false;
         } else {
             if (startAddingWalls) {
-                double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * meterIntoPixel; 
-                double yPos = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * meterIntoPixel;
+                double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * METER_INTO_PIXEL; 
+                double yPos = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * METER_INTO_PIXEL;
                 double[] point = { xPos, yPos };
                 wallPoints.add(point);
             }
  
-            constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText()) * meterIntoPixel;
+            constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText()) * METER_INTO_PIXEL;
             CreateApartmentGui.height.setVisible(false);
             CreateApartmentGui.getHeight.setVisible(false);
             CreateApartmentGui.oneMoreWall.setText("One more Wall");
@@ -117,7 +117,7 @@ public class CreateApartmentLogic {
 
     public static void finishedStepOne() {
         if (userChooseFourWalls) {
-            constantHeight = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText()) * meterIntoPixel;
+            constantHeight = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText()) * METER_INTO_PIXEL;
             for (int i = 0; i < CreateApartmentGui.apartmentParameter.length; i++) {
                 CreateApartmentGui.apartmentParameter[i].setVisible(false);
                 CreateApartmentGui.apartmentParameter[i].setEnabled(false);

@@ -5,7 +5,7 @@ public class MyPoint {
     public double x, y, z;
     public double xOffset, yOffset, zOffset = 0;
 
-    public static final MyPoint origin = new MyPoint(0, 0, 0);
+    public static final MyPoint ORIGIN = new MyPoint(0, 0, 0);
 
     public MyPoint(double x, double y, double z) {
         this.x = x;

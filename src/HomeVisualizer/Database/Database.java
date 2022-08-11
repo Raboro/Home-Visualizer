@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import DatabaseInformation.databseConnectionHomeVisualizer;
 
 public abstract class Database {
+    
     protected Connection connection = null;
 
     public Database() {connect();}

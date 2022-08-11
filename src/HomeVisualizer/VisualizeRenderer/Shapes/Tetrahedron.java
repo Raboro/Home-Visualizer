@@ -5,8 +5,6 @@ import java.awt.Graphics;
 
 import HomeVisualizer.VisualizeRenderer.Point.MyVector;
 
-
-
 public class Tetrahedron {
     
     private MyPolygon[] polygons;

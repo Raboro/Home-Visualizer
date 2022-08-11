@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class NewProjectElementsGui {
+    
     public static JButton firstStep = new JButton("STEP 1");
     public static JButton secondStep = new JButton("STEP 2");
     public static JButton thirdStep = new JButton("STEP 3");

@@ -134,8 +134,8 @@ public class MyPolygon {
                 MyPoint p1Average = p1.getAveragePoint();
                 MyPoint p2Average = p2.getAveragePoint();
 
-                double p1Dist = MyPoint.dist(p1Average, MyPoint.origin);
-                double p2Dist = MyPoint.dist(p2Average, MyPoint.origin);
+                double p1Dist = MyPoint.dist(p1Average, MyPoint.ORIGIN);
+                double p2Dist = MyPoint.dist(p2Average, MyPoint.ORIGIN);
 
                 double diff = p1Dist - p2Dist;
 
