@@ -33,7 +33,7 @@ public class CreateRoomNamesGraphics extends JFrame {
             int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * METER_INTO_PIXEL) / 10;
             int width = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * METER_INTO_PIXEL) / 10;
 
-            int[] size = CreateRoomNamesLogic.formatSizeParameter(new int[]{length, width});
+            int[] size = CreateRoomNamesLogic.formatSizeParameterOutsideWalls(new int[]{length, width});
             length = size[0];
             width = size[1];
 
@@ -52,7 +52,7 @@ public class CreateRoomNamesGraphics extends JFrame {
                 wall[0] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[0] * METER_INTO_PIXEL) / 10;
                 wall[1] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[1] * METER_INTO_PIXEL) / 10;
 
-                wall = CreateRoomNamesLogic.formatSizeParameter(wall);
+                wall = CreateRoomNamesLogic.formatSizeParameterOutsideWalls(wall);
 
                 if (firstWall) {
                     firstWall = false;
@@ -62,13 +62,13 @@ public class CreateRoomNamesGraphics extends JFrame {
                     int[] wallBefore = new int[2];
                     wallBefore[0] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex -1)[0] * METER_INTO_PIXEL) / 10;
                     wallBefore[1] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex -1)[1] * METER_INTO_PIXEL) / 10;    
-                    wallBefore = CreateRoomNamesLogic.formatSizeParameter(wallBefore);
+                    wallBefore = CreateRoomNamesLogic.formatSizeParameterOutsideWalls(wallBefore);
                     g.drawLine(wallBefore[0], wallBefore[1], wall[0], wall[1]);
                 }
             }
         }
 
-        int[][] walls = CreateRoomNamesLogic.formatSizeParameterWalls();
+        int[][] walls = CreateRoomNamesLogic.formatSizeParameterInsideWalls();
         for (int[] wall: walls) {
             g.drawLine(wall[0], wall[1], wall[2], wall[3]);
         }
