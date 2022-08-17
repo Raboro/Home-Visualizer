@@ -23,7 +23,7 @@ public class CreateRoomNamesLogic {
 
     private static int[] translateValues(int[] values, int check) {
         for (int i = 0; i < values.length; i++) {
-            values[i] /= decreaseValueBy[check];
+            values[i] /= decreaseValueBy[check]; 
         }
         return values;
     }
@@ -44,14 +44,15 @@ public class CreateRoomNamesLogic {
                     translateValues(values, check);
                 }
             }
-
+        }
+        for (int value = 0; value < values.length; value++) {
             if (values[value] == 0) {
                 values[value] = 100;
-            } 
+            }
         }
         return values;
     }
-    
+
     public static int[][] formatSizeParameterWalls() {
         for (int wall = 0; wall < CreateRoomsLogic.wallPoints.size(); wall++) {
             for (int parameter = 0; parameter < 4; parameter++) {

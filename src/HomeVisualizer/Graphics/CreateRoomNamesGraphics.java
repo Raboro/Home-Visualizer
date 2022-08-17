@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
-import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -29,14 +28,6 @@ public class CreateRoomNamesGraphics extends JFrame {
         g.setFont(new Font("Arial", Font.BOLD, 12));
         g.drawString("This is Draw Line Example", 100, 70);
         g.setColor(Color.BLACK);
-        // g.drawLine(90, 135, 90, 180);
-        // g.setColor(Color.green);
-        // g.drawLine(60, 4, 120, 120);
-
-        // g.drawLine(10, 10, 100, 10);
-        // g.drawLine(10, 10, 10, 100);
-        // g.drawLine(10, 100, 100, 100);
-        // g.drawLine(100, 10, 100, 100);
 
         if (CreateApartmentLogic.userChooseFourWalls) {
             int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * METER_INTO_PIXEL) / 10;
@@ -54,22 +45,30 @@ public class CreateRoomNamesGraphics extends JFrame {
             
 
         } else {
-            // don´t work, need to save the divideFactor
-            for (double[] wallAsDouble : CreateRoomsLogic.wallPoints) {
-                int[] wall = new int[4];
+            boolean firstWall = true;
+            for (int wallIndex = 0; wallIndex < CreateApartmentLogic.wallPoints.size(); wallIndex++) {
+                int[] wall = new int[2];
 
-                for (int i = 0; i < wallAsDouble.length; i++) {
-                    wall[i] = (int) (wallAsDouble[i] * METER_INTO_PIXEL) / 10;
-                }
-                
+                wall[0] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[0] * METER_INTO_PIXEL) / 10;
+                wall[1] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[1] * METER_INTO_PIXEL) / 10;
+
                 wall = CreateRoomNamesLogic.formatSizeParameter(wall);
-                System.out.println(wall[0] + ", " + wall[1] + ", "+ wall[2] + ", " + wall[3]);
-                g.drawLine(wall[0], wall[1], wall[2], wall[3]);
+
+                if (firstWall) {
+                    firstWall = false;
+                    g.drawLine(100, 100, wall[0], wall[1]);
+
+                } else {
+                    int[] wallBefore = new int[2];
+                    wallBefore[0] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex -1)[0] * METER_INTO_PIXEL) / 10;
+                    wallBefore[1] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex -1)[1] * METER_INTO_PIXEL) / 10;    
+                    wallBefore = CreateRoomNamesLogic.formatSizeParameter(wallBefore);
+                    g.drawLine(wallBefore[0], wallBefore[1], wall[0], wall[1]);
+                }
             }
         }
 
         int[][] walls = CreateRoomNamesLogic.formatSizeParameterWalls();
-
         for (int[] wall: walls) {
             g.drawLine(wall[0], wall[1], wall[2], wall[3]);
         }
