@@ -24,53 +24,69 @@ public class CreateRoomNamesGraphics extends JFrame {
         this.setLocationRelativeTo(null);
     }
 
-    public void paint(Graphics g) {
-        g.setFont(new Font("Arial", Font.BOLD, 12));
-        g.drawString("This is Draw Line Example", 100, 70);
-        g.setColor(Color.BLACK);
-
+    private void chooseWallMode(Graphics g) {
         if (CreateApartmentLogic.userChooseFourWalls) {
-            int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * METER_INTO_PIXEL) / 10;
-            int width = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * METER_INTO_PIXEL) / 10;
-
-            int[] size = CreateRoomNamesLogic.formatSizeParameterOutsideWalls(new int[]{length, width});
-            length = size[0];
-            width = size[1];
-
-            g.drawLine(100, 100, 100, (100 + width));
-            g.drawLine(100, 100, (100 + length), 100);
-            g.drawLine(100, (100 + width), (100 + length), (100 + width));
-            g.drawLine((100 + length), 100, (100 + length), (100 + width));
-
-            
-
+            int[] coordinates = getFourWallsCoordinates();
+            paintFourWalls(g, coordinates);
         } else {
-            boolean firstWall = true;
-            for (int wallIndex = 0; wallIndex < CreateApartmentLogic.wallPoints.size(); wallIndex++) {
-                int[] wall = new int[2];
+            loopOverUndefinedWalls(g);
+        }
+    }
 
-                wall[0] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[0] * METER_INTO_PIXEL) / 10;
-                wall[1] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[1] * METER_INTO_PIXEL) / 10;
+    private int[] getFourWallsCoordinates() {
+        int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * METER_INTO_PIXEL) / 10;
+        int width = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * METER_INTO_PIXEL) / 10;
+        return CreateRoomNamesLogic.formatSizeParameterOutsideWalls(new int[]{length, width});
+    }
 
-                wall = CreateRoomNamesLogic.formatSizeParameterOutsideWalls(wall);
+    private void paintFourWalls(Graphics g, int[] coordinates) {
+        g.drawLine(100, 100, 100, (100 + coordinates[1]));
+        g.drawLine(100, 100, (100 + coordinates[0]), 100);
+        g.drawLine(100, (100 + coordinates[1]), (100 + coordinates[0]), (100 + coordinates[1]));
+        g.drawLine((100 + coordinates[0]), 100, (100 + coordinates[0]), (100 + coordinates[1]));
+    }
 
-                if (firstWall) {
-                    firstWall = false;
-                    g.drawLine(100, 100, wall[0], wall[1]);
+    private void loopOverUndefinedWalls(Graphics g) {
+        boolean isFirstWall = true;
+        for (int wallIndex = 0; wallIndex < CreateApartmentLogic.wallPoints.size(); wallIndex++) {
+            int[] wall = getUndefinedWallsCoordinates(wallIndex);
 
-                } else {
-                    int[] wallBefore = new int[2];
-                    wallBefore[0] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex -1)[0] * METER_INTO_PIXEL) / 10;
-                    wallBefore[1] = (int) (CreateApartmentLogic.wallPoints.get(wallIndex -1)[1] * METER_INTO_PIXEL) / 10;    
-                    wallBefore = CreateRoomNamesLogic.formatSizeParameterOutsideWalls(wallBefore);
-                    g.drawLine(wallBefore[0], wallBefore[1], wall[0], wall[1]);
-                }
+            if (isFirstWall) {
+                isFirstWall = false;
+                paintUndefinedWall(g, wall);
+            } else {
+                int[] wallBefore = getUndefinedWallsCoordinates(wallIndex - 1);
+                paintUndefinedWall(g, wall, wallBefore);
             }
         }
+    }
 
+    private int[] getUndefinedWallsCoordinates(int wallIndex) {
+        int x = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[0] * METER_INTO_PIXEL) / 10;
+        int y = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[1] * METER_INTO_PIXEL) / 10;
+        return CreateRoomNamesLogic.formatSizeParameterOutsideWalls(new int[]{ x, y });
+    }
+
+    private void paintUndefinedWall(Graphics g, int[] wall) {
+        g.drawLine(100, 100, wall[0], wall[1]);
+    }
+
+    private void paintUndefinedWall(Graphics g, int[] wall, int[] wallBefore) {
+        g.drawLine(wallBefore[0], wallBefore[1], wall[0], wall[1]);
+    }
+
+    private void paintInsideWalls(Graphics g) {
         int[][] walls = CreateRoomNamesLogic.formatSizeParameterInsideWalls();
         for (int[] wall: walls) {
             g.drawLine(wall[0], wall[1], wall[2], wall[3]);
         }
+    }
+
+    public void paint(Graphics g) {
+        g.setFont(new Font("Arial", Font.BOLD, 12));
+        g.drawString("This is Draw Line Example", 100, 70);
+        g.setColor(Color.BLACK);
+        chooseWallMode(g);
+        paintInsideWalls(g);
     }
 }
