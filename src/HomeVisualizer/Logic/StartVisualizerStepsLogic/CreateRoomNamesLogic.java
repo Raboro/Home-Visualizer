@@ -11,22 +11,8 @@ public class CreateRoomNamesLogic {
     private static int[] decreaseValueBy = { 5, 4, 2 };
     private static int[][] wallPoints = new int[CreateRoomsLogic.wallPoints.size()][4];
 
-    private static int[] translateValues(int[] values, int check) {
-        for (int i = 0; i < values.length; i++) {
-            values[i] /= decreaseValueBy[check];
-        }
-        return values;
-    }
-
     private static int getOnlyPositivValue(int value) {
         return value < 0 ? value * (-1) : value;
-    }
-
-    private static int[] changeZeroValue(int[] values) {
-        for (int value = 0; value < values.length; value++) {
-            values[value] = values[value] == 0 ? 100 : values[value];
-        }
-        return values;
     }
 
     private static int[] checkIfTranslateable(int[] values, int value) {
@@ -35,6 +21,20 @@ public class CreateRoomNamesLogic {
                 setDivideFactor(check);
                 values = translateValues(values, check);
             }
+        }
+        return values;
+    }
+
+    private static int[] translateValues(int[] values, int check) {
+        for (int i = 0; i < values.length; i++) {
+            values[i] /= decreaseValueBy[check];
+        }
+        return values;
+    }
+
+    private static int[] changeZeroValue(int[] values) {
+        for (int value = 0; value < values.length; value++) {
+            values[value] = values[value] == 0 ? 100 : values[value];
         }
         return values;
     }
