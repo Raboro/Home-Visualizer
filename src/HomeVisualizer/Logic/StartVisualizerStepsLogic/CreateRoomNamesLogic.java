@@ -29,7 +29,7 @@ public class CreateRoomNamesLogic {
         return values;
     }
 
-    private static int[] checkIfTranstalteable(int[] values, int value) {
+    private static int[] checkIfTranslateable(int[] values, int value) {
         for (int check = 0; check < checkValue.length; check++) {
             if (values[value] >= checkValue[check]) {
                 setDivideFactor(check);
@@ -52,7 +52,7 @@ public class CreateRoomNamesLogic {
     public static int[] formatSizeParameterOutsideWalls(int[] values) {
         for (int value = 0; value < values.length; value++) {
             values[value] = getOnlyPositivValue(values[value]);
-            values = checkIfTranstalteable(values, value);
+            values = checkIfTranslateable(values, value);
         }
         values = changeZeroValue(values);
         return values;
