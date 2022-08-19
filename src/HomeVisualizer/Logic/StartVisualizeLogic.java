@@ -26,6 +26,16 @@ public class StartVisualizeLogic {
     public static boolean userIsWorking = false;
     public static boolean finishedStartSteps = false;
 
+    private static <T> void setElementsVisibility(T[] element, boolean visibilty) {
+        for (int i = 0; i < element.length; i++) {
+            ((Component) element[i]).setVisible(visibilty);
+        }
+    }
+
+    private static <T> void setElementVisibility(T element, boolean visibilty) {
+        ((Component) element).setVisible(visibilty);
+    }
+
     private static void selectCurrentStep() {
         switch (currentState) {
             case CREATE_APARTMENT:
@@ -90,11 +100,8 @@ public class StartVisualizeLogic {
         addElementToPanel(NewProjectElementsGui.startSteps);
         addElementToPanel(NewProjectElementsGui.stepName);
 
-        for (int i = 0; i < NewProjectElementsGui.buttonsSteps.length; i++) {
-            NewProjectElementsGui.buttonsSteps[i].setVisible(true);
-        }
-
-        NewProjectElementsGui.startSteps.setVisible(true);
+        setElementsVisibility(NewProjectElementsGui.buttonsSteps, true);
+        setElementVisibility(NewProjectElementsGui.startSteps, true);
     }
 
     public static void startSteps() {
@@ -105,10 +112,10 @@ public class StartVisualizeLogic {
         userIsWorking = true;
 
         addElementToPanel(NewProjectElementsGui.continueSteps);
+        setElementVisibility(NewProjectElementsGui.continueSteps, true);
+        setElementVisibility(NewProjectElementsGui.stepName, true);
+        setElementVisibility(NewProjectElementsGui.startSteps, false);
 
-        NewProjectElementsGui.continueSteps.setVisible(true);
-        NewProjectElementsGui.stepName.setVisible(true);
-        NewProjectElementsGui.startSteps.setVisible(false);
         currentState = StepStates.CREATE_APARTMENT;
         selectCurrentStep();
     }
@@ -124,8 +131,7 @@ public class StartVisualizeLogic {
         if (stepState < 3) {
             NewProjectElementsGui.changeStateName();
         } else {
-            NewProjectElementsGui.continueSteps.setEnabled(false);
-            NewProjectElementsGui.continueSteps.setVisible(false);
+            setElementVisibility(NewProjectElementsGui.continueSteps, false);
             finishedStartSteps = true;
         }
     }
@@ -146,8 +152,7 @@ public class StartVisualizeLogic {
         addElementsToPanel(CreateApartmentGui.chooseWalls);
         StartVisualizeGui.panel.invalidate();
 
-        CreateApartmentGui.chooseWalls[0].setVisible(true);
-        CreateApartmentGui.chooseWalls[1].setVisible(true);
+        setElementsVisibility(CreateApartmentGui.chooseWalls, true);
         StartVisualizeGui.panel.invalidate();
     }
 }
