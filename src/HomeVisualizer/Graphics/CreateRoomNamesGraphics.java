@@ -9,12 +9,16 @@ import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateRoomNamesGraphics extends JFrame {
 
     private static final int HEIGHT = 1000;
     private static final int WIDTH = 1700;
     private static final int METER_INTO_PIXEL = 2; 
+
+    private static List<Integer> wallNames = new ArrayList<>();
 
     public CreateRoomNamesGraphics() {
         super("Show Apartment");
@@ -26,10 +30,19 @@ public class CreateRoomNamesGraphics extends JFrame {
 
     private void chooseWallMode(Graphics g) {
         if (CreateApartmentLogic.userChooseFourWalls) {
-            int[] coordinates = getFourWallsCoordinates();
-            paintFourWalls(g, coordinates);
+            initWallNames(5);
+
+            paintFourWalls(g, getFourWallsCoordinates());
+            paintFourWallName(g, getFourWallsCoordinates());
         } else {
+            initWallNames(CreateApartmentLogic.wallPoints.size() + 1);
             loopOverUndefinedWalls(g);
+        }
+    }
+
+    private void initWallNames(int wallNumber) {
+        for (int name = 1; name < wallNumber; name++) {
+            wallNames.add(name);
         }
     }
 
@@ -45,6 +58,13 @@ public class CreateRoomNamesGraphics extends JFrame {
         g.drawLine(100, (100 + coordinates[1]), (100 + coordinates[0]), (100 + coordinates[1]));
         g.drawLine((100 + coordinates[0]), 100, (100 + coordinates[0]), (100 + coordinates[1]));
     }
+
+    private void paintFourWallName(Graphics g, int[] coordinates) {
+        g.drawString(Integer.toString(wallNames.get(0)), 100 + (coordinates[0]/2), 80);
+        g.drawString(Integer.toString(wallNames.get(1)), (120 + coordinates[0]), (100 + coordinates[1] / 2));
+        g.drawString(Integer.toString(wallNames.get(2)), (100 + coordinates[0]/2), (120 + coordinates[1]));
+        g.drawString(Integer.toString(wallNames.get(3)), 80, 100 + (coordinates[1]/2));
+    } 
 
     private void loopOverUndefinedWalls(Graphics g) {
         boolean isFirstWall = true;
@@ -84,7 +104,6 @@ public class CreateRoomNamesGraphics extends JFrame {
 
     public void paint(Graphics g) {
         g.setFont(new Font("Arial", Font.BOLD, 12));
-        g.drawString("This is Draw Line Example", 100, 70);
         g.setColor(Color.BLACK);
         chooseWallMode(g);
         paintInsideWalls(g);
