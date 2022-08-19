@@ -32,10 +32,6 @@ public class StartVisualizeLogic {
         }
     }
 
-    private static <T> void setElementVisibility(T element, boolean visibilty) {
-        ((Component) element).setVisible(visibilty);
-    }
-
     private static void selectCurrentStep() {
         switch (currentState) {
             case CREATE_APARTMENT:
@@ -101,7 +97,7 @@ public class StartVisualizeLogic {
         addElementToPanel(NewProjectElementsGui.stepName);
 
         setElementsVisibility(NewProjectElementsGui.buttonsSteps, true);
-        setElementVisibility(NewProjectElementsGui.startSteps, true);
+        NewProjectElementsGui.startSteps.setVisible(true);
     }
 
     public static void startSteps() {
@@ -112,10 +108,10 @@ public class StartVisualizeLogic {
         userIsWorking = true;
 
         addElementToPanel(NewProjectElementsGui.continueSteps);
-        setElementVisibility(NewProjectElementsGui.continueSteps, true);
-        setElementVisibility(NewProjectElementsGui.stepName, true);
-        setElementVisibility(NewProjectElementsGui.startSteps, false);
 
+        NewProjectElementsGui.continueSteps.setVisible(true);
+        NewProjectElementsGui.stepName.setVisible(true);
+        NewProjectElementsGui.startSteps.setVisible(false);
         currentState = StepStates.CREATE_APARTMENT;
         selectCurrentStep();
     }
@@ -131,7 +127,7 @@ public class StartVisualizeLogic {
         if (stepState < 3) {
             NewProjectElementsGui.changeStateName();
         } else {
-            setElementVisibility(NewProjectElementsGui.continueSteps, false);
+            NewProjectElementsGui.continueSteps.setVisible(false);
             finishedStartSteps = true;
         }
     }
