@@ -93,7 +93,6 @@ public class CreateRoomNamesGraphics extends JFrame {
 
     private void paintUndefinedWallName(Graphics g, int[] wall, int[] wallBefore) {
         int[] point = CreateRoomNamesLogic.getPositionToDrawWallName(wallBefore, wall);
-        System.out.println(point[0] + "x, " + point[1]);
         g.drawString(Integer.toString(wallNames.get(currentWallName)), point[0], point[1]);
     } 
 
