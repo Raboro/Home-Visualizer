@@ -18,7 +18,8 @@ public class CreateRoomNamesGraphics extends JFrame {
     private static final int WIDTH = 1700;
     private static final int METER_INTO_PIXEL = 2; 
 
-    private static List<Integer> wallNames = new ArrayList<>();
+    private List<Integer> wallNames = new ArrayList<>();
+    private int currentWallName = 0;
 
     public CreateRoomNamesGraphics() {
         super("Show Apartment");
@@ -73,11 +74,14 @@ public class CreateRoomNamesGraphics extends JFrame {
 
             if (isFirstWall) {
                 isFirstWall = false;
-                paintUndefinedWall(g, wall);
+                paintUndefinedWall(g, wall, new int[]{ 100, 100 });
+                paintUndefinedWallName(g, wall, new int[]{ 100, 100 });
             } else {
                 int[] wallBefore = getUndefinedWallsCoordinates(wallIndex - 1);
+                paintUndefinedWallName(g, wall, wallBefore);
                 paintUndefinedWall(g, wall, wallBefore);
             }
+            currentWallName += 1;
         }
     }
 
@@ -87,9 +91,11 @@ public class CreateRoomNamesGraphics extends JFrame {
         return CreateRoomNamesLogic.formatSizeParameterOutsideWalls(new int[]{ x, y });
     }
 
-    private void paintUndefinedWall(Graphics g, int[] wall) {
-        g.drawLine(100, 100, wall[0], wall[1]);
-    }
+    private void paintUndefinedWallName(Graphics g, int[] wall, int[] wallBefore) {
+        int[] point = CreateRoomNamesLogic.getPositionToDrawWallName(wallBefore, wall);
+        System.out.println(point[0] + "x, " + point[1]);
+        g.drawString(Integer.toString(wallNames.get(currentWallName)), point[0], point[1]);
+    } 
 
     private void paintUndefinedWall(Graphics g, int[] wall, int[] wallBefore) {
         g.drawLine(wallBefore[0], wallBefore[1], wall[0], wall[1]);

@@ -39,6 +39,39 @@ public class CreateRoomNamesLogic {
         return values;
     }
 
+    private static boolean isOnePositionChange(int[] wallBefore, int[] wall) {
+        boolean isHorizontalEqual = wallBefore[0] == wall[0];
+        boolean isVerticalEqual = wallBefore[1] == wall[1];
+
+        if ((isHorizontalEqual && !isVerticalEqual) || (!isHorizontalEqual && isVerticalEqual)) {
+            return true;
+        } 
+        return false;
+    }
+
+    private static int[] getPositionWallNameHorizontal(int[] wallBefore, int[] wall) {
+        int xPos = wall[0] == 100 ? wall[0] - 20 : wall[0] + 20; 
+        int yPos = (wall[1] + wallBefore[1]) / 2;
+        return new int[]{ xPos, yPos };
+    }
+
+    private static int[] getPositionWallNameVertical(int[] wallBefore, int[] wall) {
+        int xPos = (wall[0] + wallBefore[0]) / 2;
+        int yPos = wall[1] == 100 ? wall[1] - 20 : wall[1] + 20;
+        return new int[]{ xPos, yPos };
+    }
+
+    private static int[] calculateDrawPositionWallName(int[] wallBefore, int[] wall) {
+        if (isOnePositionChange(wallBefore, wall)) {
+            if (wallBefore[0] == wall[0]) {
+                return getPositionWallNameHorizontal(wallBefore, wall);
+            } else {
+                return getPositionWallNameVertical(wallBefore, wall);
+            }
+        } else {}
+        return new int[]{ 0, 0 };
+    }
+
     public static void init() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -69,6 +102,10 @@ public class CreateRoomNamesLogic {
             }
         }
         return wallPoints;
+    }
+
+    public static int[] getPositionToDrawWallName(int[] wallBefore, int[] wall) {
+        return calculateDrawPositionWallName(wallBefore, wall);
     }
 
     private static void setDivideFactor(int check) {
