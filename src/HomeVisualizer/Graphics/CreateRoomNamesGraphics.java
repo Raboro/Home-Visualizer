@@ -31,7 +31,7 @@ public class CreateRoomNamesGraphics extends JFrame {
     }
 
     public void paint(Graphics g) {
-        g.setFont(new Font("Arial", Font.BOLD, 12));
+        g.setFont(new Font("Arial", Font.PLAIN, 10));
         g.setColor(Color.BLACK);
         chooseWallMode(g);
         paintInsideWallNames(g);
