@@ -74,8 +74,9 @@ public class CreateRoomNamesLogic {
             } else {
                 return getPositionWallNameVertical(wallBefore, wall);
             }
-        } else {}
-        return new int[]{ 0, 0 };
+        } else {
+            return getPositionWallNameDiagonal(wallBefore, wall);
+        }
     }
 
     private static boolean isOnePositionChange(int[] wallBefore, int[] wall) {
@@ -98,6 +99,13 @@ public class CreateRoomNamesLogic {
         int xPos = (wall[0] + wallBefore[0]) / 2;
         int yPos = wall[1] == 100 ? wall[1] - 20 : wall[1] + 20;
         return new int[]{ xPos, yPos };
+    }
+
+    private static int[] getPositionWallNameDiagonal(int[] wallBefore, int[] wall) {
+        int xPos = (wall[0] + wallBefore[0]) / 2;
+        int yPos = (wall[1] + wallBefore[1]) / 2;
+        xPos = wall[0] > wallBefore[0] ? xPos + 20 : xPos - 20; 
+        return new int[] { xPos, yPos };
     }
 
     public static int[][] translateSizeParameterInsideWalls() {
