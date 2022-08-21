@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -33,17 +34,18 @@ public class CreateRoomNamesGraphics extends JFrame {
         g.setFont(new Font("Arial", Font.BOLD, 12));
         g.setColor(Color.BLACK);
         chooseWallMode(g);
+        paintInsideWallNames(g);
         paintInsideWalls(g);
     }
 
     private void chooseWallMode(Graphics g) {
         if (CreateApartmentLogic.userChooseFourWalls) {
-            initWallNames(5);
+            initWallNames(4 + CreateRoomsLogic.wallPoints.size() + 1);
 
             paintFourWalls(g, getFourWallsCoordinates());
             paintFourWallName(g, getFourWallsCoordinates());
         } else {
-            initWallNames(CreateApartmentLogic.wallPoints.size() + 1);
+            initWallNames((CreateApartmentLogic.wallPoints.size()) + (CreateRoomsLogic.wallPoints.size()) + 1);
             loopOverUndefinedWalls(g);
         }
     }
@@ -107,12 +109,19 @@ public class CreateRoomNamesGraphics extends JFrame {
         g.drawLine(wallBefore[0], wallBefore[1], wall[0], wall[1]);
     }
 
+    private void paintInsideWallNames(Graphics g) {
+        int[][] walls = CreateRoomNamesLogic.translateSizeParameterInsideWalls();
+        for (int[] wall : walls) {
+            int[] point = CreateRoomNamesLogic.getPositionToDrawWallName(new int[]{ wall[0], wall[1] }, new int[]{ wall[2], wall[3]});
+            g.drawString(Integer.toString(wallNames.get(currentWallName)), point[0], point[1]);
+            currentWallName += 1;
+        }
+    }
+
     private void paintInsideWalls(Graphics g) {
         int[][] walls = CreateRoomNamesLogic.translateSizeParameterInsideWalls();
         for (int[] wall: walls) {
             g.drawLine(wall[0], wall[1], wall[2], wall[3]);
         }
     }
-
-    
 }
