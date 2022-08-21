@@ -27,8 +27,8 @@ public class CreateRoomsGui {
     public static JButton[] actionButtons = { addWalls, finishedAddingWalls };
 
     public static void initButtons() {
-        addWalls.setBounds(730, 600, 100, 100);
-        finishedAddingWalls.setBounds(880, 600, 100, 100);
+        addWalls.setBounds(740, 600, 100, 100);
+        finishedAddingWalls.setBounds(890, 600, 100, 100);
 
         for (int button = 0; button < actionButtons.length; button++) {
             actionButtons[button].setBackground(CreateApartmentGui.CHOOSE_BUTTON_COLOR);
