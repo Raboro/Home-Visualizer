@@ -11,6 +11,25 @@ public class CreateRoomNamesLogic {
     private static int[] decreaseValueBy = { 5, 4, 2 };
     private static int[][] wallPoints = new int[CreateRoomsLogic.wallPoints.size()][4];
 
+    public static void init() {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                CreateRoomNamesGraphics g = new CreateRoomNamesGraphics();
+                g.setVisible(true);
+            }
+        });
+    }
+
+    public static int[] translateSizeParameterOutsideWalls(int[] values) {
+        for (int value = 0; value < values.length; value++) {
+            values[value] = getOnlyPositivValue(values[value]);
+            values = checkIfTranslateable(values, value);
+        }
+        values = changeZeroValue(values);
+        return values;
+    }
+
     private static int getOnlyPositivValue(int value) {
         return value < 0 ? value * (-1) : value;
     }
@@ -25,6 +44,11 @@ public class CreateRoomNamesLogic {
         return values;
     }
 
+    private static void setDivideFactor(int check) {
+        divideFactor = divideFactor == 0 ? divideFactor += decreaseValueBy[check]
+                : divideFactor <= decreaseValueBy[check] ? decreaseValueBy[check] : divideFactor;
+    }
+
     private static int[] translateValues(int[] values, int check) {
         for (int i = 0; i < values.length; i++) {
             values[i] /= decreaseValueBy[check];
@@ -37,6 +61,21 @@ public class CreateRoomNamesLogic {
             values[value] = values[value] == 0 ? 100 : values[value];
         }
         return values;
+    }
+
+    public static int[] getPositionToDrawWallName(int[] wallBefore, int[] wall) {
+        return calculateDrawPositionWallName(wallBefore, wall);
+    }
+
+    private static int[] calculateDrawPositionWallName(int[] wallBefore, int[] wall) {
+        if (isOnePositionChange(wallBefore, wall)) {
+            if (wallBefore[0] == wall[0]) {
+                return getPositionWallNameHorizontal(wallBefore, wall);
+            } else {
+                return getPositionWallNameVertical(wallBefore, wall);
+            }
+        } else {}
+        return new int[]{ 0, 0 };
     }
 
     private static boolean isOnePositionChange(int[] wallBefore, int[] wall) {
@@ -61,37 +100,7 @@ public class CreateRoomNamesLogic {
         return new int[]{ xPos, yPos };
     }
 
-    private static int[] calculateDrawPositionWallName(int[] wallBefore, int[] wall) {
-        if (isOnePositionChange(wallBefore, wall)) {
-            if (wallBefore[0] == wall[0]) {
-                return getPositionWallNameHorizontal(wallBefore, wall);
-            } else {
-                return getPositionWallNameVertical(wallBefore, wall);
-            }
-        } else {}
-        return new int[]{ 0, 0 };
-    }
-
-    public static void init() {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                CreateRoomNamesGraphics g = new CreateRoomNamesGraphics();
-                g.setVisible(true);
-            }
-        });
-    }
-
-    public static int[] formatSizeParameterOutsideWalls(int[] values) {
-        for (int value = 0; value < values.length; value++) {
-            values[value] = getOnlyPositivValue(values[value]);
-            values = checkIfTranslateable(values, value);
-        }
-        values = changeZeroValue(values);
-        return values;
-    }
-
-    public static int[][] formatSizeParameterInsideWalls() {
+    public static int[][] translateSizeParameterInsideWalls() {
         for (int wall = 0; wall < CreateRoomsLogic.wallPoints.size(); wall++) {
             for (int parameter = 0; parameter < 4; parameter++) {
                 wallPoints[wall][parameter] = (int) CreateRoomsLogic.wallPoints.get(wall)[parameter] / 10;
@@ -102,14 +111,5 @@ public class CreateRoomNamesLogic {
             }
         }
         return wallPoints;
-    }
-
-    public static int[] getPositionToDrawWallName(int[] wallBefore, int[] wall) {
-        return calculateDrawPositionWallName(wallBefore, wall);
-    }
-
-    private static void setDivideFactor(int check) {
-        divideFactor = divideFactor == 0 ? divideFactor += decreaseValueBy[check]
-                : divideFactor <= decreaseValueBy[check] ? decreaseValueBy[check] : divideFactor;
     }
 }

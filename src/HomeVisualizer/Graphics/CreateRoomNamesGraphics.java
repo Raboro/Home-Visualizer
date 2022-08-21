@@ -29,6 +29,13 @@ public class CreateRoomNamesGraphics extends JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    public void paint(Graphics g) {
+        g.setFont(new Font("Arial", Font.BOLD, 12));
+        g.setColor(Color.BLACK);
+        chooseWallMode(g);
+        paintInsideWalls(g);
+    }
+
     private void chooseWallMode(Graphics g) {
         if (CreateApartmentLogic.userChooseFourWalls) {
             initWallNames(5);
@@ -50,7 +57,7 @@ public class CreateRoomNamesGraphics extends JFrame {
     private int[] getFourWallsCoordinates() {
         int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * METER_INTO_PIXEL) / 10;
         int width = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * METER_INTO_PIXEL) / 10;
-        return CreateRoomNamesLogic.formatSizeParameterOutsideWalls(new int[]{length, width});
+        return CreateRoomNamesLogic.translateSizeParameterOutsideWalls(new int[]{length, width});
     }
 
     private void paintFourWalls(Graphics g, int[] coordinates) {
@@ -74,8 +81,8 @@ public class CreateRoomNamesGraphics extends JFrame {
 
             if (isFirstWall) {
                 isFirstWall = false;
-                paintUndefinedWall(g, wall, new int[]{ 100, 100 });
                 paintUndefinedWallName(g, wall, new int[]{ 100, 100 });
+                paintUndefinedWall(g, wall, new int[]{ 100, 100 });
             } else {
                 int[] wallBefore = getUndefinedWallsCoordinates(wallIndex - 1);
                 paintUndefinedWallName(g, wall, wallBefore);
@@ -88,7 +95,7 @@ public class CreateRoomNamesGraphics extends JFrame {
     private int[] getUndefinedWallsCoordinates(int wallIndex) {
         int x = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[0] * METER_INTO_PIXEL) / 10;
         int y = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[1] * METER_INTO_PIXEL) / 10;
-        return CreateRoomNamesLogic.formatSizeParameterOutsideWalls(new int[]{ x, y });
+        return CreateRoomNamesLogic.translateSizeParameterOutsideWalls(new int[]{ x, y });
     }
 
     private void paintUndefinedWallName(Graphics g, int[] wall, int[] wallBefore) {
@@ -101,16 +108,11 @@ public class CreateRoomNamesGraphics extends JFrame {
     }
 
     private void paintInsideWalls(Graphics g) {
-        int[][] walls = CreateRoomNamesLogic.formatSizeParameterInsideWalls();
+        int[][] walls = CreateRoomNamesLogic.translateSizeParameterInsideWalls();
         for (int[] wall: walls) {
             g.drawLine(wall[0], wall[1], wall[2], wall[3]);
         }
     }
 
-    public void paint(Graphics g) {
-        g.setFont(new Font("Arial", Font.BOLD, 12));
-        g.setColor(Color.BLACK);
-        chooseWallMode(g);
-        paintInsideWalls(g);
-    }
+    
 }
