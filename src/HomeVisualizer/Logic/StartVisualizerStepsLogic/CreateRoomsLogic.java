@@ -54,6 +54,15 @@ public class CreateRoomsLogic {
         double endXPos = Integer.parseInt(CreateRoomsGui.getEndXPos.getText()) * METER_INTO_PIXEL; 
         double endYPos = Integer.parseInt(CreateRoomsGui.getEndYPos.getText()) * METER_INTO_PIXEL;
         double[] point = { startXPos, startYPos, endXPos, endYPos };
+        checkIfWallIsAlreadyInArray(point);
+    }
+
+    private static void checkIfWallIsAlreadyInArray(double[] point) {
+        for (int i = 0; i < wallPoints.size(); i++) {
+            if (wallPoints.get(i)[0] == point[0] && wallPoints.get(i)[1] == point[1] && wallPoints.get(i)[2] == point[2] && wallPoints.get(i)[3] == point[3]) {
+                return;
+            }
+        }
         wallPoints.add(point);
     }
 

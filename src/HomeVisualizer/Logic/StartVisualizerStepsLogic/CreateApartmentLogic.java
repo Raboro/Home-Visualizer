@@ -50,7 +50,7 @@ public class CreateApartmentLogic {
                 double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * METER_INTO_PIXEL; 
                 double yPos = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * METER_INTO_PIXEL;
                 double[] point = { xPos, yPos };
-                wallPoints.add(point);
+                checkIfWallIsAlreadyInArray(point);
             }
  
             constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText()) * METER_INTO_PIXEL;
@@ -79,6 +79,15 @@ public class CreateApartmentLogic {
 
         StartVisualizeGui.panel.invalidate();
         NewProjectElementsGui.continueSteps.setEnabled(false);
+    }
+
+    private static void checkIfWallIsAlreadyInArray(double[] point) {
+        for (int i = 0; i < wallPoints.size(); i++) {
+            if (wallPoints.get(i)[0] == point[0] && wallPoints.get(i)[1] == point[1]) {
+                return;
+            }
+        }
+        wallPoints.add(point);
     }
 
     public static void userChooseFourWalls() {
