@@ -74,13 +74,13 @@ public class StartVisualizerActionListener implements ActionListener {
         }
 
         if (event.getSource() == CreateRoomsGui.addWalls) {
-            if (CreateRoomsLogic.isUserInputCorrectStepTwo()) {
+            if (CreateRoomsLogic.isUserInputCorrect()) {
                 CreateRoomsLogic.addWallsToArray();
             }
         }
 
         if (event.getSource() == CreateRoomsGui.finishedAddingWalls) {
-            if (CreateRoomsLogic.isUserInputCorrectStepTwo() && CreateRoomsLogic.wallPoints.size() > 2) {
+            if (CreateRoomsLogic.isUserInputCorrect() && CreateRoomsLogic.wallPoints.size() > 2) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 CreateRoomsLogic.finishedStepTwo();
             }

@@ -6,7 +6,7 @@ import java.util.List;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
-
+import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 
 public class CreateRoomsLogic {
@@ -15,15 +15,6 @@ public class CreateRoomsLogic {
 
     public static List<double[]> wallPoints = new ArrayList<>();
     
-    private static void setElementsVisibility(boolean visibility) {
-        for (int i = 0; i < CreateRoomsGui.positions.length; i++) {
-            CreateRoomsGui.positions[i].setVisible(visibility);
-            CreateRoomsGui.getPositions[i].setVisible(visibility);
-        }
-        CreateRoomsGui.actionButtons[0].setVisible(visibility);
-        CreateRoomsGui.actionButtons[1].setVisible(visibility);
-    }
-
     public static void init() {
         StartVisualizeLogic.addElementsToPanel(CreateRoomsGui.positions);
         StartVisualizeLogic.addElementsToPanel(CreateRoomsGui.getPositions);
@@ -33,7 +24,13 @@ public class CreateRoomsLogic {
         NewProjectElementsGui.continueSteps.setEnabled(false);
     }
 
-    public static boolean isUserInputCorrectStepTwo() {
+    private static void setElementsVisibility(boolean visibility) {
+        Logic.setElementsVisibility(CreateRoomsGui.positions, visibility);
+        Logic.setElementsVisibility(CreateRoomsGui.getPositions, visibility);
+        Logic.setElementsVisibility(CreateRoomsGui.actionButtons, visibility);
+    }
+
+    public static boolean isUserInputCorrect() {
         for (int parameter = 0; parameter < CreateRoomsGui.getPositions.length; parameter++) {
             try {
                     Integer.parseInt(CreateRoomsGui.getStartXPos.getText());
