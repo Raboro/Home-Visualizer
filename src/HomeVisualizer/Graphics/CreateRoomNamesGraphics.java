@@ -74,6 +74,7 @@ public class CreateRoomNamesGraphics extends JFrame {
         g.drawString(Integer.toString(wallNames.get(1)), (120 + coordinates[0]), (100 + coordinates[1] / 2));
         g.drawString(Integer.toString(wallNames.get(2)), (100 + coordinates[0]/2), (120 + coordinates[1]));
         g.drawString(Integer.toString(wallNames.get(3)), 80, 100 + (coordinates[1]/2));
+        currentWallName = 4;
     } 
 
     private void loopOverUndefinedWalls(Graphics g) {
