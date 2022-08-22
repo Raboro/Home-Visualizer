@@ -25,7 +25,6 @@ public class LoginActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        // show real chars of password || only * 
         if (event.getSource() == LoginGui.showPassword) {
             if (LoginGui.showPassword.isSelected()) {
                 LoginGui.password.setEchoChar((char) 0);
@@ -34,7 +33,6 @@ public class LoginActionListener implements ActionListener {
             }
         }
 
-        // login
         if (event.getSource() == LoginGui.loginButton) {
             LoginLogic logic = new LoginLogic(LoginGui.username.getText(), new String(LoginGui.password.getPassword()));
             String usernameToContinue = "";
@@ -50,7 +48,6 @@ public class LoginActionListener implements ActionListener {
             Main.continueAfterLogin(usernameToContinue);
         }
 
-        // sign up
         if (event.getSource() == LoginGui.signUpButton) {
             LoginLogic logic = new LoginLogic(LoginGui.username.getText(), new String(LoginGui.password.getPassword()));
             
