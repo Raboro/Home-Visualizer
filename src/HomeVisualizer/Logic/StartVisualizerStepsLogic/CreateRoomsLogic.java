@@ -51,16 +51,23 @@ public class CreateRoomsLogic {
         double endXPos = Integer.parseInt(CreateRoomsGui.getEndXPos.getText()) * METER_INTO_PIXEL; 
         double endYPos = Integer.parseInt(CreateRoomsGui.getEndYPos.getText()) * METER_INTO_PIXEL;
         double[] point = { startXPos, startYPos, endXPos, endYPos };
-        checkIfWallIsAlreadyInArray(point);
+        if (wallIsNotAlreadyInArray(point)) {
+            wallPoints.add(point);
+        }
     }
 
-    private static void checkIfWallIsAlreadyInArray(double[] point) {
+    private static boolean wallIsNotAlreadyInArray(double[] point) {
         for (int i = 0; i < wallPoints.size(); i++) {
-            if (wallPoints.get(i)[0] == point[0] && wallPoints.get(i)[1] == point[1] && wallPoints.get(i)[2] == point[2] && wallPoints.get(i)[3] == point[3]) {
-                return;
+            boolean x1PosIsEqual = wallPoints.get(i)[0] == point[0];
+            boolean y1PosIsEqual = wallPoints.get(i)[1] == point[1];
+            boolean x2PosIsEqual = wallPoints.get(i)[2] == point[2];
+            boolean y2PosIsEqual = wallPoints.get(i)[3] == point[3];
+
+            if (x1PosIsEqual && y1PosIsEqual && x2PosIsEqual && y2PosIsEqual) {
+                return false;
             }
         }
-        wallPoints.add(point);
+        return true;
     }
 
     public static void finishedStepTwo() {
