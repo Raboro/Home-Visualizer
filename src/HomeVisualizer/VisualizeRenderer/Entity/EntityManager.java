@@ -35,7 +35,7 @@ public class EntityManager {
     public void init(UserInput userInput) {
         this.userInput = userInput;
 
-        if (CreateApartmentLogic.userChooseFourWalls) {
+        if (CreateApartmentLogic.isFourWalls) {
             this.entities.add(BasicEntityBuilder.apartmentFourWalls(lengthApartment, hightApartment, widthApartment));
         } else {
             this.entities.add(BasicEntityBuilder.apartmentUndefinedWalls());

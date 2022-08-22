@@ -39,7 +39,7 @@ public class CreateRoomNamesGraphics extends JFrame {
     }
 
     private void chooseWallMode(Graphics g) {
-        if (CreateApartmentLogic.userChooseFourWalls) {
+        if (CreateApartmentLogic.isFourWalls) {
             initWallNames(4 + CreateRoomsLogic.wallPoints.size() + 1);
 
             paintFourWalls(g, getFourWallsCoordinates());

@@ -45,22 +45,29 @@ public class StartVisualizerActionListener implements ActionListener {
         }
 
         if (event.getSource() == CreateApartmentGui.chooseWalls[1]) {
-            CreateApartmentLogic.userChooseMoreThenFourWalls();
+            CreateApartmentLogic.userChooseUndefinedWalls();
         }
 
         if (event.getSource() == CreateApartmentGui.finishedCreation) {
-            if (CreateApartmentLogic.isUserInputCorrectStepOne()) {
+            if (CreateApartmentLogic.isUserInputCorrect()) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 CreateApartmentLogic.finishedStepOne();
             }
         }
 
         if (event.getSource() == CreateApartmentGui.oneMoreWall) {
-            CreateApartmentLogic.userChooseMoreThenFourWalls();
+            if (CreateApartmentGui.oneMoreWall.getText() == "Add first wall") {
+                CreateApartmentLogic.addHeight();
+                if (CreateApartmentLogic.addHeightSuccesful) {
+                    CreateApartmentLogic.initAddWalls();
+                }
+            } else {
+                CreateApartmentLogic.addWall();
+            }
         }
 
         if (event.getSource() == CreateApartmentGui.finishedAddingWalls) {
-            if (CreateApartmentLogic.isUserInputCorrectStepOne() && CreateApartmentLogic.wallPoints.size() > 2) {
+            if (CreateApartmentLogic.isUserInputCorrect() && CreateApartmentLogic.wallPoints.size() > 2) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 CreateApartmentLogic.finishedStepOne();
             }

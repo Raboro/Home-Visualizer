@@ -15,7 +15,7 @@ public class CreateRoomsLogic {
 
     public static List<double[]> wallPoints = new ArrayList<>();
     
-    private static void setVisibleElements(boolean visibility) {
+    private static void setElementsVisibility(boolean visibility) {
         for (int i = 0; i < CreateRoomsGui.positions.length; i++) {
             CreateRoomsGui.positions[i].setVisible(visibility);
             CreateRoomsGui.getPositions[i].setVisible(visibility);
@@ -29,7 +29,7 @@ public class CreateRoomsLogic {
         StartVisualizeLogic.addElementsToPanel(CreateRoomsGui.getPositions);
         StartVisualizeLogic.addElementsToPanel(CreateRoomsGui.actionButtons);
         
-        setVisibleElements(true);
+        setElementsVisibility(true);
         NewProjectElementsGui.continueSteps.setEnabled(false);
     }
 
@@ -67,7 +67,7 @@ public class CreateRoomsLogic {
     }
 
     public static void finishedStepTwo() {
-        setVisibleElements(false);
+        setElementsVisibility(false);
         NewProjectElementsGui.continueSteps.setEnabled(true);
         StartVisualizeGui.createDisplay();
     }
