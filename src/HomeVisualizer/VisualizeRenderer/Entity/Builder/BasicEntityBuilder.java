@@ -47,8 +47,8 @@ public class BasicEntityBuilder {
         // add walls
         for (int wall = 0; wall < CreateApartmentLogic.wallPoints.size(); wall++) {
                 if (wall == 0) {
-                        MyPoint wallBottom = new MyPoint(CreateApartmentLogic.wallPoints.get(wall)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall)[1], 0);
-                        MyPoint wallTop = new MyPoint(CreateApartmentLogic.wallPoints.get(wall)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall)[1], CreateApartmentLogic.constantHeight);
+                        MyPoint wallBottom = new MyPoint(CreateApartmentLogic.wallPoints.get(wall).getX() - moveBackForView, CreateApartmentLogic.wallPoints.get(wall).getY(), 0);
+                        MyPoint wallTop = new MyPoint(CreateApartmentLogic.wallPoints.get(wall).getX() - moveBackForView, CreateApartmentLogic.wallPoints.get(wall).getY(), CreateApartmentLogic.constantHeight);
 
                         Tetrahedron oneWall = new Tetrahedron(
                                 new MyPolygon(startBottom, startTop, wallTop, wallBottom)
@@ -56,10 +56,10 @@ public class BasicEntityBuilder {
                         tetras.add(oneWall);
                         wallBottomPoints[wall + 1] = wallBottom;
                 } else {
-                        MyPoint wallBottomBefore = new MyPoint(CreateApartmentLogic.wallPoints.get(wall-1)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall-1)[1], 0);
-                        MyPoint wallTopBefore = new MyPoint(CreateApartmentLogic.wallPoints.get(wall-1)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall-1)[1], CreateApartmentLogic.constantHeight); 
-                        MyPoint wallBottom = new MyPoint(CreateApartmentLogic.wallPoints.get(wall)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall)[1], 0);
-                        MyPoint wallTop = new MyPoint(CreateApartmentLogic.wallPoints.get(wall)[0] - moveBackForView, CreateApartmentLogic.wallPoints.get(wall)[1], CreateApartmentLogic.constantHeight);
+                        MyPoint wallBottomBefore = new MyPoint(CreateApartmentLogic.wallPoints.get(wall-1).getX() - moveBackForView, CreateApartmentLogic.wallPoints.get(wall-1).getY(), 0);
+                        MyPoint wallTopBefore = new MyPoint(CreateApartmentLogic.wallPoints.get(wall-1).getX() - moveBackForView, CreateApartmentLogic.wallPoints.get(wall-1).getY(), CreateApartmentLogic.constantHeight); 
+                        MyPoint wallBottom = new MyPoint(CreateApartmentLogic.wallPoints.get(wall).getX() - moveBackForView, CreateApartmentLogic.wallPoints.get(wall).getY(), 0);
+                        MyPoint wallTop = new MyPoint(CreateApartmentLogic.wallPoints.get(wall).getX() - moveBackForView, CreateApartmentLogic.wallPoints.get(wall).getY(), CreateApartmentLogic.constantHeight);
                
                         Tetrahedron oneWall = new Tetrahedron(
                                 new MyPolygon(wallBottomBefore, wallTopBefore, wallTop, wallBottom)
@@ -131,10 +131,7 @@ public class BasicEntityBuilder {
         // wallBack.getPoints();
 
         MyPoint[] wallBackPoints = wallPolygons[0].getPoints();
-        MyPoint[] wallDownPoints = wallPolygons[1].getPoints();
         MyPoint[] wallLeftPoints = wallPolygons[2].getPoints();
-        MyPoint[] wallRightPoints = wallPolygons[3].getPoints();
-        MyPoint[] wallUpPoints = wallPolygons[4].getPoints();
         MyPoint[] wallFrontPoints = wallPolygons[5].getPoints();
 
         // back

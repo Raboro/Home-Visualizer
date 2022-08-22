@@ -96,8 +96,8 @@ public class CreateRoomNamesGraphics extends JFrame {
     }
 
     private int[] getUndefinedWallsCoordinates(int wallIndex) {
-        int x = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[0] * METER_INTO_PIXEL) / 10;
-        int y = (int) (CreateApartmentLogic.wallPoints.get(wallIndex)[1] * METER_INTO_PIXEL) / 10;
+        int x = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getX() * METER_INTO_PIXEL) / 10;
+        int y = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getY() * METER_INTO_PIXEL) / 10;
         return CreateRoomNamesLogic.translateSizeParameterOutsideWalls(new int[]{ x, y });
     }
 

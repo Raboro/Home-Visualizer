@@ -3,44 +3,45 @@ package HomeVisualizer.Logic.StartVisualizerStepsLogic;
 import java.util.ArrayList;
 import java.util.List;
 
+import HomeVisualizer.Graphics.Point2d;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 
 public class CreateApartmentLogic {
-    
+
     private static final int METER_INTO_PIXEL = 2;
-    
+
     public static boolean isFourWalls;
     public static double constantHeight;
     public static boolean addHeightSuccesful = false;
-    public static List<double[]> wallPoints = new ArrayList<>();
-    
+    public static List<Point2d> wallPoints = new ArrayList<>();
+
     public static void userChooseFourWalls() {
         Logic.setElementsVisibility(CreateApartmentGui.chooseWalls, false);
         isFourWalls = true;
         initFourWalls();
     }
-    
+
     private static void initFourWalls() {
         addElemetsToPanelFourWalls();
         CreateApartmentGui.finishedCreation.setVisible(true);
         Logic.setElementsVisibility(CreateApartmentGui.apartmentParameter, true);
         Logic.setElementsVisibility(CreateApartmentGui.getApartmentParameter, true);
     }
-    
+
     private static void addElemetsToPanelFourWalls() {
         StartVisualizeLogic.addElementToPanel(CreateApartmentGui.finishedCreation);
         StartVisualizeLogic.addElementsToPanel(CreateApartmentGui.apartmentParameter);
         StartVisualizeLogic.addElementsToPanel(CreateApartmentGui.getApartmentParameter);
     }
-    
+
     public static void userChooseUndefinedWalls() {
         Logic.setElementsVisibility(CreateApartmentGui.chooseWalls, false);
         isFourWalls = false;
         initUndefinedWalls();
     }
-    
+
     private static void initUndefinedWalls() {
         addElemetsToPanelUndefinedWalls();
         CreateApartmentGui.height.setVisible(true);
@@ -76,20 +77,20 @@ public class CreateApartmentLogic {
 
         Logic.setElementsVisibility(CreateApartmentGui.undefinedApartmentParameter, true);
         Logic.setElementsVisibility(CreateApartmentGui.getUndefinedApartmentParameter, true);
-    } 
+    }
 
     public static void addWall() {
-        double xPos = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * METER_INTO_PIXEL; 
-        double yPos = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * METER_INTO_PIXEL;
-        double[] point = { xPos, yPos };
+        double x = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * METER_INTO_PIXEL;
+        double y = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * METER_INTO_PIXEL;
+        Point2d point = new Point2d(x, y);
         if (wallIsNotAlreadyInArray(point)) {
             wallPoints.add(point);
         }
     }
 
-    private static boolean wallIsNotAlreadyInArray(double[] point) {
-        for (int i = 0; i < wallPoints.size(); i++) {
-            if (wallPoints.get(i)[0] == point[0] && wallPoints.get(i)[1] == point[1]) {
+    private static boolean wallIsNotAlreadyInArray(Point2d point) {
+        for (Point2d loopPoint : wallPoints) {
+            if (loopPoint.getX() == point.getX() && loopPoint.getY() == point.getY()) {
                 return false;
             }
         }
