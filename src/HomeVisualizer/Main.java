@@ -18,7 +18,7 @@ public class Main {
 
     public static void continueAfterLogin(String username) {
         login.dispose();
-        if (!(username == null)) {
+        if (!(username == "")) {
             new StartVisualizeGui(username);
         }
     }

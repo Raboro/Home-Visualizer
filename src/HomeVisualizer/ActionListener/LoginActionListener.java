@@ -37,18 +37,15 @@ public class LoginActionListener implements ActionListener {
         // login
         if (event.getSource() == LoginGui.loginButton) {
             LoginLogic logic = new LoginLogic(LoginGui.username.getText(), new String(LoginGui.password.getPassword()));
-            boolean isLoginSuccessful = false;
-            String usernameToContinue = null;
+            String usernameToContinue = "";
             
             try {
-                isLoginSuccessful = logic.login();
+                if (logic.login()) {
+                    usernameToContinue = LoginGui.username.getText();
+                }
             } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException
                     | IllegalBlockSizeException | BadPaddingException | SQLException | IOException e) {
                 e.printStackTrace();
-            }
-
-            if (isLoginSuccessful) {
-                usernameToContinue = LoginGui.username.getText();
             }
             Main.continueAfterLogin(usernameToContinue);
         }
