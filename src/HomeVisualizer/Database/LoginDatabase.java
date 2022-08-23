@@ -14,7 +14,7 @@ public class LoginDatabase extends Database {
         }
     }
 
-    public boolean userNotInDatabase(int username) throws SQLException {
+    private boolean userNotInDatabase(int username) throws SQLException {
         PreparedStatement userExistsCheck = connection.prepareStatement("SELECT * FROM UserDatabase");
         ResultSet result = userExistsCheck.executeQuery();
 
