@@ -2,6 +2,7 @@ package HomeVisualizer.Gui.VisualizeMain.StepsGui;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -43,23 +44,21 @@ public class CreateApartmentGui {
     public static void initChooseWallsButtons() {
         fourWalls.setBounds(730, 400, 100, 100);
         undefinedWalls.setBounds(880, 400, 100, 100);
-
-        for (int button = 0; button < chooseWalls.length; button++) {
-            chooseWalls[button].setBackground(Colors.CHOOSE_BUTTON_COLOR);
-            chooseWalls[button].setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
-            chooseWalls[button].setVisible(false);
-        }
+        editButtonProperty(chooseWalls);
     }
 
     public static void initFinishedCreation() {
         finishedCreation.setBounds(790, 500, 150, 60);
         finishedAddingWalls.setBounds(900, 500, 150, 60);
         oneMoreWall.setBounds(670, 500, 200, 60);
+        editButtonProperty(actionButtons);
+    }
 
-        for (int i = 0; i < actionButtons.length; i++) {
-            actionButtons[i].setBackground(Colors.CHOOSE_BUTTON_COLOR);
-            actionButtons[i].setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
-            actionButtons[i].setVisible(false);
+    private static void editButtonProperty(JButton[] elements) {
+        for (JButton element : elements) {
+            element.setBackground(Colors.CHOOSE_BUTTON_COLOR);
+            element.setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
+            element.setVisible(false);
         }
     }
 
@@ -71,15 +70,8 @@ public class CreateApartmentGui {
         xPos.setBounds(737, 300, 70, 20);
         yPos.setBounds(937, 300, 70, 20);
 
-        for (int parameter = 0; parameter < apartmentParameter.length; parameter++) {
-            apartmentParameter[parameter].setVisible(false);
-            apartmentParameter[parameter].setFont(new Font("Arial", Font.BOLD, 15));
-
-            if (parameter > 1) {continue;}
-
-            undefinedApartmentParameter[parameter].setVisible(false);
-            undefinedApartmentParameter[parameter].setFont(new Font("Arial", Font.BOLD, 15));
-        }
+        editLabelsAndTexFieldsProperty(apartmentParameter);
+        editLabelsAndTexFieldsProperty(undefinedApartmentParameter);
     }
 
     public static void initTextFields() {
@@ -90,14 +82,14 @@ public class CreateApartmentGui {
         getXPos.setBounds(737, 320, 60, 28);
         getYPos.setBounds(937, 320, 55, 28);
 
-        for (int parameter = 0; parameter < apartmentParameter.length; parameter++) {
-            getApartmentParameter[parameter].setVisible(false);
-            getApartmentParameter[parameter].setFont(new Font("Arial", Font.BOLD, 15));
+        editLabelsAndTexFieldsProperty(getApartmentParameter);
+        editLabelsAndTexFieldsProperty(getUndefinedApartmentParameter);
+    }
 
-            if (parameter > 1) {continue;}
-
-            getUndefinedApartmentParameter[parameter].setVisible(false);
-            getUndefinedApartmentParameter[parameter].setFont(new Font("Arial", Font.BOLD, 15));
+    private static <T> void editLabelsAndTexFieldsProperty(T[] elements) {
+        for (T element : elements) {
+            ((JComponent) element).setVisible(false);
+            ((JComponent) element).setFont(new Font("Arial", Font.BOLD, 15));
         }
     }
 }
