@@ -12,11 +12,10 @@ import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.VisualizeRenderer.Display;
 
 public class StartVisualizeGui extends Frame {
-
+    
+    public static JPanel panel;
     private static final int HEIGHT = 1000;
     private static final int WIDTH = 1700;
-
-    public static JPanel panel;
 
     public StartVisualizeGui(String user) {
         super(user, WIDTH, HEIGHT);
@@ -42,12 +41,10 @@ public class StartVisualizeGui extends Frame {
 
     public static void loadNewProjectGui() {
         StartVisualizeLogic.loadNewProjectGui();
-        panel.invalidate();
     }
 
     public static void startSteps() {
         StartVisualizeLogic.startSteps();
-        panel.invalidate();
     }
 
     public static void createDisplay() {
