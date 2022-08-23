@@ -10,6 +10,11 @@ public class StartVisualizeElementsGui {
     public static JMenu menuProjects, submenuOpenProjects, tutorial, help, submenuControl;
     public static JMenuItem newProject, openProject, renameProject, deleteProject, threeDVisualizer;
 
+    public static void initMenu() {
+        initMenuElements();
+        addMenuElementsToMenu();
+    }
+
     private static void initMenuElements() {
         menuBar = new JMenuBar();
         menuBar.setVisible(false);
@@ -42,10 +47,5 @@ public class StartVisualizeElementsGui {
         menuBar.add(menuProjects);
         menuBar.add(tutorial);
         menuBar.add(help);
-    }
-
-    public static void initMenu() {
-        initMenuElements();
-        addMenuElementsToMenu();
     }
 }
