@@ -4,6 +4,7 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -45,11 +46,7 @@ public class CreateRoomsGui {
         StartYPos.setBounds(737, 300, 100, 20);
         EndXPos.setBounds(937, 300, 100, 20);
         EndYPos.setBounds(1137, 300, 70, 20);
-
-        for (int parameter = 0; parameter < positions.length; parameter++) {
-            positions[parameter].setVisible(false);
-            positions[parameter].setFont(new Font("Arial", Font.BOLD, 15));
-        }
+        editGuiElementsProperty(positions);
     }
 
     public static void initTextFields() {
@@ -57,10 +54,13 @@ public class CreateRoomsGui {
         getStartYPos.setBounds(737, 320, 100, 20);
         getEndXPos.setBounds(937, 320, 100, 20);
         getEndYPos.setBounds(1137, 320, 70, 20);
+        editGuiElementsProperty(getPositions);
+    }
 
-        for (int parameter = 0; parameter < getPositions.length; parameter++) {
-            getPositions[parameter].setVisible(false);
-            getPositions[parameter].setFont(new Font("Arial", Font.BOLD, 15));
+    private static <T> void editGuiElementsProperty(T[] elements) {
+        for (T element: elements) {
+            ((JComponent) element).setVisible(false);
+            ((JComponent) element).setFont(new Font("Arial", Font.BOLD, 15));
         }
     }
 }
