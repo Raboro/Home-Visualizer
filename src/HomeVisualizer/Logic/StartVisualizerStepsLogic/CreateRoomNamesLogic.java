@@ -1,8 +1,11 @@
 package HomeVisualizer.Logic.StartVisualizerStepsLogic;
 
 import javax.swing.SwingUtilities;
+import java.awt.Component;
 
 import HomeVisualizer.Graphics.CreateRoomNamesGraphics;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
+import HomeVisualizer.Logic.Logic;
 
 public class CreateRoomNamesLogic {
 
@@ -19,6 +22,20 @@ public class CreateRoomNamesLogic {
                 g.setVisible(true);
             }
         });
+        addElementsToPanel(CreateRoomNamesGui.labels);
+        addElementsToPanel(CreateRoomNamesGui.fields);
+        setElementsVisibility(true);
+    }
+
+    public static <T> void addElementsToPanel(T[] elements) {
+        for (T element : elements) {
+            CreateRoomNamesGui.panel.add((Component) element);
+        }
+    }
+
+    public static <T> void setElementsVisibility(boolean visibility) {
+        Logic.setElementsVisibility(CreateRoomNamesGui.labels, visibility);
+        Logic.setElementsVisibility(CreateRoomNamesGui.fields, visibility);
     }
 
     public static int[] translateSizeParameterOutsideWalls(int[] values) {
@@ -120,4 +137,6 @@ public class CreateRoomNamesLogic {
         }
         return wallPoints;
     }
+
+    
 }

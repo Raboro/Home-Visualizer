@@ -13,6 +13,7 @@ import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StepStates;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
@@ -69,6 +70,8 @@ public class StartVisualizeLogic {
         CreateRoomsGui.initButtons();
         CreateRoomsGui.initLabels();
         CreateRoomsGui.initTextFields();
+
+        CreateRoomNamesGui.initializeGuiElements();
     }
 
     public static <T> void addElementsToPanel(T[] addElement) {
@@ -107,6 +110,7 @@ public class StartVisualizeLogic {
                 break;
             case CREATE_ROOM_NAMES:
                 CreateRoomNamesLogic.init();
+                new CreateRoomNamesGui();
                 break;
             case CREATE_DOORS:
         }
