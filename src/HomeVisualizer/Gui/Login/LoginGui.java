@@ -14,19 +14,19 @@ import HomeVisualizer.ActionListener.LoginActionListener;
 import HomeVisualizer.Gui.Frame;
 
 public class LoginGui extends Frame {
-    
-    private JPanel panel;
-    private JLabel usernameLabel, passwordLabel;
-    
-    private static final String TITLE = "Login";
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 500;
 
     public static JTextField username;
     public static JPasswordField password;
     public static JButton loginButton, signUpButton;
     public static JCheckBox showPassword;
+    
+    private static final String TITLE = "Login";
+    private static final int WIDTH = 500;
+    private static final int HEIGHT = 500;
 
+    private JPanel panel;
+    private JLabel usernameLabel, passwordLabel;
+    
     public LoginGui() {
         super(TITLE, WIDTH, HEIGHT);
         panel = new JPanel();
