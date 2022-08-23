@@ -26,7 +26,6 @@ public class StartVisualizeGui extends Frame {
         this.add(panel);
         createLayout();
 
-        StartVisualizeLogic.initNewProject();
         StartVisualizeLogic.addActionListenerToElements();
 
         StartVisualizeElementsGui.menuBar.setVisible(true);
