@@ -32,18 +32,18 @@ public class NewProjectElementsGui {
         }
     }
 
-    public static void stepButtonsRightBottom() {
-        firstStep.setBounds(1300, 850, 60, 60);
-        secondStep.setBounds(1400, 850, 60, 60);
-        thirdStep.setBounds(1500, 850, 60, 60);
-        fourthStep.setBounds(1600, 850, 60, 60);
-    }
-
     public static void stepButtonsCenter() {
         firstStep.setBounds(580, 400, 100, 100);
         secondStep.setBounds(730, 400, 100, 100);
         thirdStep.setBounds(880, 400, 100, 100);
         fourthStep.setBounds(1030, 400, 100, 100);
+    }
+
+    public static void stepButtonsRightBottom() {
+        firstStep.setBounds(1300, 850, 60, 60);
+        secondStep.setBounds(1400, 850, 60, 60);
+        thirdStep.setBounds(1500, 850, 60, 60);
+        fourthStep.setBounds(1600, 850, 60, 60);
     }
 
     public static void initStartStep() {
