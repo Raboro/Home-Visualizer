@@ -8,6 +8,7 @@ import javax.swing.BorderFactory;
 import HomeVisualizer.ActionListener.StartVisualizerActionListener;
 
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
+import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StepStates;
@@ -95,9 +96,9 @@ public class StartVisualizeLogic {
     }
 
     public static void startSteps() {
-        NewProjectElementsGui.buttonsSteps[0].setBackground(NewProjectElementsGui.IN_WORK_STEP_COLOR);
+        NewProjectElementsGui.buttonsSteps[0].setBackground(Colors.IN_WORK_STEP_COLOR);
         NewProjectElementsGui.buttonsSteps[0]
-                .setBorder(BorderFactory.createLineBorder(NewProjectElementsGui.IN_WORK_STEP_COLOR_BORDER, 6));
+                .setBorder(BorderFactory.createLineBorder(Colors.IN_WORK_STEP_COLOR_BORDER, 6));
         NewProjectElementsGui.stepButtonsRightBottom();
         userIsWorking = true;
 
@@ -113,9 +114,9 @@ public class StartVisualizeLogic {
     public static void continueAfterUserIsWorking() {
         userIsWorking = false;
         NewProjectElementsGui.stepName.setVisible(false);
-        NewProjectElementsGui.buttonsSteps[stepState].setBackground(NewProjectElementsGui.FINISHED_STEP_COLOR);
+        NewProjectElementsGui.buttonsSteps[stepState].setBackground(Colors.FINISHED_STEP_COLOR);
         NewProjectElementsGui.buttonsSteps[stepState]
-                .setBorder(BorderFactory.createLineBorder(NewProjectElementsGui.FINISHED_STEP_COLOR_BORDER, 6));
+                .setBorder(BorderFactory.createLineBorder(Colors.FINISHED_STEP_COLOR_BORDER, 6));
         NewProjectElementsGui.stepButtonsCenter();
 
         if (stepState < 3) {
@@ -131,9 +132,9 @@ public class StartVisualizeLogic {
         stepState += 1;
         currentState = stepArray[stepState];
         userIsWorking = true;
-        NewProjectElementsGui.buttonsSteps[stepState].setBackground(NewProjectElementsGui.IN_WORK_STEP_COLOR);
+        NewProjectElementsGui.buttonsSteps[stepState].setBackground(Colors.IN_WORK_STEP_COLOR);
         NewProjectElementsGui.buttonsSteps[stepState]
-                .setBorder(BorderFactory.createLineBorder(NewProjectElementsGui.IN_WORK_STEP_COLOR_BORDER, 6));
+                .setBorder(BorderFactory.createLineBorder(Colors.IN_WORK_STEP_COLOR_BORDER, 6));
         NewProjectElementsGui.stepButtonsRightBottom();
         selectCurrentStep();
     }

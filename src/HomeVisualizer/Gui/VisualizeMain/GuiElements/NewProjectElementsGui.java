@@ -1,6 +1,5 @@
 package HomeVisualizer.Gui.VisualizeMain.GuiElements;
 
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.BorderFactory;
@@ -19,27 +18,15 @@ public class NewProjectElementsGui {
 
     public static JButton startSteps = new JButton("Start");
     public static JButton continueSteps = new JButton("Continue");
-
-    public static final Color START_STEPS_COLOR = new Color(46, 134, 193);
-    public static final Color START_STEPS_COLOR_BORDER = new Color(46, 134, 255);
-
-    public static final Color UNFULFILLED_STEP_COLOR = new Color(238, 75, 43);
-    public static final Color UNFULFILLED_STEP_COLOR_BORDER = new Color(255, 105, 43);
-    public static final Color IN_WORK_STEP_COLOR = new Color(241, 196, 15);
-    public static final Color IN_WORK_STEP_COLOR_BORDER = new Color(247, 220, 111);
-    public static final Color FINISHED_STEP_COLOR = new Color(82, 190, 128);
-    public static final Color FINISHED_STEP_COLOR_BORDER = new Color(125, 206, 160);
-
     public static JLabel stepName = new JLabel("");
-
     public static JDialog creatingProjectNotFinished = new JDialog();
 
     public static void initStepButtons() {
         stepButtonsCenter();
 
         for (int step = 0; step < buttonsSteps.length; step++) {
-            buttonsSteps[step].setBackground(UNFULFILLED_STEP_COLOR);
-            buttonsSteps[step].setBorder(BorderFactory.createLineBorder(UNFULFILLED_STEP_COLOR_BORDER, 6));
+            buttonsSteps[step].setBackground(Colors.UNFULFILLED_STEP_COLOR);
+            buttonsSteps[step].setBorder(BorderFactory.createLineBorder(Colors.UNFULFILLED_STEP_COLOR_BORDER, 6));
             buttonsSteps[step].setVisible(false);
             buttonsSteps[step].setEnabled(false);
         }
@@ -60,16 +47,16 @@ public class NewProjectElementsGui {
     }
 
     public static void initStartStep() {
-        startSteps.setBackground(START_STEPS_COLOR);
+        startSteps.setBackground(Colors.START_STEPS_COLOR);
         startSteps.setBounds(755, 600, 200, 60);
-        startSteps.setBorder(BorderFactory.createLineBorder(START_STEPS_COLOR_BORDER, 6));
+        startSteps.setBorder(BorderFactory.createLineBorder(Colors.START_STEPS_COLOR_BORDER, 6));
         startSteps.setVisible(false);
     }
 
     public static void initContinueStep() {
-        continueSteps.setBackground(START_STEPS_COLOR);
+        continueSteps.setBackground(Colors.START_STEPS_COLOR);
         continueSteps.setBounds(765, 850, 200, 60);
-        continueSteps.setBorder(BorderFactory.createLineBorder(START_STEPS_COLOR_BORDER, 6));
+        continueSteps.setBorder(BorderFactory.createLineBorder(Colors.START_STEPS_COLOR_BORDER, 6));
         continueSteps.setVisible(false);
     }
 
