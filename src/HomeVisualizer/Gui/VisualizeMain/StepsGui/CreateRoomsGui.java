@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
+
 public class CreateRoomsGui {
 
     public static JLabel StartXPos = new JLabel("Start X Pos");
@@ -31,9 +33,9 @@ public class CreateRoomsGui {
         finishedAddingWalls.setBounds(890, 600, 100, 100);
 
         for (int button = 0; button < actionButtons.length; button++) {
-            actionButtons[button].setBackground(CreateApartmentGui.CHOOSE_BUTTON_COLOR);
+            actionButtons[button].setBackground(Colors.CHOOSE_BUTTON_COLOR);
             actionButtons[button]
-                    .setBorder(BorderFactory.createLineBorder(CreateApartmentGui.CHOOSE_BUTTON_COLOR_BORDER, 6));
+                    .setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
             actionButtons[button].setVisible(false);
         }
     }

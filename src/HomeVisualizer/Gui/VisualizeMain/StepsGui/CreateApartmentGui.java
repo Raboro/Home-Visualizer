@@ -5,7 +5,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import java.awt.Color;
+import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
+
 import java.awt.Font;
 
 public class CreateApartmentGui {
@@ -26,9 +27,6 @@ public class CreateApartmentGui {
 
     public static JButton finishedCreation = new JButton("Create");
 
-    public static final Color CHOOSE_BUTTON_COLOR = new Color(46, 134, 193);
-    public static final Color CHOOSE_BUTTON_COLOR_BORDER = new Color(46, 134, 255);
-
     public static JLabel xPos = new JLabel("X Pos");
     public static JLabel yPos = new JLabel("Y Pos");
     public static JLabel[] undefinedApartmentParameter = { xPos, yPos };
@@ -47,8 +45,8 @@ public class CreateApartmentGui {
         undefinedWalls.setBounds(880, 400, 100, 100);
 
         for (int button = 0; button < chooseWalls.length; button++) {
-            chooseWalls[button].setBackground(CHOOSE_BUTTON_COLOR);
-            chooseWalls[button].setBorder(BorderFactory.createLineBorder(CHOOSE_BUTTON_COLOR_BORDER, 6));
+            chooseWalls[button].setBackground(Colors.CHOOSE_BUTTON_COLOR);
+            chooseWalls[button].setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
             chooseWalls[button].setVisible(false);
         }
     }
@@ -59,8 +57,8 @@ public class CreateApartmentGui {
         oneMoreWall.setBounds(670, 500, 200, 60);
 
         for (int i = 0; i < actionButtons.length; i++) {
-            actionButtons[i].setBackground(CHOOSE_BUTTON_COLOR);
-            actionButtons[i].setBorder(BorderFactory.createLineBorder(CHOOSE_BUTTON_COLOR_BORDER, 6));
+            actionButtons[i].setBackground(Colors.CHOOSE_BUTTON_COLOR);
+            actionButtons[i].setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
             actionButtons[i].setVisible(false);
         }
     }
