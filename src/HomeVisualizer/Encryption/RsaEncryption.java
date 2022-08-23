@@ -23,28 +23,6 @@ import javax.crypto.NoSuchPaddingException;
 
 public class RsaEncryption {
 
-    private static PublicKey getPublicKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
-        File publicKeyFile = new File("/home/marius/Documents/abgabe_info/abgabe/public.key");
-        byte[] publicKeyBytes = Files.readAllBytes(publicKeyFile.toPath());
-
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-        EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeyBytes);
-        PublicKey publicKey = keyFactory.generatePublic(publicKeySpec);
-
-        return publicKey;
-    }
-
-    private static PrivateKey getprivateKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
-        File privateKeyFile = new File("/home/marius/Documents/abgabe_info/abgabe/private.key");
-        byte[] privateKeyBytes = Files.readAllBytes(privateKeyFile.toPath());
-
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-        EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
-        PrivateKey privateKey = keyFactory.generatePrivate(privateKeySpec);
-
-        return privateKey;
-    }
-
     public static byte[] encrypt(String message) throws NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeySpecException, IOException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         PublicKey publicKey = getPublicKey();
@@ -58,6 +36,17 @@ public class RsaEncryption {
         return encryptedMessageBytes;
     }
 
+    private static PublicKey getPublicKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+        File publicKeyFile = new File("/home/marius/Documents/abgabe_info/abgabe/public.key");
+        byte[] publicKeyBytes = Files.readAllBytes(publicKeyFile.toPath());
+
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeyBytes);
+        PublicKey publicKey = keyFactory.generatePublic(publicKeySpec);
+
+        return publicKey;
+    }
+
     public static String decrypt(byte[] message) throws NoSuchAlgorithmException, InvalidKeySpecException, IOException,
             NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         PrivateKey privateKey = getprivateKey();
@@ -69,5 +58,16 @@ public class RsaEncryption {
         String decryptedMessage = new String(decryptedMessageBytes, StandardCharsets.UTF_8);
 
         return decryptedMessage;
+    }
+
+    private static PrivateKey getprivateKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+        File privateKeyFile = new File("/home/marius/Documents/abgabe_info/abgabe/private.key");
+        byte[] privateKeyBytes = Files.readAllBytes(privateKeyFile.toPath());
+
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
+        PrivateKey privateKey = keyFactory.generatePrivate(privateKeySpec);
+
+        return privateKey;
     }
 }
