@@ -6,11 +6,13 @@ import java.awt.event.ActionListener;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 
 import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 public class StartVisualizerActionListener implements ActionListener {
@@ -84,6 +86,18 @@ public class StartVisualizerActionListener implements ActionListener {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 CreateRoomsLogic.finishedStepTwo();
             }
+        }
+
+        if (event.getSource() == CreateRoomNamesGui.addWall) {
+            CreateRoomNamesLogic.addWallName();
+        }
+
+        if (event.getSource() == CreateRoomNamesGui.finishRoom) {
+            CreateRoomNamesLogic.finishedRoom();
+        }
+
+        if (event.getSource() == CreateRoomNamesGui.finishedStep) {
+            CreateRoomNamesLogic.finishedStep();
         }
     }
 }

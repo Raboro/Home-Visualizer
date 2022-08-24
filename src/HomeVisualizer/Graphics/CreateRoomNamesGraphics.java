@@ -15,8 +15,8 @@ import java.util.List;
 
 public class CreateRoomNamesGraphics extends JFrame {
 
-    private static final int HEIGHT = 500;
-    private static final int WIDTH = 500;
+    private static final int HEIGHT = 700;
+    private static final int WIDTH = 700;
     private static final int METER_INTO_PIXEL = 2; 
 
     private List<Integer> wallNames = new ArrayList<>();
@@ -27,7 +27,7 @@ public class CreateRoomNamesGraphics extends JFrame {
 
         this.setSize(WIDTH, HEIGHT);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setLocation(330, 650);
+        this.setLocation(230, 550);
     }
 
     public void paint(Graphics g) {
@@ -124,5 +124,9 @@ public class CreateRoomNamesGraphics extends JFrame {
         for (int[] wall: walls) {
             g.drawLine(wall[0], wall[1], wall[2], wall[3]);
         }
+    }
+
+    public List<Integer> getWallNames() {
+        return this.wallNames;
     }
 }

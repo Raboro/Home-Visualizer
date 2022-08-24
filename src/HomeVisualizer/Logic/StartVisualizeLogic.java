@@ -43,6 +43,9 @@ public class StartVisualizeLogic {
         CreateApartmentGui.oneMoreWall.addActionListener(actionListener);
         CreateRoomsGui.addWalls.addActionListener(actionListener);
         CreateRoomsGui.finishedAddingWalls.addActionListener(actionListener);
+        CreateRoomNamesGui.finishedStep.addActionListener(actionListener);
+        CreateRoomNamesGui.addWall.addActionListener(actionListener);
+        CreateRoomNamesGui.finishRoom.addActionListener(actionListener);
     }
 
     public static void loadNewProjectGui() {
@@ -110,7 +113,6 @@ public class StartVisualizeLogic {
                 break;
             case CREATE_ROOM_NAMES:
                 CreateRoomNamesLogic.init();
-                new CreateRoomNamesGui();
                 break;
             case CREATE_DOORS:
         }

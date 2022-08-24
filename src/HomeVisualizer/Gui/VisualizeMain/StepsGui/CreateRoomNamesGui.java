@@ -2,6 +2,7 @@ package HomeVisualizer.Gui.VisualizeMain.StepsGui;
 
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,10 +11,11 @@ import javax.swing.JComponent;
 
 
 import HomeVisualizer.Gui.Frame;
+import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
 
 public class CreateRoomNamesGui extends Frame{
 
-    public static final int HEIGHT = 500;
+    public static final int HEIGHT = 700;
     public static final int WIDTH = 700;
     public static final String TITLE = "Room Names";
 
@@ -22,11 +24,10 @@ public class CreateRoomNamesGui extends Frame{
     public static JLabel wallName = new JLabel("Wall name");
 
     public static JLabel[] labels = { roomName, wallName };
-    public static JButton newRoom = new JButton("New Room");    
     public static JButton addWall = new JButton("Add wall");  
     public static JButton finishRoom = new JButton("Add Room");  
     public static JButton finishedStep = new JButton("Finished");  
-    public static JButton[] buttons = { newRoom, addWall, finishRoom, finishedStep };
+    public static JButton[] buttons = { addWall, finishRoom, finishedStep };
     public static JTextField getRoomName = new JTextField();
     public static JTextField getWallName = new JTextField();
     public static JTextField[] fields = { getRoomName, getWallName };
@@ -36,7 +37,7 @@ public class CreateRoomNamesGui extends Frame{
         this.add(panel);
         panel.setLayout(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setLocation(930, 650);
+        this.setLocation(1030, 550);
         this.setVisible(true);
     }
 
@@ -53,6 +54,10 @@ public class CreateRoomNamesGui extends Frame{
     }
     
     private static void initializeButtons() {
+        finishRoom.setBounds(200, 200, 100, 50);
+        addWall.setBounds(400, 200, 85, 50);
+        finishedStep.setBounds(300, 400, 100, 50);
+        editButtonsProperty();
     }
 
     private static void initializeTextFields() {
@@ -67,4 +72,13 @@ public class CreateRoomNamesGui extends Frame{
             ((JComponent) element).setFont(new Font("Arial", Font.BOLD, 15));
         }
     }   
+
+    private static void editButtonsProperty() {
+        for (int button = 0; button < buttons.length; button++) {
+            buttons[button].setBackground(Colors.CHOOSE_BUTTON_COLOR);
+            buttons[button]
+                    .setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
+            buttons[button].setVisible(false);
+        }
+    } 
 }
