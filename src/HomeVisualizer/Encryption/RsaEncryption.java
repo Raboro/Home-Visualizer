@@ -49,7 +49,7 @@ public class RsaEncryption {
 
     public static String decrypt(byte[] message) throws NoSuchAlgorithmException, InvalidKeySpecException, IOException,
             NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        PrivateKey privateKey = getprivateKey();
+        PrivateKey privateKey = getPrivateKey();
 
         Cipher decryptCipher = Cipher.getInstance("RSA");
         decryptCipher.init(Cipher.DECRYPT_MODE, privateKey);
@@ -60,7 +60,7 @@ public class RsaEncryption {
         return decryptedMessage;
     }
 
-    private static PrivateKey getprivateKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+    private static PrivateKey getPrivateKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
         File privateKeyFile = new File("/home/marius/Documents/abgabe_info/abgabe/private.key");
         byte[] privateKeyBytes = Files.readAllBytes(privateKeyFile.toPath());
 
