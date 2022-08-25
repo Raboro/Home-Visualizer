@@ -5,7 +5,7 @@ import java.util.List;
 
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGuiElements;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 
@@ -14,27 +14,27 @@ public class CreateRoomsLogic {
     public static List<double[]> wallPoints = new ArrayList<>();
     
     public static void init() {
-        StartVisualizeLogic.addElementsToPanel(CreateRoomsGui.positions);
-        StartVisualizeLogic.addElementsToPanel(CreateRoomsGui.getPositions);
-        StartVisualizeLogic.addElementsToPanel(CreateRoomsGui.actionButtons);
+        StartVisualizeLogic.addElementsToPanel(CreateRoomsGuiElements.positions);
+        StartVisualizeLogic.addElementsToPanel(CreateRoomsGuiElements.getPositions);
+        StartVisualizeLogic.addElementsToPanel(CreateRoomsGuiElements.actionButtons);
         
         setElementsVisibility(true);
         NewProjectElementsGui.continueSteps.setEnabled(false);
     }
 
     private static void setElementsVisibility(boolean visibility) {
-        Logic.setElementsVisibility(CreateRoomsGui.positions, visibility);
-        Logic.setElementsVisibility(CreateRoomsGui.getPositions, visibility);
-        Logic.setElementsVisibility(CreateRoomsGui.actionButtons, visibility);
+        Logic.setElementsVisibility(CreateRoomsGuiElements.positions, visibility);
+        Logic.setElementsVisibility(CreateRoomsGuiElements.getPositions, visibility);
+        Logic.setElementsVisibility(CreateRoomsGuiElements.actionButtons, visibility);
     }
 
     public static boolean isUserInputCorrect() {
-        for (int parameter = 0; parameter < CreateRoomsGui.getPositions.length; parameter++) {
+        for (int parameter = 0; parameter < CreateRoomsGuiElements.getPositions.length; parameter++) {
             try {
-                    Integer.parseInt(CreateRoomsGui.getStartXPos.getText());
-                    Integer.parseInt(CreateRoomsGui.getStartYPos.getText());
-                    Integer.parseInt(CreateRoomsGui.getEndXPos.getText());
-                    Integer.parseInt(CreateRoomsGui.getEndYPos.getText());
+                    Integer.parseInt(CreateRoomsGuiElements.getStartXPos.getText());
+                    Integer.parseInt(CreateRoomsGuiElements.getStartYPos.getText());
+                    Integer.parseInt(CreateRoomsGuiElements.getEndXPos.getText());
+                    Integer.parseInt(CreateRoomsGuiElements.getEndYPos.getText());
                 }
             catch (Exception e) {
                 return false;
@@ -44,10 +44,10 @@ public class CreateRoomsLogic {
     }
 
     public static void addWallsToArray() {
-        double startXPos = Integer.parseInt(CreateRoomsGui.getStartXPos.getText()) * Logic.METER_INTO_PIXEL; 
-        double startYPos = Integer.parseInt(CreateRoomsGui.getStartYPos.getText()) * Logic.METER_INTO_PIXEL;
-        double endXPos = Integer.parseInt(CreateRoomsGui.getEndXPos.getText()) * Logic.METER_INTO_PIXEL; 
-        double endYPos = Integer.parseInt(CreateRoomsGui.getEndYPos.getText()) * Logic.METER_INTO_PIXEL;
+        double startXPos = Integer.parseInt(CreateRoomsGuiElements.getStartXPos.getText()) * Logic.METER_INTO_PIXEL; 
+        double startYPos = Integer.parseInt(CreateRoomsGuiElements.getStartYPos.getText()) * Logic.METER_INTO_PIXEL;
+        double endXPos = Integer.parseInt(CreateRoomsGuiElements.getEndXPos.getText()) * Logic.METER_INTO_PIXEL; 
+        double endYPos = Integer.parseInt(CreateRoomsGuiElements.getEndYPos.getText()) * Logic.METER_INTO_PIXEL;
         double[] point = { startXPos, startYPos, endXPos, endYPos };
         if (wallIsNotAlreadyInArray(point)) {
             wallPoints.add(point);

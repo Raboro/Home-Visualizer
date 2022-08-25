@@ -7,7 +7,7 @@ import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGuiElements;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 
 import HomeVisualizer.Logic.StartVisualizeLogic;
@@ -75,13 +75,13 @@ public class StartVisualizerActionListener implements ActionListener {
             }
         }
 
-        if (event.getSource() == CreateRoomsGui.addWalls) {
+        if (event.getSource() == CreateRoomsGuiElements.addWalls) {
             if (CreateRoomsLogic.isUserInputCorrect()) {
                 CreateRoomsLogic.addWallsToArray();
             }
         }
 
-        if (event.getSource() == CreateRoomsGui.finishedAddingWalls) {
+        if (event.getSource() == CreateRoomsGuiElements.finishedAddingWalls) {
             if (CreateRoomsLogic.isUserInputCorrect() && CreateRoomsLogic.wallPoints.size() > 2) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 CreateRoomsLogic.finishedStepTwo();
