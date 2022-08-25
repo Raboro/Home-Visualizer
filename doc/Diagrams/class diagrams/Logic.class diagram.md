@@ -62,15 +62,25 @@ namespace Logic {
         {static} + finishedStepOne()
     }
 
-    class CreateRoomNamesLogic{
-        {static} - CreateRoomNamesGraphics graphics;
-        {static} - CreateRoomNamesGui gui;
-        {static} - divideFactor: int
-        {static} - checkValue = { 1000, 800, 600 }: int[]
-        {static} - decreaseValueBy = { 5, 4, 2 }: int[]
-        {static} - wallPoints = new int[CreateRoomsLogic.wallPoints.size()][4]: int[][]
-        {static} - wallNames = new ArrayList<>(): List<Integer>
-        {static} + roomNames = new ArrayList<>(): List<RoomNames>
+    class CreateRoomNamesLogicGui {
+        {static} - gui: CreateRommNamesGui
+        {static} - wallnames: List<Integer>
+        {static} + roomNames: List<RoomNames>
+        {static} - isUserGiveRightInput(): boolean
+        {static} + init()  
+        {static} + <T> addElementsToPanel(elements: T[])
+        {static} + setElementsVisibility(visibility: boolean)
+        {static} + addWallName()
+        {static} + finishedRoom()
+        {static} + finishedStep()
+    }
+
+    class CreateRoomNamesLogicGraphics {
+        {static} - divideFactor:int
+        {static} - checkValue:int[]
+        {static} - decreaseValueBy:int[]
+        {static} - wallPoints:int[][]
+        {static} # graphics :CreateRoomNamesGraphics
         {static} - getOnlyPositivValue(value: int): 
         {static} - checkIfTranslateable(values: int[]): int[]
         {static} - setDivideFactor(check: int)
@@ -81,16 +91,12 @@ namespace Logic {
         {static} - getPositionWallNameHorizontal(wallBefore: int[], wall: int[]): int[]
         {static} - getPositionWallNameVertical(wallBefore: int[], wall: int[]): int[]
         {static} - getPositionWallNameDiagonal(wallBefore: int[], wall: int[]): int[]
-        {static} - isUserGiveRightInput(): boolean
         {static} + init()
         {static} + <T> addElementsToPanel(elements: T[])
         {static} + <T> setElementsVisibility(visibility: boolean)
         {static} + translateSizeParameterOutsideWalls(values: int[]): int[]
         {static} + getPositionToDrawWallName(wallBefore: int[], wall: int[]): int[]
         {static} + translateSizeParameterInsideWalls():int[][]
-        {static} + addWallName()
-        {static} + finishedRoom()
-        {static} + finishedStep()
     }
 
     class CreateRoomsLogic{
