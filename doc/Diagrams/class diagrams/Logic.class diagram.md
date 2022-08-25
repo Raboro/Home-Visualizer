@@ -3,6 +3,7 @@
 
 namespace Logic {
     class Logic {
+        {static } - final METER_INTO_PIXEL = 2: int
         {static} + <T> setElementsVisibility(element: T[], visibility: boolean)
     }
 
@@ -40,7 +41,6 @@ namespace Logic {
     }
 
     class CreateApartmentLogic{
-        {static }- final METER_INTO_PIXEL = 2: int
         {static} + isFourWalls: boolean
         {static} + constantHeight: double
         {static} + addHeightSuccesful = false: boolean
@@ -93,7 +93,6 @@ namespace Logic {
     }
 
     class CreateRoomsLogic{
-        {static} - final METER_INTO_PIXEL = 2: int 
         {static} + wallPoints = new ArrayList<>(): List<double[]>
         {static} - setElementsVisibility(visibility: boolean)
         {static} - wallIsNotAlreadyInArray(point: double[]): boolean

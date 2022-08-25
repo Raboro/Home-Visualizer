@@ -5,7 +5,6 @@ namespace Graphics {
     class CreateRommNamesGraphics extends JFrame{
         - final HEIGHT : int            
         - final WIDTH : int        
-        - final METER_INTO_PIXEL : int     
         - wallNames : List<Integer>
         - currentWallName : 0: int
         - chooseWallMode(g : Graphics)
