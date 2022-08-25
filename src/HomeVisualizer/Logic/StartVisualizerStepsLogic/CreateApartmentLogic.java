@@ -10,8 +10,6 @@ import HomeVisualizer.Logic.StartVisualizeLogic;
 
 public class CreateApartmentLogic {
 
-    private static final int METER_INTO_PIXEL = 2;
-
     public static boolean isFourWalls;
     public static double constantHeight;
     public static boolean addHeightSuccesful = false;
@@ -60,7 +58,7 @@ public class CreateApartmentLogic {
 
     public static void addHeight() {
         try {
-            constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText()) * METER_INTO_PIXEL;
+            constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText()) * Logic.METER_INTO_PIXEL;
         } catch (Exception e) {
             return;
         }
@@ -80,8 +78,8 @@ public class CreateApartmentLogic {
     }
 
     public static void addWall() {
-        double x = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * METER_INTO_PIXEL;
-        double y = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * METER_INTO_PIXEL;
+        double x = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * Logic.METER_INTO_PIXEL;
+        double y = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * Logic.METER_INTO_PIXEL;
         Point2d point = new Point2d(x, y);
         if (wallIsNotAlreadyInArray(point)) {
             wallPoints.add(point);
@@ -115,7 +113,7 @@ public class CreateApartmentLogic {
 
     public static void finishedStepOne() {
         if (isFourWalls) {
-            constantHeight = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText()) * METER_INTO_PIXEL;
+            constantHeight = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText()) * Logic.METER_INTO_PIXEL;
             elementsInvisibleFourWalls();
         } else {
             elementsInvisibleUndefinedWalls();

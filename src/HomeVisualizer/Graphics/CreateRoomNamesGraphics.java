@@ -3,6 +3,7 @@ package HomeVisualizer.Graphics;
 import javax.swing.JFrame;
 
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
@@ -17,7 +18,6 @@ public class CreateRoomNamesGraphics extends JFrame {
 
     private final int HEIGHT = 700;
     private final int WIDTH = 700;
-    private final int METER_INTO_PIXEL = 2; 
 
     private List<Integer> wallNames = new ArrayList<>();
     private int currentWallName = 0;
@@ -57,8 +57,8 @@ public class CreateRoomNamesGraphics extends JFrame {
     }
 
     private int[] getFourWallsCoordinates() {
-        int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * METER_INTO_PIXEL) / 10;
-        int width = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * METER_INTO_PIXEL) / 10;
+        int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * Logic.METER_INTO_PIXEL) / 10;
+        int width = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * Logic.METER_INTO_PIXEL) / 10;
         return CreateRoomNamesLogic.translateSizeParameterOutsideWalls(new int[]{length, width});
     }
 
@@ -96,8 +96,8 @@ public class CreateRoomNamesGraphics extends JFrame {
     }
 
     private int[] getUndefinedWallsCoordinates(int wallIndex) {
-        int x = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getX() * METER_INTO_PIXEL) / 10;
-        int y = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getY() * METER_INTO_PIXEL) / 10;
+        int x = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getX() * Logic.METER_INTO_PIXEL) / 10;
+        int y = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getY() * Logic.METER_INTO_PIXEL) / 10;
         return CreateRoomNamesLogic.translateSizeParameterOutsideWalls(new int[]{ x, y });
     }
 

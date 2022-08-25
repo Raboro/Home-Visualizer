@@ -11,8 +11,6 @@ import HomeVisualizer.Logic.StartVisualizeLogic;
 
 public class CreateRoomsLogic {
 
-    private static final int METER_INTO_PIXEL = 2; 
-
     public static List<double[]> wallPoints = new ArrayList<>();
     
     public static void init() {
@@ -46,10 +44,10 @@ public class CreateRoomsLogic {
     }
 
     public static void addWallsToArray() {
-        double startXPos = Integer.parseInt(CreateRoomsGui.getStartXPos.getText()) * METER_INTO_PIXEL; 
-        double startYPos = Integer.parseInt(CreateRoomsGui.getStartYPos.getText()) * METER_INTO_PIXEL;
-        double endXPos = Integer.parseInt(CreateRoomsGui.getEndXPos.getText()) * METER_INTO_PIXEL; 
-        double endYPos = Integer.parseInt(CreateRoomsGui.getEndYPos.getText()) * METER_INTO_PIXEL;
+        double startXPos = Integer.parseInt(CreateRoomsGui.getStartXPos.getText()) * Logic.METER_INTO_PIXEL; 
+        double startYPos = Integer.parseInt(CreateRoomsGui.getStartYPos.getText()) * Logic.METER_INTO_PIXEL;
+        double endXPos = Integer.parseInt(CreateRoomsGui.getEndXPos.getText()) * Logic.METER_INTO_PIXEL; 
+        double endYPos = Integer.parseInt(CreateRoomsGui.getEndYPos.getText()) * Logic.METER_INTO_PIXEL;
         double[] point = { startXPos, startYPos, endXPos, endYPos };
         if (wallIsNotAlreadyInArray(point)) {
             wallPoints.add(point);
