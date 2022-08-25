@@ -7,14 +7,14 @@ namespace Logic {
     }
 
     class LoginLogic {
-        - loginDatabase = new LoginDatabase(): LoginDatabase
+        - loginDatabase: LoginDatabase
         - username, password, encodedPassword: String
         - hashedUsername: int
         - encrytPassword: byte[]
         - encryptUsername()
         - enryptPassword()
         - decryptPassword: String
-        + LoginLogic
+        + LoginLogic()
         + signUp()
         + login(): boolean
     }
