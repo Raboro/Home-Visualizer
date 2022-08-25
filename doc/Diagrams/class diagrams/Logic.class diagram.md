@@ -31,7 +31,6 @@ namespace Logic {
         {static} + userIsWorking = false: boolean
         {static} + finishedStartSteps = false: boolean
         {static} - selectCurrentStep()
-        {static} + addActionListenerToElements() 
         {static} + loadNewProjectGui()
         {static} + initNewProject()
         {static} + <T> adElementsToPanel(addElement: T[])

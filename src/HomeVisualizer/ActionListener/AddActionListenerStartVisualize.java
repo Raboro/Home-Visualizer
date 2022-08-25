@@ -8,7 +8,7 @@ import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
 
-public class AddActionListenerStartVisualize implements IAddActionListener {
+public class AddActionListenerStartVisualize implements AddActionListener {
 
     @Override
     public void add(ActionListener l) {

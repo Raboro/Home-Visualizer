@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 import HomeVisualizer.Gui.Login.LoginGui;
 
-public class AddActionListenerLogin implements IAddActionListener{
+public class AddActionListenerLogin implements AddActionListener{
 
     @Override
     public void add(ActionListener l) {
