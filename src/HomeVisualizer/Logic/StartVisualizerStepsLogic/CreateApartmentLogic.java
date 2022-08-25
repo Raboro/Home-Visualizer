@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HomeVisualizer.Graphics.Point2d;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 
@@ -16,49 +16,49 @@ public class CreateApartmentLogic {
     public static List<Point2d> wallPoints = new ArrayList<>();
 
     public static void userChooseFourWalls() {
-        Logic.setElementsVisibility(CreateApartmentGui.chooseWalls, false);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.chooseWalls, false);
         isFourWalls = true;
         initFourWalls();
     }
 
     private static void initFourWalls() {
         addElemetsToPanelFourWalls();
-        CreateApartmentGui.finishedCreation.setVisible(true);
-        Logic.setElementsVisibility(CreateApartmentGui.apartmentParameter, true);
-        Logic.setElementsVisibility(CreateApartmentGui.getApartmentParameter, true);
+        CreateApartmentGuiElements.finishedCreation.setVisible(true);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.apartmentParameter, true);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.getApartmentParameter, true);
     }
 
     private static void addElemetsToPanelFourWalls() {
-        StartVisualizeLogic.addElementToPanel(CreateApartmentGui.finishedCreation);
-        StartVisualizeLogic.addElementsToPanel(CreateApartmentGui.apartmentParameter);
-        StartVisualizeLogic.addElementsToPanel(CreateApartmentGui.getApartmentParameter);
+        StartVisualizeLogic.addElementToPanel(CreateApartmentGuiElements.finishedCreation);
+        StartVisualizeLogic.addElementsToPanel(CreateApartmentGuiElements.apartmentParameter);
+        StartVisualizeLogic.addElementsToPanel(CreateApartmentGuiElements.getApartmentParameter);
     }
 
     public static void userChooseUndefinedWalls() {
-        Logic.setElementsVisibility(CreateApartmentGui.chooseWalls, false);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.chooseWalls, false);
         isFourWalls = false;
         initUndefinedWalls();
     }
 
     private static void initUndefinedWalls() {
         addElemetsToPanelUndefinedWalls();
-        CreateApartmentGui.height.setVisible(true);
-        CreateApartmentGui.getHeight.setVisible(true);
-        CreateApartmentGui.finishedAddingWalls.setVisible(true);
-        CreateApartmentGui.oneMoreWall.setVisible(true);
-        CreateApartmentGui.getHeight.setText("in cm");
+        CreateApartmentGuiElements.height.setVisible(true);
+        CreateApartmentGuiElements.getHeight.setVisible(true);
+        CreateApartmentGuiElements.finishedAddingWalls.setVisible(true);
+        CreateApartmentGuiElements.oneMoreWall.setVisible(true);
+        CreateApartmentGuiElements.getHeight.setText("in cm");
     }
 
     private static void addElemetsToPanelUndefinedWalls() {
-        StartVisualizeLogic.addElementToPanel(CreateApartmentGui.height);
-        StartVisualizeLogic.addElementToPanel(CreateApartmentGui.getHeight);
-        StartVisualizeLogic.addElementToPanel(CreateApartmentGui.finishedAddingWalls);
-        StartVisualizeLogic.addElementToPanel(CreateApartmentGui.oneMoreWall);
+        StartVisualizeLogic.addElementToPanel(CreateApartmentGuiElements.height);
+        StartVisualizeLogic.addElementToPanel(CreateApartmentGuiElements.getHeight);
+        StartVisualizeLogic.addElementToPanel(CreateApartmentGuiElements.finishedAddingWalls);
+        StartVisualizeLogic.addElementToPanel(CreateApartmentGuiElements.oneMoreWall);
     }
 
     public static void addHeight() {
         try {
-            constantHeight = Integer.parseInt(CreateApartmentGui.getHeight.getText()) * Logic.METER_INTO_PIXEL;
+            constantHeight = Integer.parseInt(CreateApartmentGuiElements.getHeight.getText()) * Logic.METER_INTO_PIXEL;
         } catch (Exception e) {
             return;
         }
@@ -66,20 +66,20 @@ public class CreateApartmentLogic {
     }
 
     public static void initAddWalls() {
-        CreateApartmentGui.height.setVisible(false);
-        CreateApartmentGui.getHeight.setVisible(false);
-        CreateApartmentGui.oneMoreWall.setText("One more wall");
+        CreateApartmentGuiElements.height.setVisible(false);
+        CreateApartmentGuiElements.getHeight.setVisible(false);
+        CreateApartmentGuiElements.oneMoreWall.setText("One more wall");
 
-        StartVisualizeLogic.addElementsToPanel(CreateApartmentGui.undefinedApartmentParameter);
-        StartVisualizeLogic.addElementsToPanel(CreateApartmentGui.getUndefinedApartmentParameter);
+        StartVisualizeLogic.addElementsToPanel(CreateApartmentGuiElements.undefinedApartmentParameter);
+        StartVisualizeLogic.addElementsToPanel(CreateApartmentGuiElements.getUndefinedApartmentParameter);
 
-        Logic.setElementsVisibility(CreateApartmentGui.undefinedApartmentParameter, true);
-        Logic.setElementsVisibility(CreateApartmentGui.getUndefinedApartmentParameter, true);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.undefinedApartmentParameter, true);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.getUndefinedApartmentParameter, true);
     }
 
     public static void addWall() {
-        double x = Integer.parseInt(CreateApartmentGui.getXPos.getText()) * Logic.METER_INTO_PIXEL;
-        double y = Integer.parseInt(CreateApartmentGui.getYPos.getText()) * Logic.METER_INTO_PIXEL;
+        double x = Integer.parseInt(CreateApartmentGuiElements.getXPos.getText()) * Logic.METER_INTO_PIXEL;
+        double y = Integer.parseInt(CreateApartmentGuiElements.getYPos.getText()) * Logic.METER_INTO_PIXEL;
         Point2d point = new Point2d(x, y);
         if (wallIsNotAlreadyInArray(point)) {
             wallPoints.add(point);
@@ -96,13 +96,13 @@ public class CreateApartmentLogic {
     }
 
     public static boolean isUserInputCorrect() {
-        for (int parameter = 0; parameter < CreateApartmentGui.getApartmentParameter.length; parameter++) {
+        for (int parameter = 0; parameter < CreateApartmentGuiElements.getApartmentParameter.length; parameter++) {
             try {
                 if (isFourWalls) {
-                    Integer.parseInt(CreateApartmentGui.getApartmentParameter[parameter].getText());
+                    Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[parameter].getText());
                 } else {
-                    Integer.parseInt(CreateApartmentGui.getXPos.getText());
-                    Integer.parseInt(CreateApartmentGui.getYPos.getText());
+                    Integer.parseInt(CreateApartmentGuiElements.getXPos.getText());
+                    Integer.parseInt(CreateApartmentGuiElements.getYPos.getText());
                 }
             } catch (Exception e) {
                 return false;
@@ -113,24 +113,24 @@ public class CreateApartmentLogic {
 
     public static void finishedStepOne() {
         if (isFourWalls) {
-            constantHeight = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText()) * Logic.METER_INTO_PIXEL;
+            constantHeight = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[1].getText()) * Logic.METER_INTO_PIXEL;
             elementsInvisibleFourWalls();
         } else {
             elementsInvisibleUndefinedWalls();
         }
-        Logic.setElementsVisibility(CreateApartmentGui.actionButtons, false);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.actionButtons, false);
     }
 
     private static void elementsInvisibleFourWalls() {
-        Logic.setElementsVisibility(CreateApartmentGui.apartmentParameter, false);
-        Logic.setElementsVisibility(CreateApartmentGui.getApartmentParameter, false);
-        Logic.setElementsVisibility(CreateApartmentGui.actionButtons, false);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.apartmentParameter, false);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.getApartmentParameter, false);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.actionButtons, false);
     }
 
     private static void elementsInvisibleUndefinedWalls() {
-        CreateApartmentGui.getXPos.setVisible(false);
-        CreateApartmentGui.getYPos.setVisible(false);
-        CreateApartmentGui.xPos.setVisible(false);
-        CreateApartmentGui.yPos.setVisible(false);
+        CreateApartmentGuiElements.getXPos.setVisible(false);
+        CreateApartmentGuiElements.getYPos.setVisible(false);
+        CreateApartmentGuiElements.xPos.setVisible(false);
+        CreateApartmentGuiElements.yPos.setVisible(false);
     }
 }

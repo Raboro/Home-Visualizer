@@ -2,7 +2,7 @@ package HomeVisualizer.Graphics;
 
 import javax.swing.JFrame;
 
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogicGraphics;
@@ -54,8 +54,8 @@ public class CreateRoomNamesGraphics extends JFrame {
     }
 
     private int[] getFourWallsCoordinates() {
-        int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * Logic.METER_INTO_PIXEL) / 10;
-        int width = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * Logic.METER_INTO_PIXEL) / 10;
+        int length = (int) (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[0].getText()) * Logic.METER_INTO_PIXEL) / 10;
+        int width = (int) (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[2].getText()) * Logic.METER_INTO_PIXEL) / 10;
         return CreateRoomNamesLogicGraphics.translateSizeParameterOutsideWalls(new int[]{length, width});
     }
 

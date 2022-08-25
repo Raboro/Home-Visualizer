@@ -9,6 +9,7 @@ import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StepStates;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGui;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogicGraphics;
@@ -126,10 +127,10 @@ public class StartVisualizeLogic {
     }
 
     public static void create_Apartment() {
-        addElementsToPanel(CreateApartmentGui.chooseWalls);
+        addElementsToPanel(CreateApartmentGuiElements.chooseWalls);
         StartVisualizeGui.panel.invalidate();
 
-        Logic.setElementsVisibility(CreateApartmentGui.chooseWalls, true);
+        Logic.setElementsVisibility(CreateApartmentGuiElements.chooseWalls, true);
         StartVisualizeGui.panel.invalidate();
         NewProjectElementsGui.continueSteps.setEnabled(false);
     }

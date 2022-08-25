@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGui;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
@@ -42,23 +42,23 @@ public class StartVisualizerActionListener implements ActionListener {
             }
         }
 
-        if (event.getSource() == CreateApartmentGui.chooseWalls[0]) {
+        if (event.getSource() == CreateApartmentGuiElements.chooseWalls[0]) {
             CreateApartmentLogic.userChooseFourWalls();
         }
 
-        if (event.getSource() == CreateApartmentGui.chooseWalls[1]) {
+        if (event.getSource() == CreateApartmentGuiElements.chooseWalls[1]) {
             CreateApartmentLogic.userChooseUndefinedWalls();
         }
 
-        if (event.getSource() == CreateApartmentGui.finishedCreation) {
+        if (event.getSource() == CreateApartmentGuiElements.finishedCreation) {
             if (CreateApartmentLogic.isUserInputCorrect()) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 CreateApartmentLogic.finishedStepOne();
             }
         }
 
-        if (event.getSource() == CreateApartmentGui.oneMoreWall) {
-            if (CreateApartmentGui.oneMoreWall.getText() == "Add first wall") {
+        if (event.getSource() == CreateApartmentGuiElements.oneMoreWall) {
+            if (CreateApartmentGuiElements.oneMoreWall.getText() == "Add first wall") {
                 CreateApartmentLogic.addHeight();
                 if (CreateApartmentLogic.addHeightSuccesful) {
                     CreateApartmentLogic.initAddWalls();
@@ -68,7 +68,7 @@ public class StartVisualizerActionListener implements ActionListener {
             }
         }
 
-        if (event.getSource() == CreateApartmentGui.finishedAddingWalls) {
+        if (event.getSource() == CreateApartmentGuiElements.finishedAddingWalls) {
             if (CreateApartmentLogic.isUserInputCorrect() && CreateApartmentLogic.wallPoints.size() > 2) {
                 NewProjectElementsGui.continueSteps.setEnabled(true);
                 CreateApartmentLogic.finishedStepOne();

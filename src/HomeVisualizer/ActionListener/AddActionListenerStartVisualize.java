@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGui;
 
@@ -16,11 +16,11 @@ public class AddActionListenerStartVisualize implements AddActionListener {
         StartVisualizeElementsGui.threeDVisualizer.addActionListener(l);
         NewProjectElementsGui.startSteps.addActionListener(l);
         NewProjectElementsGui.continueSteps.addActionListener(l);
-        CreateApartmentGui.chooseWalls[0].addActionListener(l);
-        CreateApartmentGui.chooseWalls[1].addActionListener(l);
-        CreateApartmentGui.finishedCreation.addActionListener(l);
-        CreateApartmentGui.finishedAddingWalls.addActionListener(l);
-        CreateApartmentGui.oneMoreWall.addActionListener(l);
+        CreateApartmentGuiElements.chooseWalls[0].addActionListener(l);
+        CreateApartmentGuiElements.chooseWalls[1].addActionListener(l);
+        CreateApartmentGuiElements.finishedCreation.addActionListener(l);
+        CreateApartmentGuiElements.finishedAddingWalls.addActionListener(l);
+        CreateApartmentGuiElements.oneMoreWall.addActionListener(l);
         CreateRoomsGui.addWalls.addActionListener(l);
         CreateRoomsGui.finishedAddingWalls.addActionListener(l);
         CreateRoomNamesGui.finishedStep.addActionListener(l);

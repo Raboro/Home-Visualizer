@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
@@ -46,9 +46,9 @@ public class StartVisualizeGui extends Frame {
         Display display;
         
         if (CreateApartmentLogic.isFourWalls) {
-        double length = Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * 2;
-        double height = Integer.parseInt(CreateApartmentGui.getApartmentParameter[1].getText()) * 2;
-        double width = Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * 2;
+        double length = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[0].getText()) * 2;
+        double height = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[1].getText()) * 2;
+        double width = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[2].getText()) * 2;
 
 
         display = new Display(length, height, width);
