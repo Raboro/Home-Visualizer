@@ -15,9 +15,9 @@ import java.util.List;
 
 public class CreateRoomNamesGraphics extends JFrame {
 
-    private static final int HEIGHT = 700;
-    private static final int WIDTH = 700;
-    private static final int METER_INTO_PIXEL = 2; 
+    private final int HEIGHT = 700;
+    private final int WIDTH = 700;
+    private final int METER_INTO_PIXEL = 2; 
 
     private List<Integer> wallNames = new ArrayList<>();
     private int currentWallName = 0;
