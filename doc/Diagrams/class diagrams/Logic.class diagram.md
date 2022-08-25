@@ -3,7 +3,9 @@
 
 namespace Logic {
     class Logic {
-        {static } - final METER_INTO_PIXEL = 2: int
+        {static } - final METER_INTO_PIXEL: int
+        {static} + final MAIN_WINDOW_SIZE: int[]
+        {static} + final STEP_THREE_WINDOW_SIZE: int
         {static} + <T> setElementsVisibility(element: T[], visibility: boolean)
     }
 

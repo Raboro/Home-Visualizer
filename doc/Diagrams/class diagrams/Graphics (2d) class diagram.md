@@ -2,9 +2,7 @@
 @startuml
 
 namespace Graphics {
-    class CreateRommNamesGraphics extends JFrame{
-        - final HEIGHT : int            
-        - final WIDTH : int        
+    class CreateRommNamesGraphics extends JFrame{      
         - wallNames : List<Integer>
         - currentWallName : 0: int
         - chooseWallMode(g : Graphics)

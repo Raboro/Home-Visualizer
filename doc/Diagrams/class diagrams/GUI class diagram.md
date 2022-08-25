@@ -7,9 +7,6 @@ namespace GUI {
     }
 
     class LoginGui extends Frame{
-        {static} - final TITLE = "Login": String
-        {static} - final WIDTH = 500: int
-        {static} - final HEIGHT = 500: int
         - panel: JPanel
         - usernameLabel, passwordLabel: JLabel
         {static} + username: JTextField        
@@ -24,8 +21,6 @@ namespace GUI {
     }
 
     class StartVisualizeGUi extends Frame {
-        {static} - final HEIGHT = 1000: int
-        {static} - final WIDTH = 1700: int
         {static} + panel: JPanel
         + StartVisualizeGui(user: String)
         - createLayout()
@@ -140,9 +135,6 @@ namespace GUI {
     }
 
     class CreateRoomNamesGui extends Frame {
-        {static} + final HEIGHT = 700: int
-        {static} + final WIDTH = 700: int
-        {static} + final TITLE = "Room Names": String
         {static} + panel = new JPanel(): JPanel
         {static} + roomName = new JLabel("Room name"): JPanel
         {static} + wallName = new JLabel("Wall name"): JPanel[]
