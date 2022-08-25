@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
-import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogicGraphics;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 import java.awt.Color;
@@ -23,7 +23,7 @@ public class CreateRoomNamesGraphics extends JFrame {
         super("Show Apartment");
 
         this.setSize(Logic.STEP_THREE_WINDOW_SIZE, Logic.STEP_THREE_WINDOW_SIZE);
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocation(230, 550);
     }
 
@@ -56,7 +56,7 @@ public class CreateRoomNamesGraphics extends JFrame {
     private int[] getFourWallsCoordinates() {
         int length = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[0].getText()) * Logic.METER_INTO_PIXEL) / 10;
         int width = (int) (Integer.parseInt(CreateApartmentGui.getApartmentParameter[2].getText()) * Logic.METER_INTO_PIXEL) / 10;
-        return CreateRoomNamesLogic.translateSizeParameterOutsideWalls(new int[]{length, width});
+        return CreateRoomNamesLogicGraphics.translateSizeParameterOutsideWalls(new int[]{length, width});
     }
 
     private void paintFourWalls(Graphics g, int[] coordinates) {
@@ -95,11 +95,11 @@ public class CreateRoomNamesGraphics extends JFrame {
     private int[] getUndefinedWallsCoordinates(int wallIndex) {
         int x = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getX() * Logic.METER_INTO_PIXEL) / 10;
         int y = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getY() * Logic.METER_INTO_PIXEL) / 10;
-        return CreateRoomNamesLogic.translateSizeParameterOutsideWalls(new int[]{ x, y });
+        return CreateRoomNamesLogicGraphics.translateSizeParameterOutsideWalls(new int[]{ x, y });
     }
 
     private void paintUndefinedWallName(Graphics g, int[] wall, int[] wallBefore) {
-        int[] point = CreateRoomNamesLogic.getPositionToDrawWallName(wallBefore, wall);
+        int[] point = CreateRoomNamesLogicGraphics.getPositionToDrawWallName(wallBefore, wall);
         g.drawString(Integer.toString(wallNames.get(currentWallName)), point[0], point[1]);
     } 
 
@@ -108,16 +108,16 @@ public class CreateRoomNamesGraphics extends JFrame {
     }
 
     private void paintInsideWallNames(Graphics g) {
-        int[][] walls = CreateRoomNamesLogic.translateSizeParameterInsideWalls();
+        int[][] walls = CreateRoomNamesLogicGraphics.translateSizeParameterInsideWalls();
         for (int[] wall : walls) {
-            int[] point = CreateRoomNamesLogic.getPositionToDrawWallName(new int[]{ wall[0], wall[1] }, new int[]{ wall[2], wall[3]});
+            int[] point = CreateRoomNamesLogicGraphics.getPositionToDrawWallName(new int[]{ wall[0], wall[1] }, new int[]{ wall[2], wall[3]});
             g.drawString(Integer.toString(wallNames.get(currentWallName)), point[0], point[1]);
             currentWallName += 1;
         }
     }
 
     private void paintInsideWalls(Graphics g) {
-        int[][] walls = CreateRoomNamesLogic.translateSizeParameterInsideWalls();
+        int[][] walls = CreateRoomNamesLogicGraphics.translateSizeParameterInsideWalls();
         for (int[] wall: walls) {
             g.drawLine(wall[0], wall[1], wall[2], wall[3]);
         }

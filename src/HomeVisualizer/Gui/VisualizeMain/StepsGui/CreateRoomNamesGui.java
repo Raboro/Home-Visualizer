@@ -33,7 +33,7 @@ public class CreateRoomNamesGui extends Frame{
         super("Room Names", Logic.STEP_THREE_WINDOW_SIZE, Logic.STEP_THREE_WINDOW_SIZE);
         this.add(panel);
         panel.setLayout(null);
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocation(1030, 550);
         this.setVisible(true);
     }

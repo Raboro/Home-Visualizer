@@ -11,7 +11,8 @@ import HomeVisualizer.Gui.VisualizeMain.GuiElements.StepStates;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
-import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogicGraphics;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogicGui;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 public class StartVisualizeLogic {
@@ -89,7 +90,8 @@ public class StartVisualizeLogic {
                 CreateRoomsLogic.init();
                 break;
             case CREATE_ROOM_NAMES:
-                CreateRoomNamesLogic.init();
+                CreateRoomNamesLogicGraphics.init();
+                CreateRoomNamesLogicGui.init();
                 break;
             case CREATE_DOORS:
         }

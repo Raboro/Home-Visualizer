@@ -12,7 +12,7 @@ import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 
 import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
-import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogic;
+import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogicGui;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 public class StartVisualizerActionListener implements ActionListener {
@@ -89,15 +89,15 @@ public class StartVisualizerActionListener implements ActionListener {
         }
 
         if (event.getSource() == CreateRoomNamesGui.addWall) {
-            CreateRoomNamesLogic.addWallName();
+            CreateRoomNamesLogicGui.addWallName();
         }
 
         if (event.getSource() == CreateRoomNamesGui.finishRoom) {
-            CreateRoomNamesLogic.finishedRoom();
+            CreateRoomNamesLogicGui.finishedRoom();
         }
 
         if (event.getSource() == CreateRoomNamesGui.finishedStep) {
-            CreateRoomNamesLogic.finishedStep();
+            CreateRoomNamesLogicGui.finishedStep();
         }
     }
 }

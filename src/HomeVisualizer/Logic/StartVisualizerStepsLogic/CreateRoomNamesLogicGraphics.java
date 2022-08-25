@@ -1,27 +1,17 @@
 package HomeVisualizer.Logic.StartVisualizerStepsLogic;
 
 import javax.swing.SwingUtilities;
-import java.awt.Component;
-import java.util.ArrayList;
-import java.util.List;
 
 import HomeVisualizer.Graphics.CreateRoomNamesGraphics;
-import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
-import HomeVisualizer.Logic.Logic;
 
-public class CreateRoomNamesLogic {
+public class CreateRoomNamesLogicGraphics {
 
-    public static List<RoomNames> roomNames = new ArrayList<>();
-
-    private static CreateRoomNamesGraphics graphics;
-    private static CreateRoomNamesGui gui;
+    protected static CreateRoomNamesGraphics graphics;
     private static int divideFactor;
     private static int[] checkValue = { 1000, 800, 600 };
     private static int[] decreaseValueBy = { 5, 4, 2 };
     private static int[][] wallPoints = new int[CreateRoomsLogic.wallPoints.size()][4];
-    private static List<Integer> wallNames = new ArrayList<>();
-
+    
     public static void init() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -30,24 +20,6 @@ public class CreateRoomNamesLogic {
                 graphics.setVisible(true);
             }
         });
-        addElementsToPanel(CreateRoomNamesGui.labels);
-        addElementsToPanel(CreateRoomNamesGui.fields);
-        addElementsToPanel(CreateRoomNamesGui.buttons);
-        setElementsVisibility(true);
-        NewProjectElementsGui.continueSteps.setEnabled(false);
-        gui = new CreateRoomNamesGui();
-    }
-
-    public static <T> void addElementsToPanel(T[] elements) {
-        for (T element : elements) {
-            CreateRoomNamesGui.panel.add((Component) element);
-        }
-    }
-
-    public static <T> void setElementsVisibility(boolean visibility) {
-        Logic.setElementsVisibility(CreateRoomNamesGui.labels, visibility);
-        Logic.setElementsVisibility(CreateRoomNamesGui.fields, visibility);
-        Logic.setElementsVisibility(CreateRoomNamesGui.buttons, visibility);
     }
 
     public static int[] translateSizeParameterOutsideWalls(int[] values) {
@@ -148,36 +120,5 @@ public class CreateRoomNamesLogic {
             }
         }
         return wallPoints;
-    }
-
-    public static void addWallName() {
-        if (isUserGiveRightInput()) {
-            int name = Integer.parseInt(CreateRoomNamesGui.getWallName.getText()) - 1;
-            wallNames.add(name);
-        }
-    }
-
-    private static boolean isUserGiveRightInput() {
-        try {
-            int name = Integer.parseInt(CreateRoomNamesGui.getWallName.getText());
-            if (graphics.getWallNames().contains(name)) {
-                return true;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-        return false;
-    }
-
-    public static void finishedRoom() {
-        roomNames.add(new RoomNames(CreateRoomNamesGui.getRoomName.getText(), wallNames));
-        wallNames.clear();
-    }
-
-    public static void finishedStep() {
-        setElementsVisibility(false);
-        NewProjectElementsGui.continueSteps.setEnabled(true);
-        gui.dispose();
-        graphics.setVisible(false);
     }
 }
