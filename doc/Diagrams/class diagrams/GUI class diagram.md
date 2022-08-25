@@ -30,16 +30,16 @@ namespace GUI {
     }
 
     class Colors {
-        {static} +  final START_STEPS_COLOR = new Color(46, 134, 193): Color
-        {static} +  final START_STEPS_COLOR_BORDER = new Color(46, 134, 255): Color
-        {static} +  final UNFULFILLED_STEP_COLOR = new Color(238, 75, 43): Color
-        {static} +  final UNFULFILLED_STEP_COLOR_BORDER = new Color(255, 105, 43): Color
-        {static} +  final IN_WORK_STEP_COLOR = new Color(241, 196, 15): Color
-        {static} +  final IN_WORK_STEP_COLOR_BORDER = new Color(247, 220, 111): Color
-        {static} +  final FINISHED_STEP_COLOR = new Color(82, 190, 128): Color
-        {static} +  final FINISHED_STEP_COLOR_BORDER = new Color(125, 206, 160): Color
-        {static} +  final CHOOSE_BUTTON_COLOR = new Color(46, 134, 193): Color
-        {static} +  final CHOOSE_BUTTON_COLOR_BORDER = new Color(46, 134, 255): Color
+        {static} + final Color IN_WORK_STEP_COLOR: Color
+        {static} + final Color IN_WORK_STEP_COLOR_BORDER: Color
+        {static} + final Color FINISHED_STEP_COLOR: Color
+        {static} + final Color FINISHED_STEP_COLOR_BORDER: Color
+        {static} + final Color CHOOSE_BUTTON_COLOR: Color
+        {static} + final Color CHOOSE_BUTTON_COLOR_BORDER: Color
+        {static} # final Color START_STEPS_COLOR: Color
+        {static} # final Color START_STEPS_COLOR_BORDER: Color
+        {static} # final Color UNFULFILLED_STEP_COLOR: Color
+        {static} # final Color UNFULFILLED_STEP_COLOR_BORDER: Color
     }
 
     enum ColorState {
