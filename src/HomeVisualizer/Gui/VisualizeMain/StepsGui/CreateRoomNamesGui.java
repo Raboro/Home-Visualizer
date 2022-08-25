@@ -12,12 +12,9 @@ import javax.swing.JComponent;
 
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
+import HomeVisualizer.Logic.Logic;
 
 public class CreateRoomNamesGui extends Frame{
-
-    public static final int HEIGHT = 700;
-    public static final int WIDTH = 700;
-    public static final String TITLE = "Room Names";
 
     public static JPanel panel = new JPanel();
     public static JLabel roomName = new JLabel("Room name");
@@ -33,7 +30,7 @@ public class CreateRoomNamesGui extends Frame{
     public static JTextField[] fields = { getRoomName, getWallName };
 
     public CreateRoomNamesGui() {
-        super(TITLE, WIDTH, HEIGHT);
+        super("Room Names", Logic.STEP_THREE_WINDOW_SIZE, Logic.STEP_THREE_WINDOW_SIZE);
         this.add(panel);
         panel.setLayout(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

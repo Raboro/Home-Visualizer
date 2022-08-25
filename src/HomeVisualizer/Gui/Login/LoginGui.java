@@ -19,16 +19,12 @@ public class LoginGui extends Frame {
     public static JPasswordField password;
     public static JButton loginButton, signUpButton;
     public static JCheckBox showPassword;
-    
-    private static final String TITLE = "Login";
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 500;
 
     private JPanel panel;
     private JLabel usernameLabel, passwordLabel;
     
     public LoginGui() {
-        super(TITLE, WIDTH, HEIGHT);
+        super("Login", 500, 500);
         panel = new JPanel();
         panel.setLayout(null);
 

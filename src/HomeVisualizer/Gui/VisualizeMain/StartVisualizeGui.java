@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
-
+import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 
@@ -14,11 +14,9 @@ import HomeVisualizer.VisualizeRenderer.Display;
 public class StartVisualizeGui extends Frame {
     
     public static JPanel panel;
-    private static final int HEIGHT = 1000;
-    private static final int WIDTH = 1700;
 
     public StartVisualizeGui(String user) {
-        super(user, WIDTH, HEIGHT);
+        super(user, Logic.MAIN_WINDOW_SIZE[0], Logic.MAIN_WINDOW_SIZE[1]);
 
         panel = new JPanel();
         panel.setLayout(null);

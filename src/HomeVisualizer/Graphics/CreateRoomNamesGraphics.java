@@ -16,16 +16,13 @@ import java.util.List;
 
 public class CreateRoomNamesGraphics extends JFrame {
 
-    private final int HEIGHT = 700;
-    private final int WIDTH = 700;
-
     private List<Integer> wallNames = new ArrayList<>();
     private int currentWallName = 0;
 
     public CreateRoomNamesGraphics() {
         super("Show Apartment");
 
-        this.setSize(WIDTH, HEIGHT);
+        this.setSize(Logic.STEP_THREE_WINDOW_SIZE, Logic.STEP_THREE_WINDOW_SIZE);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocation(230, 550);
     }
