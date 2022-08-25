@@ -1,16 +1,12 @@
 package HomeVisualizer.Logic;
 
 import java.awt.Component;
-import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
-
-import HomeVisualizer.ActionListener.StartVisualizerActionListener;
 
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StepStates;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
@@ -28,25 +24,6 @@ public class StartVisualizeLogic {
     private static int stepState = 0;
     private static StepStates[] stepArray = { StepStates.CREATE_APARTMENT, StepStates.CREATE_ROOMS,
             StepStates.CREATE_ROOM_NAMES, StepStates.CREATE_DOORS };
-
-    public static void addActionListenerToElements() {
-        ActionListener actionListener = new StartVisualizerActionListener();
-
-        StartVisualizeElementsGui.newProject.addActionListener(actionListener);
-        StartVisualizeElementsGui.threeDVisualizer.addActionListener(actionListener);
-        NewProjectElementsGui.startSteps.addActionListener(actionListener);
-        NewProjectElementsGui.continueSteps.addActionListener(actionListener);
-        CreateApartmentGui.chooseWalls[0].addActionListener(actionListener);
-        CreateApartmentGui.chooseWalls[1].addActionListener(actionListener);
-        CreateApartmentGui.finishedCreation.addActionListener(actionListener);
-        CreateApartmentGui.finishedAddingWalls.addActionListener(actionListener);
-        CreateApartmentGui.oneMoreWall.addActionListener(actionListener);
-        CreateRoomsGui.addWalls.addActionListener(actionListener);
-        CreateRoomsGui.finishedAddingWalls.addActionListener(actionListener);
-        CreateRoomNamesGui.finishedStep.addActionListener(actionListener);
-        CreateRoomNamesGui.addWall.addActionListener(actionListener);
-        CreateRoomNamesGui.finishRoom.addActionListener(actionListener);
-    }
 
     public static void loadNewProjectGui() {
         initNewProject();

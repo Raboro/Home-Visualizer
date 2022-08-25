@@ -1,15 +1,11 @@
 package HomeVisualizer.Gui.Login;
 
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
-import HomeVisualizer.ActionListener.LoginActionListener;
 
 import HomeVisualizer.Gui.Frame;
 
@@ -37,7 +33,7 @@ public class LoginGui extends Frame {
     private void createLayout() {
         initializeLabels();
         initializeInputFields();
-        initializeInteractions(new LoginActionListener());
+        initializeInteractions();
     }
 
     private void initializeLabels() {
@@ -62,7 +58,7 @@ public class LoginGui extends Frame {
         panel.add(password);   
     }
 
-    private void initializeInteractions(ActionListener actionListener) {
+    private void initializeInteractions() {
         showPassword = new JCheckBox("Show Password");
         loginButton = new JButton();
         signUpButton = new JButton();
@@ -73,10 +69,6 @@ public class LoginGui extends Frame {
 
         loginButton.setIcon(new javax.swing.ImageIcon("/home/marius/Documents/Home-Visualizer/Images/loginButton.png"));
         signUpButton.setIcon(new javax.swing.ImageIcon("/home/marius/Documents/Home-Visualizer/Images/signUpButton.png"));
-
-        showPassword.addActionListener(actionListener);
-        loginButton.addActionListener(actionListener);
-        signUpButton.addActionListener(actionListener);
 
         panel.add(showPassword);
         panel.add(loginButton);
