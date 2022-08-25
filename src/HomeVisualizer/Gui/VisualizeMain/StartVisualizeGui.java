@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;

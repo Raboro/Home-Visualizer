@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGui;
 import HomeVisualizer.Logic.Logic;
 
 public class CreateRoomNamesLogicGui {

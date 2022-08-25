@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HomeVisualizer.Graphics.Point2d;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 

@@ -4,9 +4,9 @@ import java.awt.event.ActionListener;
 
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomNamesGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGui;
 
 public class AddActionListenerStartVisualize implements AddActionListener {
 

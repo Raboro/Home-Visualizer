@@ -1,4 +1,4 @@
-package HomeVisualizer.Gui.VisualizeMain.StepsGui;
+package HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo;
 
 import java.awt.Font;
 

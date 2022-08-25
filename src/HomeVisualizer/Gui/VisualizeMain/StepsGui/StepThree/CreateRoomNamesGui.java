@@ -1,4 +1,4 @@
-package HomeVisualizer.Gui.VisualizeMain.StepsGui;
+package HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree;
 
 import java.awt.Font;
 
@@ -9,12 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JComponent;
 
-
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
 import HomeVisualizer.Logic.Logic;
 
-public class CreateRoomNamesGui extends Frame{
+public class CreateRoomNamesGui extends Frame {
 
     public static JPanel panel = new JPanel();
     public static JLabel roomName = new JLabel("Room name");

@@ -5,7 +5,7 @@ import java.util.List;
 
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateRoomsGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGui;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizeLogic;
 

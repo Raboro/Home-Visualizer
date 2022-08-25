@@ -1,4 +1,4 @@
-package HomeVisualizer.Gui.VisualizeMain.StepsGui;
+package HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;

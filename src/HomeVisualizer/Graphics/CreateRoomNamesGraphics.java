@@ -2,7 +2,7 @@ package HomeVisualizer.Graphics;
 
 import javax.swing.JFrame;
 
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.CreateApartmentGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGui;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomNamesLogicGraphics;
