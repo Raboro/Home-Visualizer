@@ -6,6 +6,7 @@ import java.util.List;
 
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGuiElements;
 import HomeVisualizer.Logic.Logic;
 
 public class CreateRoomNamesLogicGui {
@@ -16,9 +17,9 @@ public class CreateRoomNamesLogicGui {
     private static List<Integer> wallNames = new ArrayList<>();
     
     public static void init() {
-        addElementsToPanel(CreateRoomNamesGui.labels);
-        addElementsToPanel(CreateRoomNamesGui.fields);
-        addElementsToPanel(CreateRoomNamesGui.buttons);
+        addElementsToPanel(CreateRoomNamesGuiElements.labels);
+        addElementsToPanel(CreateRoomNamesGuiElements.fields);
+        addElementsToPanel(CreateRoomNamesGuiElements.buttons);
         setElementsVisibility(true);
         NewProjectElementsGui.continueSteps.setEnabled(false);
         gui = new CreateRoomNamesGui();
@@ -26,26 +27,26 @@ public class CreateRoomNamesLogicGui {
 
     public static <T> void addElementsToPanel(T[] elements) {
         for (T element : elements) {
-            CreateRoomNamesGui.panel.add((Component) element);
+            CreateRoomNamesGuiElements.panel.add((Component) element);
         }
     }
 
     public static <T> void setElementsVisibility(boolean visibility) {
-        Logic.setElementsVisibility(CreateRoomNamesGui.labels, visibility);
-        Logic.setElementsVisibility(CreateRoomNamesGui.fields, visibility);
-        Logic.setElementsVisibility(CreateRoomNamesGui.buttons, visibility);
+        Logic.setElementsVisibility(CreateRoomNamesGuiElements.labels, visibility);
+        Logic.setElementsVisibility(CreateRoomNamesGuiElements.fields, visibility);
+        Logic.setElementsVisibility(CreateRoomNamesGuiElements.buttons, visibility);
     }
 
     public static void addWallName() {
         if (isUserGiveRightInput()) {
-            int name = Integer.parseInt(CreateRoomNamesGui.getWallName.getText()) - 1;
+            int name = Integer.parseInt(CreateRoomNamesGuiElements.getWallName.getText()) - 1;
             wallNames.add(name);
         }
     }
 
     private static boolean isUserGiveRightInput() {
         try {
-            int name = Integer.parseInt(CreateRoomNamesGui.getWallName.getText());
+            int name = Integer.parseInt(CreateRoomNamesGuiElements.getWallName.getText());
             if (CreateRoomNamesLogicGraphics.graphics.getWallNames().contains(name)) {
                 return true;
             }
@@ -56,8 +57,8 @@ public class CreateRoomNamesLogicGui {
     }
 
     public static void finishedRoom() {
-        if (wallNames.size() > 2 && CreateRoomNamesGui.getRoomName.getText().length() > 1) {
-            roomNames.add(new RoomNames(CreateRoomNamesGui.getRoomName.getText(), wallNames));
+        if (wallNames.size() > 2 && CreateRoomNamesGuiElements.getRoomName.getText().length() > 1) {
+            roomNames.add(new RoomNames(CreateRoomNamesGuiElements.getRoomName.getText(), wallNames));
             wallNames.clear();
         }
     }

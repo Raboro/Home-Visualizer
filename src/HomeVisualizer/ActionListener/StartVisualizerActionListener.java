@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.StartVisualizeElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
-import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGui;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree.CreateRoomNamesGuiElements;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGuiElements;
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 
@@ -88,15 +88,15 @@ public class StartVisualizerActionListener implements ActionListener {
             }
         }
 
-        if (event.getSource() == CreateRoomNamesGui.addWall) {
+        if (event.getSource() == CreateRoomNamesGuiElements.addWall) {
             CreateRoomNamesLogicGui.addWallName();
         }
 
-        if (event.getSource() == CreateRoomNamesGui.finishRoom) {
+        if (event.getSource() == CreateRoomNamesGuiElements.finishRoom) {
             CreateRoomNamesLogicGui.finishedRoom();
         }
 
-        if (event.getSource() == CreateRoomNamesGui.finishedStep) {
+        if (event.getSource() == CreateRoomNamesGuiElements.finishedStep) {
             CreateRoomNamesLogicGui.finishedStep();
         }
     }
