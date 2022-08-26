@@ -1,6 +1,5 @@
 package HomeVisualizer.Logic.StartVisualizerStepsLogic;
 
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,18 +16,12 @@ public class CreateRoomNamesLogicGui {
     private static List<Integer> wallNames = new ArrayList<>();
     
     public static void init() {
-        addElementsToPanel(CreateRoomNamesGuiElements.labels);
-        addElementsToPanel(CreateRoomNamesGuiElements.fields);
-        addElementsToPanel(CreateRoomNamesGuiElements.buttons);
+        Logic.addElementsToPanel(CreateRoomNamesGuiElements.labels, CreateRoomNamesGuiElements.panel);
+        Logic.addElementsToPanel(CreateRoomNamesGuiElements.fields, CreateRoomNamesGuiElements.panel);
+        Logic.addElementsToPanel(CreateRoomNamesGuiElements.buttons, CreateRoomNamesGuiElements.panel);
         setElementsVisibility(true);
         NewProjectElementsGui.continueSteps.setEnabled(false);
         gui = new CreateRoomNamesGui();
-    }
-
-    public static <T> void addElementsToPanel(T[] elements) {
-        for (T element : elements) {
-            CreateRoomNamesGuiElements.panel.add((Component) element);
-        }
     }
 
     public static <T> void setElementsVisibility(boolean visibility) {
