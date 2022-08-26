@@ -1,9 +1,5 @@
 package HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-
-import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepGui;
 import HomeVisualizer.Logic.Logic;
 
@@ -33,9 +29,9 @@ public class CreateApartmentGui implements StepGui {
         CreateApartmentGuiElements.finishedCreation.setBounds(790, 500, 150, 60);
         CreateApartmentGuiElements.finishedAddingWalls.setBounds(900, 500, 150, 60);
         CreateApartmentGuiElements.oneMoreWall.setBounds(670, 500, 200, 60);
-        
-        editButtonProperty(CreateApartmentGuiElements.actionButtons);
-        editButtonProperty(CreateApartmentGuiElements.chooseWalls);
+
+        Logic.editButtonsProperty(CreateApartmentGuiElements.actionButtons);
+        Logic.editButtonsProperty(CreateApartmentGuiElements.chooseWalls);
     }
 
     public static void initializeTextFields() {
@@ -49,12 +45,4 @@ public class CreateApartmentGui implements StepGui {
         Logic.editLabelsAndTextFieldsProperty(CreateApartmentGuiElements.getApartmentParameter);
         Logic.editLabelsAndTextFieldsProperty(CreateApartmentGuiElements.getUndefinedApartmentParameter);
     }
-
-    private static void editButtonProperty(JButton[] elements) {
-        for (JButton element : elements) {
-            element.setBackground(Colors.CHOOSE_BUTTON_COLOR);
-            element.setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
-            element.setVisible(false);
-        }
-    }   
 }

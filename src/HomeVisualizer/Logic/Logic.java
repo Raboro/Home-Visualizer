@@ -3,6 +3,11 @@ package HomeVisualizer.Logic;
 import java.awt.Component;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+
+import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
+
 public class Logic {
 
     public static final int METER_INTO_PIXEL = 2;
@@ -19,6 +24,14 @@ public class Logic {
         setElementsVisibility(elements, false);
         for (T element : elements) {
             ((Component) element).setFont(new Font("Arial", Font.BOLD, 15));
+        }
+    }
+
+    public static void editButtonsProperty(JButton[] elements) {
+        setElementsVisibility(elements, false);
+        for (JButton element : elements) {
+            element.setBackground(Colors.CHOOSE_BUTTON_COLOR);
+            element.setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
         }
     }
 }
