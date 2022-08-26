@@ -1,8 +1,8 @@
 package HomeVisualizer.Logic;
 
-import java.awt.Component;
-
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
@@ -30,9 +30,9 @@ public class StartVisualizeLogic {
     public static void loadNewProjectGui() {
         initNewProject();
 
-        addElementsToPanel(NewProjectElementsGui.buttonsSteps);
-        addElementToPanel(NewProjectElementsGui.startSteps);
-        addElementToPanel(NewProjectElementsGui.stepName);
+        Logic.addElementsToPanel(NewProjectElementsGui.buttonsSteps, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[]{NewProjectElementsGui.startSteps}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JLabel[]{NewProjectElementsGui.stepName}, StartVisualizeGui.panel);
 
         Logic.setElementsVisibility(NewProjectElementsGui.buttonsSteps, true);
         NewProjectElementsGui.startSteps.setVisible(true);
@@ -49,16 +49,6 @@ public class StartVisualizeLogic {
         CreateRoomNamesGui.initializeGuiElements();
     }
 
-    public static <T> void addElementsToPanel(T[] addElement) {
-        for (int i = 0; i < addElement.length; i++) {
-            StartVisualizeGui.panel.add((Component) addElement[i]);
-        }
-    }
-
-    public static <T> void addElementToPanel(T addElement) {
-        StartVisualizeGui.panel.add((Component) addElement);
-    }
-
     public static void startSteps() {
         NewProjectElementsGui.buttonsSteps[0].setBackground(Colors.IN_WORK_STEP_COLOR);
         NewProjectElementsGui.buttonsSteps[0]
@@ -66,7 +56,7 @@ public class StartVisualizeLogic {
         NewProjectElementsGui.stepButtonsRightBottom();
         userIsWorking = true;
 
-        addElementToPanel(NewProjectElementsGui.continueSteps);
+        Logic.addElementsToPanel(new JButton[]{NewProjectElementsGui.continueSteps}, StartVisualizeGui.panel);
 
         NewProjectElementsGui.continueSteps.setVisible(true);
         NewProjectElementsGui.stepName.setVisible(true);
@@ -120,7 +110,7 @@ public class StartVisualizeLogic {
     }
 
     public static void create_Apartment() {
-        addElementsToPanel(CreateApartmentGuiElements.chooseWalls);
+        Logic.addElementsToPanel(CreateApartmentGuiElements.chooseWalls, StartVisualizeGui.panel);
         StartVisualizeGui.panel.invalidate();
 
         Logic.setElementsVisibility(CreateApartmentGuiElements.chooseWalls, true);

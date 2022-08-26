@@ -7,16 +7,15 @@ import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.NewProjectElementsGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo.CreateRoomsGuiElements;
 import HomeVisualizer.Logic.Logic;
-import HomeVisualizer.Logic.StartVisualizeLogic;
 
 public class CreateRoomsLogic {
 
     public static List<double[]> wallPoints = new ArrayList<>();
     
     public static void init() {
-        StartVisualizeLogic.addElementsToPanel(CreateRoomsGuiElements.positions);
-        StartVisualizeLogic.addElementsToPanel(CreateRoomsGuiElements.getPositions);
-        StartVisualizeLogic.addElementsToPanel(CreateRoomsGuiElements.actionButtons);
+        Logic.addElementsToPanel(CreateRoomsGuiElements.positions, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(CreateRoomsGuiElements.getPositions, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(CreateRoomsGuiElements.actionButtons, StartVisualizeGui.panel);
         
         setElementsVisibility(true);
         NewProjectElementsGui.continueSteps.setEnabled(false);

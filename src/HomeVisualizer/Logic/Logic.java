@@ -5,6 +5,7 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
 
@@ -32,6 +33,12 @@ public class Logic {
         for (JButton element : elements) {
             element.setBackground(Colors.CHOOSE_BUTTON_COLOR);
             element.setBorder(BorderFactory.createLineBorder(Colors.CHOOSE_BUTTON_COLOR_BORDER, 6));
+        }
+    }
+
+    public static <T> void addElementsToPanel(T[] elements, JPanel panel) {
+        for (T element : elements){
+            panel.add((Component) element);
         }
     }
 }
