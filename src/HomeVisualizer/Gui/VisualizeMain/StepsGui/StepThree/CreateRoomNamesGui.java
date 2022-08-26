@@ -1,9 +1,6 @@
 package HomeVisualizer.Gui.VisualizeMain.StepsGui.StepThree;
 
-import java.awt.Font;
-
 import javax.swing.BorderFactory;
-import javax.swing.JComponent;
 
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
@@ -29,7 +26,7 @@ public class CreateRoomNamesGui extends Frame {
     private static void initializeLabels() {
         CreateRoomNamesGuiElements.roomName.setBounds(200, 120, 100, 20);
         CreateRoomNamesGuiElements.wallName.setBounds(400, 120, 100, 20);
-        editGuiLabelsAndFieldsProperty(CreateRoomNamesGuiElements.labels);
+        Logic.editLabelsAndTextFieldsProperty(CreateRoomNamesGuiElements.labels);
     }
     
     private static void initializeButtons() {
@@ -42,15 +39,8 @@ public class CreateRoomNamesGui extends Frame {
     private static void initializeTextFields() {
         CreateRoomNamesGuiElements.getRoomName.setBounds(200, 140, 95, 20);
         CreateRoomNamesGuiElements.getWallName.setBounds(400, 140, 85, 20);
-        editGuiLabelsAndFieldsProperty(CreateRoomNamesGuiElements.fields);
-    }
-
-    private static <T> void editGuiLabelsAndFieldsProperty(T[] elements) {
-        for (T element : elements) {
-            ((JComponent) element).setVisible(false);
-            ((JComponent) element).setFont(new Font("Arial", Font.BOLD, 15));
-        }
-    }   
+        Logic.editLabelsAndTextFieldsProperty(CreateRoomNamesGuiElements.fields);
+    } 
 
     private static void editButtonsProperty() {
         for (int button = 0; button < CreateRoomNamesGuiElements.buttons.length; button++) {

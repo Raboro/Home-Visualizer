@@ -2,11 +2,9 @@ package HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
-
-import java.awt.Font;
+import HomeVisualizer.Logic.Logic;
 
 public class CreateApartmentGui {
 
@@ -39,8 +37,8 @@ public class CreateApartmentGui {
         CreateApartmentGuiElements.xPos.setBounds(737, 300, 70, 20);
         CreateApartmentGuiElements.yPos.setBounds(937, 300, 70, 20);
 
-        editLabelsAndTexFieldsProperty(CreateApartmentGuiElements.apartmentParameter);
-        editLabelsAndTexFieldsProperty(CreateApartmentGuiElements.undefinedApartmentParameter);
+        Logic.editLabelsAndTextFieldsProperty(CreateApartmentGuiElements.apartmentParameter);
+        Logic.editLabelsAndTextFieldsProperty(CreateApartmentGuiElements.undefinedApartmentParameter);
     }
 
     public static void initTextFields() {
@@ -51,14 +49,7 @@ public class CreateApartmentGui {
         CreateApartmentGuiElements.getXPos.setBounds(737, 320, 60, 28);
         CreateApartmentGuiElements.getYPos.setBounds(937, 320, 55, 28);
 
-        editLabelsAndTexFieldsProperty(CreateApartmentGuiElements.getApartmentParameter);
-        editLabelsAndTexFieldsProperty(CreateApartmentGuiElements.getUndefinedApartmentParameter);
-    }
-
-    private static <T> void editLabelsAndTexFieldsProperty(T[] elements) {
-        for (T element : elements) {
-            ((JComponent) element).setVisible(false);
-            ((JComponent) element).setFont(new Font("Arial", Font.BOLD, 15));
-        }
+        Logic.editLabelsAndTextFieldsProperty(CreateApartmentGuiElements.getApartmentParameter);
+        Logic.editLabelsAndTextFieldsProperty(CreateApartmentGuiElements.getUndefinedApartmentParameter);
     }
 }
