@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import HomeVisualizer.Graphics.Point2d;
+import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Logic.Logic;
 
@@ -32,9 +33,9 @@ public class CreateApartmentLogic {
     }
 
     private static void addElemetsToPanelFourWalls() {
-        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.finishedCreation});
-        Logic.addElementsToPanel(CreateApartmentGuiElements.apartmentParameter);
-        Logic.addElementsToPanel(CreateApartmentGuiElements.getApartmentParameter);
+        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.finishedCreation}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(CreateApartmentGuiElements.apartmentParameter, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(CreateApartmentGuiElements.getApartmentParameter, StartVisualizeGui.panel);
     }
 
     public static void userChooseUndefinedWalls() {
@@ -53,10 +54,10 @@ public class CreateApartmentLogic {
     }
 
     private static void addElemetsToPanelUndefinedWalls() {
-        Logic.addElementsToPanel(new JLabel[]{CreateApartmentGuiElements.height});
-        Logic.addElementsToPanel(new JTextField[]{CreateApartmentGuiElements.getHeight});
-        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.finishedAddingWalls});
-        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.oneMoreWall});
+        Logic.addElementsToPanel(new JLabel[]{CreateApartmentGuiElements.height}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JTextField[]{CreateApartmentGuiElements.getHeight}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.finishedAddingWalls}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.oneMoreWall}, StartVisualizeGui.panel);
     }
 
     public static void addHeight() {
@@ -73,8 +74,8 @@ public class CreateApartmentLogic {
         CreateApartmentGuiElements.getHeight.setVisible(false);
         CreateApartmentGuiElements.oneMoreWall.setText("One more wall");
 
-        Logic.addElementsToPanel(CreateApartmentGuiElements.undefinedApartmentParameter);
-        Logic.addElementsToPanel(CreateApartmentGuiElements.getUndefinedApartmentParameter);
+        Logic.addElementsToPanel(CreateApartmentGuiElements.undefinedApartmentParameter, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(CreateApartmentGuiElements.getUndefinedApartmentParameter, StartVisualizeGui.panel);
 
         Logic.setElementsVisibility(CreateApartmentGuiElements.undefinedApartmentParameter, true);
         Logic.setElementsVisibility(CreateApartmentGuiElements.getUndefinedApartmentParameter, true);

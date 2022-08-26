@@ -13,9 +13,9 @@ public class CreateRoomsLogic {
     public static List<double[]> wallPoints = new ArrayList<>();
     
     public static void init() {
-        Logic.addElementsToPanel(CreateRoomsGuiElements.positions);
-        Logic.addElementsToPanel(CreateRoomsGuiElements.getPositions);
-        Logic.addElementsToPanel(CreateRoomsGuiElements.actionButtons);
+        Logic.addElementsToPanel(CreateRoomsGuiElements.positions, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(CreateRoomsGuiElements.getPositions, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(CreateRoomsGuiElements.actionButtons, StartVisualizeGui.panel);
         
         setElementsVisibility(true);
         NewProjectElementsGui.continueSteps.setEnabled(false);
