@@ -30,9 +30,9 @@ public class StartVisualizeLogic {
     public static void loadNewProjectGui() {
         initNewProject();
 
-        Logic.addElementsToPanel(NewProjectElementsGui.buttonsSteps, StartVisualizeGui.panel);
-        Logic.addElementsToPanel(new JButton[]{NewProjectElementsGui.startSteps}, StartVisualizeGui.panel);
-        Logic.addElementsToPanel(new JLabel[]{NewProjectElementsGui.stepName}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(NewProjectElementsGui.buttonsSteps);
+        Logic.addElementsToPanel(new JButton[]{NewProjectElementsGui.startSteps});
+        Logic.addElementsToPanel(new JLabel[]{NewProjectElementsGui.stepName});
 
         Logic.setElementsVisibility(NewProjectElementsGui.buttonsSteps, true);
         NewProjectElementsGui.startSteps.setVisible(true);
@@ -56,7 +56,7 @@ public class StartVisualizeLogic {
         NewProjectElementsGui.stepButtonsRightBottom();
         userIsWorking = true;
 
-        Logic.addElementsToPanel(new JButton[]{NewProjectElementsGui.continueSteps}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[]{NewProjectElementsGui.continueSteps});
 
         NewProjectElementsGui.continueSteps.setVisible(true);
         NewProjectElementsGui.stepName.setVisible(true);
@@ -110,7 +110,7 @@ public class StartVisualizeLogic {
     }
 
     public static void create_Apartment() {
-        Logic.addElementsToPanel(CreateApartmentGuiElements.chooseWalls, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(CreateApartmentGuiElements.chooseWalls);
         StartVisualizeGui.panel.invalidate();
 
         Logic.setElementsVisibility(CreateApartmentGuiElements.chooseWalls, true);

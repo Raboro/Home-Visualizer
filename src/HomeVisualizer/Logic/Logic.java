@@ -5,8 +5,8 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 
+import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
 
 public class Logic {
@@ -36,9 +36,9 @@ public class Logic {
         }
     }
 
-    public static <T> void addElementsToPanel(T[] elements, JPanel panel) {
+    public static <T> void addElementsToPanel(T[] elements) {
         for (T element : elements){
-            panel.add((Component) element);
+            StartVisualizeGui.panel.add((Component) element);
         }
     }
 }
