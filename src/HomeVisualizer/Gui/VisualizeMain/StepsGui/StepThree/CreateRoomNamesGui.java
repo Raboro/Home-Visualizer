@@ -4,9 +4,10 @@ import javax.swing.BorderFactory;
 
 import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepGui;
 import HomeVisualizer.Logic.Logic;
 
-public class CreateRoomNamesGui extends Frame {
+public class CreateRoomNamesGui extends Frame implements StepGui{
 
     public CreateRoomNamesGui() {
         super("Room Names", Logic.STEP_THREE_WINDOW_SIZE, Logic.STEP_THREE_WINDOW_SIZE);

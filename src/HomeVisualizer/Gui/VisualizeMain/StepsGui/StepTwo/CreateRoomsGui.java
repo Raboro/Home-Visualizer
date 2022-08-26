@@ -3,11 +3,26 @@ package HomeVisualizer.Gui.VisualizeMain.StepsGui.StepTwo;
 import javax.swing.BorderFactory;
 
 import HomeVisualizer.Gui.VisualizeMain.GuiElements.Colors;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepGui;
 import HomeVisualizer.Logic.Logic;
 
-public class CreateRoomsGui {
+public class CreateRoomsGui implements StepGui {
 
-    public static void initButtons() {
+    public static void initializeGuiElements() {
+        initializeLabels();
+        initializeButtons();
+        initializeTextFields();
+    }
+    
+    private static void initializeLabels() {
+        CreateRoomsGuiElements.StartXPos.setBounds(537, 300, 100, 20);
+        CreateRoomsGuiElements.StartYPos.setBounds(737, 300, 100, 20);
+        CreateRoomsGuiElements.EndXPos.setBounds(937, 300, 100, 20);
+        CreateRoomsGuiElements.EndYPos.setBounds(1137, 300, 70, 20);
+        Logic.editLabelsAndTextFieldsProperty(CreateRoomsGuiElements.positions);
+    }
+
+    private static void initializeButtons() {
         CreateRoomsGuiElements.addWalls.setBounds(740, 600, 100, 100);
         CreateRoomsGuiElements.finishedAddingWalls.setBounds(890, 600, 100, 100);
 
@@ -19,15 +34,7 @@ public class CreateRoomsGui {
         }
     }
 
-    public static void initLabels() {
-        CreateRoomsGuiElements.StartXPos.setBounds(537, 300, 100, 20);
-        CreateRoomsGuiElements.StartYPos.setBounds(737, 300, 100, 20);
-        CreateRoomsGuiElements.EndXPos.setBounds(937, 300, 100, 20);
-        CreateRoomsGuiElements.EndYPos.setBounds(1137, 300, 70, 20);
-        Logic.editLabelsAndTextFieldsProperty(CreateRoomsGuiElements.positions);
-    }
-
-    public static void initTextFields() {
+    private static void initializeTextFields() {
         CreateRoomsGuiElements.getStartXPos.setBounds(537, 320, 100, 20);
         CreateRoomsGuiElements.getStartYPos.setBounds(737, 320, 100, 20);
         CreateRoomsGuiElements.getEndXPos.setBounds(937, 320, 100, 20);

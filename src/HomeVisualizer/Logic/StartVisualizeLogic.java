@@ -44,15 +44,8 @@ public class StartVisualizeLogic {
         NewProjectElementsGui.initStartStep();
         NewProjectElementsGui.initContinueStep();
 
-        CreateApartmentGui.initChooseWallsButtons();
-        CreateApartmentGui.initFinishedCreation();
-        CreateApartmentGui.initLabels();
-        CreateApartmentGui.initTextFields();
-
-        CreateRoomsGui.initButtons();
-        CreateRoomsGui.initLabels();
-        CreateRoomsGui.initTextFields();
-
+        CreateApartmentGui.initializeGuiElements();
+        CreateRoomsGui.initializeGuiElements();
         CreateRoomNamesGui.initializeGuiElements();
     }
 
