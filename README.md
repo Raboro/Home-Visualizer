@@ -163,7 +163,7 @@ This project contains a software, which visualize your home. You can login and c
 [CreateApartmentLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateApartmentLogic.java
 [CreateRoomsLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateRoomsLogic.java
 [CreateRoomNamesLogicGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateRoomNamesLogicGui.java
-[CreateRoomNamesLogicGraphics.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/CreateRoomNamesLogicGraphics.java.java
+[CreateRoomNamesLogicGraphics.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateRoomNamesLogicGraphics.java
 [Logic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/Logic.java
 [LoginLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/LoginLogic.java
 [StartVisualizeLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizeLogic.java
