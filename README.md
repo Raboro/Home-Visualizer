@@ -187,5 +187,5 @@ This project contains a software, which visualize your home. You can login and c
 
 [Main.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Main.java
 
-[HashTest.java]: https://github.com/Raboro/Home-Visualizer/blob/master/src/Test/Encryption/HashTest.java
-[RsaEncryptionTest.java]: https://github.com/Raboro/Home-Visualizer/blob/master/src/Test/Encryption/RsaEncryptionTest.java
+[HashTest.java]: https://github.com/Raboro/Home-Visualizer/blob/master/src/Tests/Encryption/HashTest.java
+[RsaEncryptionTest.java]: https://github.com/Raboro/Home-Visualizer/blob/master/src/Tests/Encryption/RsaEncryptionTest.java
