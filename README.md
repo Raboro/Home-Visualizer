@@ -15,7 +15,14 @@ This project contains a software, which visualize your home. You can login and c
      > - [settings.json] 
 - **`bin`: the folder with compiled output files**
 - **`doc`: the folder contains the documentation and diagrams**
-     > - [classdiagram.md]
+     > - **`Diagrams`**
+     >   - **`class diagrams`**
+     >      - [ActionListenerClassDiagram.md]
+     >      - [DatabaseClassDiagram.md]
+     >      - [EncryptionClassDiagram.md]
+     >      - [Graphics(2d)ClassDiagram.md]
+     >      - [GuiClassDiagram.md]
+     >      - [LogicClassDiagram.md]
      > - [documentation.md]
 - **`Images`: the folter to maintain images**
      > - [loginButton.png] 
@@ -27,7 +34,7 @@ This project contains a software, which visualize your home. You can login and c
      > - **`HomeVisualizer`**
      >   - **`ActionListener`**
      >       - [AddActionListener.java]
-     >       - [AddActionListenerlogin]
+     >       - [AddActionListenerLogin.java]
      >       - [AddActionListenerStartVisualize.java]
      >       - [LoginActionListener.java]
      >       - [StartVisualizeActionListener.java]
@@ -106,7 +113,12 @@ This project contains a software, which visualize your home. You can login and c
 
 [settings.json]:https://github.com/Raboro/Home-Visualizer/blob/master/.vscode/settings.json 
 
-[classdiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/classdiagram.md
+[ActionListenerClassDiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/Diagrams/ClassDiagrams/ActionListenerClassDiagram.md
+[DatabaseClassDiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/Diagrams/ClassDiagrams/DatabaseClassDiagram.md
+[EncryptionClassDiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/Diagrams/ClassDiagrams/EncryptionClassDiagram.md
+[Graphics(2d)ClassDiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/Diagrams/ClassDiagrams/Graphics(2d)ClassDiagram.md
+[GuiClassDiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/Diagrams/ClassDiagrams/GuiClassDiagram.md
+[LogicClassDiagram.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/Diagrams/ClassDiagrams/LogicClassDiagram.md
 [documentation.md]:https://github.com/Raboro/Home-Visualizer/blob/master/doc/documentation.md
 
 [loginButton.png]:https://github.com/Raboro/Home-Visualizer/blob/master/Images/loginButton.png
@@ -117,7 +129,7 @@ This project contains a software, which visualize your home. You can login and c
 
 [AddActionListener.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/AddActionListener.java
 [AddActionListenerLogin.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/AddActionListenerLogin.java
-[AddActionListenerStartVisualizer.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/AddActionListenerStartVisualizer.java
+[AddActionListenerStartVisualize.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/AddActionListenerStartVisualizer.java
 [LoginActionListener.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/LoginActionListener.java
 [StartVisualizeActionListener.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/ActionListener/StartVisualizerActionListener.java
 
@@ -133,16 +145,26 @@ This project contains a software, which visualize your home. You can login and c
 
 [Frame.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/Frame.java
 [LoginGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/Login/LoginGui.java
+[Colors.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/ColorState.java
 [ColorState.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/ColorState.java
+[StepGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/StepGui.java
 [NewProjectElementsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/NewProjectElementsGui.java
 [StartVisualizeElementsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/StartVisualizeElementsGui.java
 [StepStates.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/GuiElements/StepStates.java
-[CreateApartmentGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/CreateApartmentGui.java
-[CreateRoomsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/CreateRoomsGui.java
+[CreateApartmentGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepOne/CreateApartmentGui.java
+[CreateApartmentGuiElements.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepOne/CreateApartmentGuiElements.java
+[CreateRoomsGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepTwo/CreateRoomsGui.java
+[CreateRoomsGuiElements.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepTwo/CreateRoomsGuiElements.java
+[CreateRoomNamesGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepThree/CreateRoomNamesGui.java
+[CreateRoomNamesGuiElements.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepThree/CreateRoomNamesGuiElements.java
+[RoomNames.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StepsGui/StepThree/RoomNames.java
 [StartVisualizeGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Gui/VisualizeMain/StartVisualizeGui.java
 
 [CreateApartmentLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateApartmentLogic.java
 [CreateRoomsLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateRoomsLogic.java
+[CreateRoomNamesLogicGui.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogic/CreateRoomNamesLogicGui.java
+[CreateRoomNamesLogicGraphics.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizerStepsLogiGraphics.java
+[Logic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/Logic.java
 [LoginLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/LoginLogic.java
 [StartVisualizeLogic.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Logic/StartVisualizeLogic.java
 
@@ -164,3 +186,6 @@ This project contains a software, which visualize your home. You can login and c
 [Display.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/VisualizeRenderer/Display.java
 
 [Main.java]:https://github.com/Raboro/Home-Visualizer/blob/master/src/HomeVisualizer/Main.java
+
+[HashTest.java]: https://github.com/Raboro/Home-Visualizer/blob/master/src/Test/Encryption/HashTest.java
+[RsaEncryptionTest.java]: https://github.com/Raboro/Home-Visualizer/blob/master/src/Test/Encryption/RsaEncryptionTest.java
