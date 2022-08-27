@@ -1,4 +1,4 @@
-package Tests;
+package Tests.Encryption;
 
 import org.junit.Assert;
 import org.junit.Test;
