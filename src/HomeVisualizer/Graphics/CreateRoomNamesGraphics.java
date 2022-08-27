@@ -1,7 +1,6 @@
 package HomeVisualizer.Graphics;
 
-import javax.swing.JFrame;
-
+import HomeVisualizer.Gui.Frame;
 import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepOne.CreateApartmentGuiElements;
 import HomeVisualizer.Logic.Logic;
 import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
@@ -14,15 +13,13 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateRoomNamesGraphics extends JFrame {
+public class CreateRoomNamesGraphics extends Frame {
 
     private List<Integer> wallNames = new ArrayList<>();
     private int currentWallName = 0;
 
     public CreateRoomNamesGraphics() {
-        super("Show Apartment");
-
-        this.setSize(Logic.STEP_THREE_WINDOW_SIZE, Logic.STEP_THREE_WINDOW_SIZE);
+        super("Show Apartment", Logic.STEP_THREE_WINDOW_SIZE, Logic.STEP_THREE_WINDOW_SIZE);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocation(230, 550);
     }
