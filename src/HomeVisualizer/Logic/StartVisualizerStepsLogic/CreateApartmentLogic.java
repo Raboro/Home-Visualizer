@@ -33,7 +33,8 @@ public class CreateApartmentLogic {
     }
 
     private static void addElemetsToPanelFourWalls() {
-        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.finishedCreation}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[] { CreateApartmentGuiElements.finishedCreation },
+                StartVisualizeGui.panel);
         Logic.addElementsToPanel(CreateApartmentGuiElements.apartmentParameter, StartVisualizeGui.panel);
         Logic.addElementsToPanel(CreateApartmentGuiElements.getApartmentParameter, StartVisualizeGui.panel);
     }
@@ -54,10 +55,11 @@ public class CreateApartmentLogic {
     }
 
     private static void addElemetsToPanelUndefinedWalls() {
-        Logic.addElementsToPanel(new JLabel[]{CreateApartmentGuiElements.height}, StartVisualizeGui.panel);
-        Logic.addElementsToPanel(new JTextField[]{CreateApartmentGuiElements.getHeight}, StartVisualizeGui.panel);
-        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.finishedAddingWalls}, StartVisualizeGui.panel);
-        Logic.addElementsToPanel(new JButton[]{CreateApartmentGuiElements.oneMoreWall}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JLabel[] { CreateApartmentGuiElements.height }, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JTextField[] { CreateApartmentGuiElements.getHeight }, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[] { CreateApartmentGuiElements.finishedAddingWalls },
+                StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[] { CreateApartmentGuiElements.oneMoreWall }, StartVisualizeGui.panel);
     }
 
     public static void addHeight() {
@@ -117,7 +119,8 @@ public class CreateApartmentLogic {
 
     public static void finishedStepOne() {
         if (isFourWalls) {
-            constantHeight = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[1].getText()) * Logic.METER_INTO_PIXEL;
+            constantHeight = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[1].getText())
+                    * Logic.METER_INTO_PIXEL;
             elementsInvisibleFourWalls();
         } else {
             elementsInvisibleUndefinedWalls();

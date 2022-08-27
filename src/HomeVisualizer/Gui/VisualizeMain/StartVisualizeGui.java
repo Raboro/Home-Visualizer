@@ -12,7 +12,7 @@ import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateApartmentLogic;
 import HomeVisualizer.VisualizeRenderer.Display;
 
 public class StartVisualizeGui extends Frame {
-    
+
     public static JPanel panel;
 
     public StartVisualizeGui(String user) {
@@ -44,14 +44,13 @@ public class StartVisualizeGui extends Frame {
 
     public static void createDisplay() {
         Display display;
-        
+
         if (CreateApartmentLogic.isFourWalls) {
-        double length = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[0].getText()) * 2;
-        double height = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[1].getText()) * 2;
-        double width = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[2].getText()) * 2;
+            double length = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[0].getText()) * 2;
+            double height = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[1].getText()) * 2;
+            double width = Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[2].getText()) * 2;
 
-
-        display = new Display(length, height, width);
+            display = new Display(length, height, width);
         } else {
             display = new Display(0, 0, 0);
         }

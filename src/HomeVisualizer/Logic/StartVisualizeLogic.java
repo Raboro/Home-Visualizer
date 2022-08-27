@@ -31,8 +31,8 @@ public class StartVisualizeLogic {
         initNewProject();
 
         Logic.addElementsToPanel(NewProjectElementsGui.buttonsSteps, StartVisualizeGui.panel);
-        Logic.addElementsToPanel(new JButton[]{NewProjectElementsGui.startSteps}, StartVisualizeGui.panel);
-        Logic.addElementsToPanel(new JLabel[]{NewProjectElementsGui.stepName}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[] { NewProjectElementsGui.startSteps }, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JLabel[] { NewProjectElementsGui.stepName }, StartVisualizeGui.panel);
 
         Logic.setElementsVisibility(NewProjectElementsGui.buttonsSteps, true);
         NewProjectElementsGui.startSteps.setVisible(true);
@@ -56,7 +56,7 @@ public class StartVisualizeLogic {
         NewProjectElementsGui.stepButtonsRightBottom();
         userIsWorking = true;
 
-        Logic.addElementsToPanel(new JButton[]{NewProjectElementsGui.continueSteps}, StartVisualizeGui.panel);
+        Logic.addElementsToPanel(new JButton[] { NewProjectElementsGui.continueSteps }, StartVisualizeGui.panel);
 
         NewProjectElementsGui.continueSteps.setVisible(true);
         NewProjectElementsGui.stepName.setVisible(true);

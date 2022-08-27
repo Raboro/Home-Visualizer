@@ -37,7 +37,7 @@ public class Logic {
     }
 
     public static <T> void addElementsToPanel(T[] elements, JPanel panel) {
-        for (T element : elements){
+        for (T element : elements) {
             panel.add((Component) element);
         }
     }

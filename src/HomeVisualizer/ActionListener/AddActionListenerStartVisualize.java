@@ -25,6 +25,6 @@ public class AddActionListenerStartVisualize implements AddActionListener {
         CreateRoomsGuiElements.finishedAddingWalls.addActionListener(l);
         CreateRoomNamesGuiElements.finishedStep.addActionListener(l);
         CreateRoomNamesGuiElements.addWall.addActionListener(l);
-        CreateRoomNamesGuiElements.finishRoom.addActionListener(l);        
-    }   
+        CreateRoomNamesGuiElements.finishRoom.addActionListener(l);
+    }
 }

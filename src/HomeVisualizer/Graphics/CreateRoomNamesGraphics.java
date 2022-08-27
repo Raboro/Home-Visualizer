@@ -51,9 +51,11 @@ public class CreateRoomNamesGraphics extends Frame {
     }
 
     private int[] getFourWallsCoordinates() {
-        int length = (int) (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[0].getText()) * Logic.METER_INTO_PIXEL) / 10;
-        int width = (int) (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[2].getText()) * Logic.METER_INTO_PIXEL) / 10;
-        return CreateRoomNamesLogicGraphics.translateSizeParameterOutsideWalls(new int[]{length, width});
+        int length = (int) (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[0].getText())
+                * Logic.METER_INTO_PIXEL) / 10;
+        int width = (int) (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[2].getText())
+                * Logic.METER_INTO_PIXEL) / 10;
+        return CreateRoomNamesLogicGraphics.translateSizeParameterOutsideWalls(new int[] { length, width });
     }
 
     private void paintFourWalls(Graphics g, int[] coordinates) {
@@ -69,7 +71,7 @@ public class CreateRoomNamesGraphics extends Frame {
         g.drawString(Integer.toString(wallNames.get(2)), (100 + coordinates[0] / 2), (120 + coordinates[1]));
         g.drawString(Integer.toString(wallNames.get(3)), 80, 100 + (coordinates[1] / 2));
         currentWallName = 4;
-    } 
+    }
 
     private void loopOverUndefinedWalls(Graphics g) {
         boolean isFirstWall = true;
@@ -78,8 +80,8 @@ public class CreateRoomNamesGraphics extends Frame {
 
             if (isFirstWall) {
                 isFirstWall = false;
-                paintUndefinedWallName(g, wall, new int[]{ 100, 100 });
-                paintUndefinedWall(g, wall, new int[]{ 100, 100 });
+                paintUndefinedWallName(g, wall, new int[] { 100, 100 });
+                paintUndefinedWall(g, wall, new int[] { 100, 100 });
             } else {
                 int[] wallBefore = getUndefinedWallsCoordinates(wallIndex - 1);
                 paintUndefinedWallName(g, wall, wallBefore);
@@ -92,13 +94,13 @@ public class CreateRoomNamesGraphics extends Frame {
     private int[] getUndefinedWallsCoordinates(int wallIndex) {
         int x = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getX() * Logic.METER_INTO_PIXEL) / 10;
         int y = (int) (CreateApartmentLogic.wallPoints.get(wallIndex).getY() * Logic.METER_INTO_PIXEL) / 10;
-        return CreateRoomNamesLogicGraphics.translateSizeParameterOutsideWalls(new int[]{ x, y });
+        return CreateRoomNamesLogicGraphics.translateSizeParameterOutsideWalls(new int[] { x, y });
     }
 
     private void paintUndefinedWallName(Graphics g, int[] wall, int[] wallBefore) {
         int[] point = CreateRoomNamesLogicGraphics.getPositionToDrawWallName(wallBefore, wall);
         g.drawString(Integer.toString(wallNames.get(currentWallName)), point[0], point[1]);
-    } 
+    }
 
     private void paintUndefinedWall(Graphics g, int[] wall, int[] wallBefore) {
         g.drawLine(wallBefore[0], wallBefore[1], wall[0], wall[1]);
@@ -107,7 +109,8 @@ public class CreateRoomNamesGraphics extends Frame {
     private void paintInsideWallNames(Graphics g) {
         int[][] walls = CreateRoomNamesLogicGraphics.translateSizeParameterInsideWalls();
         for (int[] wall : walls) {
-            int[] point = CreateRoomNamesLogicGraphics.getPositionToDrawWallName(new int[]{ wall[0], wall[1] }, new int[]{ wall[2], wall[3]});
+            int[] point = CreateRoomNamesLogicGraphics.getPositionToDrawWallName(new int[] { wall[0], wall[1] },
+                    new int[] { wall[2], wall[3] });
             g.drawString(Integer.toString(wallNames.get(currentWallName)), point[0], point[1]);
             currentWallName += 1;
         }
@@ -115,7 +118,7 @@ public class CreateRoomNamesGraphics extends Frame {
 
     private void paintInsideWalls(Graphics g) {
         int[][] walls = CreateRoomNamesLogicGraphics.translateSizeParameterInsideWalls();
-        for (int[] wall: walls) {
+        for (int[] wall : walls) {
             g.drawLine(wall[0], wall[1], wall[2], wall[3]);
         }
     }
