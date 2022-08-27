@@ -6,6 +6,10 @@
 
 This project contains a software, which visualize your home. You can login and create and load your apartment or house. Your home will be 3d rendered. You can design your appartment, costumize the size and add facility to it.
 
+```java
+3334 lines of code in 54 java files
+```
+
 <br />
 
 ## **Folder Structure**
