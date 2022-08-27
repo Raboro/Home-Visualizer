@@ -3,10 +3,13 @@
 
 namespace Logic {
     class Logic {
-        {static } - final METER_INTO_PIXEL: int
+        {static } + final METER_INTO_PIXEL: int
         {static} + final MAIN_WINDOW_SIZE: int[]
         {static} + final STEP_THREE_WINDOW_SIZE: int
         {static} + <T> setElementsVisibility(element: T[], visibility: boolean)
+        {static} + <T> editLabelsAndTextFieldsProperty(elements : T[])
+        {static} + editButtonsProperty(elements: JButton[])
+        {static} + <T> addElementsToPanel(elements: T[], panel: JPanel)
     }
 
     class LoginLogic {
@@ -23,13 +26,12 @@ namespace Logic {
     }
 
     class StartVisualizeLogic{
-        {static} - stepState = 0: int
-        {static} - stepArray = { StepStates.CREATE_APARTMENT, StepStates.CREATE_ROOMS,
-        StepStates.CREATE_ROOM_NAMES, StepStates.CREATE_DOORS }: StepStates[]
+        {static} - stepState: int
+        {static} - stepArray: StepStates[]
         {static} + currentState: StepStates
-        {static} + userStartNewProject = false: boolean
-        {static} + userIsWorking = false: boolean
-        {static} + finishedStartSteps = false: boolean
+        {static} + userStartNewProject: boolean
+        {static} + userIsWorking: boolean
+        {static} + finishedStartSteps: boolean
         {static} - selectCurrentStep()
         {static} + loadNewProjectGui()
         {static} + initNewProject()
@@ -44,8 +46,8 @@ namespace Logic {
     class CreateApartmentLogic{
         {static} + isFourWalls: boolean
         {static} + constantHeight: double
-        {static} + addHeightSuccesful = false: boolean
-        {static} +  wallPoints = new ArrayList<>(): List<Point2d>
+        {static} + addHeightSuccesful: boolean
+        {static} + wallPoints: List<Point2d>
         {static} - initFourWalls()
         {static} - addElemetsToPanelFourWalls()
         {static} - initUndefinedWalls()

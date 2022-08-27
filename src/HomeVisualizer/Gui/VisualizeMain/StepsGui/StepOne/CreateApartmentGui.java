@@ -11,7 +11,7 @@ public class CreateApartmentGui implements StepGui {
         initializeTextFields();
     }
 
-    public static void initializeLabels() {
+    private static void initializeLabels() {
         CreateApartmentGuiElements.length.setBounds(637, 400, 70, 20);
         CreateApartmentGuiElements.height.setBounds(837, 400, 70, 20);
         CreateApartmentGuiElements.width.setBounds(1037, 400, 70, 20);
@@ -23,7 +23,7 @@ public class CreateApartmentGui implements StepGui {
         Logic.editLabelsAndTextFieldsProperty(CreateApartmentGuiElements.undefinedApartmentParameter);
     }
 
-    public static void initializeButtons() {
+    private static void initializeButtons() {
         CreateApartmentGuiElements.fourWalls.setBounds(730, 400, 100, 100);
         CreateApartmentGuiElements.undefinedWalls.setBounds(880, 400, 100, 100);
         CreateApartmentGuiElements.finishedCreation.setBounds(790, 500, 150, 60);
@@ -34,7 +34,7 @@ public class CreateApartmentGui implements StepGui {
         Logic.editButtonsProperty(CreateApartmentGuiElements.chooseWalls);
     }
 
-    public static void initializeTextFields() {
+    private static void initializeTextFields() {
         CreateApartmentGuiElements.getLength.setBounds(637, 420, 60, 28);
         CreateApartmentGuiElements.getHeight.setBounds(837, 420, 55, 28);
         CreateApartmentGuiElements.getWidth.setBounds(1037, 420, 50, 28);

@@ -8,8 +8,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import HomeVisualizer.Gui.Frame;
+import HomeVisualizer.Gui.VisualizeMain.StepsGui.StepGui;
 
-public class LoginGui extends Frame {
+public class LoginGui extends Frame implements StepGui {
 
     public static JTextField username;
     public static JPasswordField password;
@@ -25,15 +26,15 @@ public class LoginGui extends Frame {
         panel.setLayout(null);
 
         this.add(panel);
-        createLayout();
+        initializeGuiElements();
         this.setLocation(730, 650);
         this.setVisible(true);
     }
 
-    private void createLayout() {
+    private void initializeGuiElements() {
         initializeLabels();
-        initializeInputFields();
-        initializeInteractions();
+        initializeTextFields();
+        initializeButtons();
     }
 
     private void initializeLabels() {
@@ -47,7 +48,7 @@ public class LoginGui extends Frame {
         panel.add(passwordLabel);
     }
 
-    private void initializeInputFields() {
+    private void initializeTextFields() {
         username = new JTextField();
         password = new JPasswordField();
 
@@ -58,7 +59,7 @@ public class LoginGui extends Frame {
         panel.add(password);   
     }
 
-    private void initializeInteractions() {
+    private void initializeButtons() {
         showPassword = new JCheckBox("Show Password");
         loginButton = new JButton();
         signUpButton = new JButton();
