@@ -24,7 +24,7 @@ public class StartVisualizeLogic {
     public static boolean finishedStartSteps = false;
 
     private static int stepState = 0;
-    private static StepStates[] stepArray = { StepStates.CREATE_APARTMENT, StepStates.CREATE_ROOMS,
+    private static final StepStates[] stepArray = { StepStates.CREATE_APARTMENT, StepStates.CREATE_ROOMS,
             StepStates.CREATE_ROOM_NAMES, StepStates.CREATE_DOORS };
 
     public static void loadNewProjectGui() {
