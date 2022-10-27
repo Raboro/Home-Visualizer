@@ -31,9 +31,8 @@ public class RsaEncryption {
         encryptCipher.init(Cipher.ENCRYPT_MODE, publicKey);
 
         byte[] secretMessageBytes = message.getBytes(StandardCharsets.UTF_8);
-        byte[] encryptedMessageBytes = encryptCipher.doFinal(secretMessageBytes);
 
-        return encryptedMessageBytes;
+        return encryptCipher.doFinal(secretMessageBytes);
     }
 
     private static PublicKey getPublicKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
@@ -42,9 +41,8 @@ public class RsaEncryption {
 
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeyBytes);
-        PublicKey publicKey = keyFactory.generatePublic(publicKeySpec);
 
-        return publicKey;
+        return keyFactory.generatePublic(publicKeySpec);
     }
 
     public static String decrypt(byte[] message) throws NoSuchAlgorithmException, InvalidKeySpecException, IOException,
@@ -55,9 +53,8 @@ public class RsaEncryption {
         decryptCipher.init(Cipher.DECRYPT_MODE, privateKey);
 
         byte[] decryptedMessageBytes = decryptCipher.doFinal(message);
-        String decryptedMessage = new String(decryptedMessageBytes, StandardCharsets.UTF_8);
 
-        return decryptedMessage;
+        return new String(decryptedMessageBytes, StandardCharsets.UTF_8);
     }
 
     private static PrivateKey getPrivateKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
@@ -66,8 +63,7 @@ public class RsaEncryption {
 
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
-        PrivateKey privateKey = keyFactory.generatePrivate(privateKeySpec);
 
-        return privateKey;
+        return keyFactory.generatePrivate(privateKeySpec);
     }
 }
