@@ -34,16 +34,12 @@ public class Mouse implements MouseListener, MouseMotionListener, MouseWheelList
     }
 
     public ClickType getButton() {
-        switch (this.mouseB) {
-            case 1:
-                return ClickType.LEFTCLICK;
-            case 2:
-                return ClickType.SCROLLCLICK;
-            case 3:
-                return ClickType.RIGHTCLICK;
-            default:
-                return ClickType.UNKNOWN;
-        }
+        return switch (this.mouseB) {
+            case 1 -> ClickType.LEFTCLICK;
+            case 2 -> ClickType.SCROLLCLICK;
+            case 3 -> ClickType.RIGHTCLICK;
+            default -> ClickType.UNKNOWN;
+        };
     }
 
     @Override
