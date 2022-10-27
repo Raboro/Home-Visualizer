@@ -13,7 +13,7 @@ public class CreateRoomNamesLogicGui {
     public static List<RoomNames> roomNames = new ArrayList<>();
 
     private static CreateRoomNamesGui gui;
-    private static List<Integer> wallNames = new ArrayList<>();
+    private static final List<Integer> wallNames = new ArrayList<>();
     
     public static void init() {
         Logic.addElementsToPanel(CreateRoomNamesGuiElements.labels, CreateRoomNamesGuiElements.panel);
