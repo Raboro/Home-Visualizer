@@ -14,13 +14,11 @@ import HomeVisualizer.Gui.VisualizeMain.StartVisualizeGui;
 public class Main {
 
     private static LoginGui login;
-    private static AddActionListenerLogin loginActionListener;
-    private static AddActionListenerStartVisualize startVisualizeActionListener;
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException {
         new InitializeDatabase();
-        login = new LoginGui(); 
-        loginActionListener = new AddActionListenerLogin();
+        login = new LoginGui();
+        AddActionListenerLogin loginActionListener = new AddActionListenerLogin();
         loginActionListener.add(new LoginActionListener());
     }
 
@@ -28,7 +26,7 @@ public class Main {
         login.dispose();
         if (!(username == "")) {
             new StartVisualizeGui(username);
-            startVisualizeActionListener = new AddActionListenerStartVisualize();
+            AddActionListenerStartVisualize startVisualizeActionListener = new AddActionListenerStartVisualize();
             startVisualizeActionListener.add(new StartVisualizerActionListener());
         }
     }
