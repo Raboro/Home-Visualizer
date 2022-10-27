@@ -17,9 +17,8 @@ public class LoginGui extends Frame implements StepGui {
     public static JButton loginButton, signUpButton;
     public static JCheckBox showPassword;
 
-    private JPanel panel;
-    private JLabel usernameLabel, passwordLabel;
-    
+    private final JPanel panel;
+
     public LoginGui() {
         super("Login", 500, 500);
         panel = new JPanel();
@@ -38,8 +37,8 @@ public class LoginGui extends Frame implements StepGui {
     }
 
     private void initializeLabels() {
-        usernameLabel = new JLabel("Username");
-        passwordLabel = new JLabel("Password");
+        JLabel usernameLabel = new JLabel("Username");
+        JLabel passwordLabel = new JLabel("Password");
 
         usernameLabel.setBounds(130, 78, 70, 20);
         passwordLabel.setBounds(130, 135, 70, 20);
