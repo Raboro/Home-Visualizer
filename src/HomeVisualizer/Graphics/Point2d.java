@@ -2,7 +2,8 @@ package HomeVisualizer.Graphics;
 
 public class Point2d {
 
-    private double x, y;
+    private final double x;
+    private final double y;
 
     public Point2d(double x, double y) {
         this.x = x;
