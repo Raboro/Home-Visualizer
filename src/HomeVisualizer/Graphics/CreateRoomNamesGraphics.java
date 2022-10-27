@@ -15,7 +15,7 @@ import HomeVisualizer.Logic.StartVisualizerStepsLogic.CreateRoomsLogic;
 
 public class CreateRoomNamesGraphics extends Frame {
 
-    private List<Integer> wallNames = new ArrayList<>();
+    private final List<Integer> wallNames = new ArrayList<>();
     private int currentWallName = 0;
 
     public CreateRoomNamesGraphics() {
@@ -51,9 +51,9 @@ public class CreateRoomNamesGraphics extends Frame {
     }
 
     private int[] getFourWallsCoordinates() {
-        int length = (int) (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[0].getText())
+        int length = (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[0].getText())
                 * Logic.METER_INTO_PIXEL) / 10;
-        int width = (int) (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[2].getText())
+        int width = (Integer.parseInt(CreateApartmentGuiElements.getApartmentParameter[2].getText())
                 * Logic.METER_INTO_PIXEL) / 10;
         return CreateRoomNamesLogicGraphics.translateSizeParameterOutsideWalls(new int[] { length, width });
     }
