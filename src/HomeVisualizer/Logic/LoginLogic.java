@@ -21,10 +21,11 @@ import HomeVisualizer.Encryption.RsaEncryption;
 
 public class LoginLogic {
 
-    private LoginDatabase loginDatabase = new LoginDatabase();
-    private String username, password, encodedPassword;
+    private final LoginDatabase loginDatabase = new LoginDatabase();
+    private final String username;
+    private final String password;
+    private String encodedPassword;
     private int hashedUsername;
-    private byte[] encrytPassword;
 
     public LoginLogic(String username, String password) {
         this.username = username;
@@ -37,14 +38,14 @@ public class LoginLogic {
 
     private void encryptPassword() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, IOException {
-        encrytPassword = RsaEncryption.encrypt(password);
-        encodedPassword = Base64.getEncoder().encodeToString(encrytPassword);
+        byte[] encryptPassword = RsaEncryption.encrypt(password);
+        encodedPassword = Base64.getEncoder().encodeToString(encryptPassword);
     }
 
     private String decryptPassword(byte[] encryptedPasswordOfDatabase)
             throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
             NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException {
-        return new String(RsaEncryption.decrypt(encryptedPasswordOfDatabase));
+        return RsaEncryption.decrypt(encryptedPasswordOfDatabase);
     }
 
     public void signUp() throws SQLException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
@@ -65,10 +66,6 @@ public class LoginLogic {
 
         byte[] encryptedPasswordOfDatabase = Base64.getDecoder().decode(passwordOfDatabase);
         String decodedPasswordOfDatabase = decryptPassword(encryptedPasswordOfDatabase);
-
-        if (decodedPasswordOfDatabase.equals(password)) {
-            return true;
-        }
-        return false;
+        return decodedPasswordOfDatabase.equals(password);
     }
 }
