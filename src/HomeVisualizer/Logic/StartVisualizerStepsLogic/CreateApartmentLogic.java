@@ -16,7 +16,7 @@ public class CreateApartmentLogic {
 
     public static boolean isFourWalls;
     public static double constantHeight;
-    public static boolean addHeightSuccesful = false;
+    public static boolean addHeightSuccessful = false;
     public static List<Point2d> wallPoints = new ArrayList<>();
 
     public static void userChooseFourWalls() {
@@ -68,7 +68,7 @@ public class CreateApartmentLogic {
         } catch (Exception e) {
             return;
         }
-        addHeightSuccesful = true;
+        addHeightSuccessful = true;
     }
 
     public static void initAddWalls() {

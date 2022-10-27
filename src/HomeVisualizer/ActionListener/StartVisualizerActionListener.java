@@ -60,7 +60,7 @@ public class StartVisualizerActionListener implements ActionListener {
         if (event.getSource() == CreateApartmentGuiElements.oneMoreWall) {
             if (CreateApartmentGuiElements.oneMoreWall.getText() == "Add first wall") {
                 CreateApartmentLogic.addHeight();
-                if (CreateApartmentLogic.addHeightSuccesful) {
+                if (CreateApartmentLogic.addHeightSuccessful) {
                     CreateApartmentLogic.initAddWalls();
                 }
             } else {
