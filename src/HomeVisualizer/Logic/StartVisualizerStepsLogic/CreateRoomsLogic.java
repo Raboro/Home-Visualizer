@@ -54,11 +54,11 @@ public class CreateRoomsLogic {
     }
 
     private static boolean wallIsNotAlreadyInArray(double[] point) {
-        for (int i = 0; i < wallPoints.size(); i++) {
-            boolean x1PosIsEqual = wallPoints.get(i)[0] == point[0];
-            boolean y1PosIsEqual = wallPoints.get(i)[1] == point[1];
-            boolean x2PosIsEqual = wallPoints.get(i)[2] == point[2];
-            boolean y2PosIsEqual = wallPoints.get(i)[3] == point[3];
+        for (double[] wallPoint : wallPoints) {
+            boolean x1PosIsEqual = wallPoint[0] == point[0];
+            boolean y1PosIsEqual = wallPoint[1] == point[1];
+            boolean x2PosIsEqual = wallPoint[2] == point[2];
+            boolean y2PosIsEqual = wallPoint[3] == point[3];
 
             if (x1PosIsEqual && y1PosIsEqual && x2PosIsEqual && y2PosIsEqual) {
                 return false;
