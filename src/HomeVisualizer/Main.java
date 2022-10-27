@@ -1,6 +1,7 @@
 package HomeVisualizer;
 
 import java.sql.SQLException;
+import java.util.Objects;
 
 import HomeVisualizer.ActionListener.AddActionListenerLogin;
 import HomeVisualizer.ActionListener.AddActionListenerStartVisualize;
@@ -24,7 +25,7 @@ public class Main {
 
     public static void continueAfterLogin(String username) {
         login.dispose();
-        if (!(username == "")) {
+        if (!(Objects.equals(username, ""))) {
             new StartVisualizeGui(username);
             AddActionListenerStartVisualize startVisualizeActionListener = new AddActionListenerStartVisualize();
             startVisualizeActionListener.add(new StartVisualizerActionListener());
