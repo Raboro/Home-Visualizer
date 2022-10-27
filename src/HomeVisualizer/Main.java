@@ -17,7 +17,7 @@ public class Main {
     private static AddActionListenerLogin loginActionListener;
     private static AddActionListenerStartVisualize startVisualizeActionListener;
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         new InitializeDatabase();
         login = new LoginGui(); 
         loginActionListener = new AddActionListenerLogin();
