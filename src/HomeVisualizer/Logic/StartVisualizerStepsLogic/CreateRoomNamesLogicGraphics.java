@@ -8,60 +8,54 @@ public class CreateRoomNamesLogicGraphics {
 
     protected static CreateRoomNamesGraphics graphics;
     private static int divideFactor;
-    private static int[] checkValue = { 1000, 800, 600 };
-    private static int[] decreaseValueBy = { 5, 4, 2 };
-    private static int[][] wallPoints = new int[CreateRoomsLogic.wallPoints.size()][4];
+    private static final int[] checkValue = { 1000, 800, 600 };
+    private static final int[] decreaseValueBy = { 5, 4, 2 };
+    private static final int[][] wallPoints = new int[CreateRoomsLogic.wallPoints.size()][4];
     
     public static void init() {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                graphics = new CreateRoomNamesGraphics();
-                graphics.setVisible(true);
-            }
+        SwingUtilities.invokeLater(() -> {
+            graphics = new CreateRoomNamesGraphics();
+            graphics.setVisible(true);
         });
     }
 
     public static int[] translateSizeParameterOutsideWalls(int[] values) {
         for (int value = 0; value < values.length; value++) {
-            values[value] = getOnlyPositivValue(values[value]);
-            values = checkIfTranslateable(values, value);
+            values[value] = getOnlyPositiveValue(values[value]);
+            checkIfTranslatable(values, value);
         }
-        values = changeZeroValue(values);
+        changeZeroValue(values);
         return values;
     }
 
-    private static int getOnlyPositivValue(int value) {
+    private static int getOnlyPositiveValue(int value) {
         return value < 0 ? value * (-1) : value;
     }
 
-    private static int[] checkIfTranslateable(int[] values, int value) {
+    private static void checkIfTranslatable(int[] values, int value) {
         for (int check = 0; check < checkValue.length; check++) {
             if (values[value] >= checkValue[check]) {
                 setDivideFactor(check);
-                values = translateValues(values, check);
+                translateValues(values, check);
             }
         }
-        return values;
     }
 
     private static void setDivideFactor(int check) {
         divideFactor = divideFactor == 0 ? divideFactor += decreaseValueBy[check]
-                : divideFactor <= decreaseValueBy[check] ? decreaseValueBy[check] : divideFactor;
+                : Math.max(divideFactor, decreaseValueBy[check]);
     }
 
-    private static int[] translateValues(int[] values, int check) {
+    private static void translateValues(int[] values, int check) {
         for (int i = 0; i < values.length; i++) {
             values[i] /= decreaseValueBy[check];
         }
-        return values;
     }
 
-    private static int[] changeZeroValue(int[] values) {
+    private static void changeZeroValue(int[] values) {
         for (int value = 0; value < values.length; value++) {
             values[value] = values[value] == 0 ? 100 : values[value];
         }
-        return values;
     }
 
     public static int[] getPositionToDrawWallName(int[] wallBefore, int[] wall) {
@@ -84,10 +78,7 @@ public class CreateRoomNamesLogicGraphics {
         boolean isHorizontalEqual = wallBefore[0] == wall[0];
         boolean isVerticalEqual = wallBefore[1] == wall[1];
 
-        if ((isHorizontalEqual && !isVerticalEqual) || (!isHorizontalEqual && isVerticalEqual)) {
-            return true;
-        } 
-        return false;
+        return (isHorizontalEqual && !isVerticalEqual) || (!isHorizontalEqual && isVerticalEqual);
     }
 
     private static int[] getPositionWallNameHorizontal(int[] wallBefore, int[] wall) {
@@ -114,7 +105,7 @@ public class CreateRoomNamesLogicGraphics {
             for (int parameter = 0; parameter < 4; parameter++) {
                 wallPoints[wall][parameter] = (int) CreateRoomsLogic.wallPoints.get(wall)[parameter] / 10;
 
-                wallPoints[wall][parameter] = getOnlyPositivValue(wallPoints[wall][parameter]);
+                wallPoints[wall][parameter] = getOnlyPositiveValue(wallPoints[wall][parameter]);
                 wallPoints[wall][parameter] /= divideFactor;
                 wallPoints[wall][parameter] += 100;
             }
