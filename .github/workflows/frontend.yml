@@ -20,13 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        with:
-          projectBaseDir: frontend
+        working-directory: Frontend
 
       - name: Run tests
         run: npm run test:headless
-        with:
-          projectBaseDir: frontend
+        working-directory: Frontend
 
       - name: Build
         run: npm run build:prod
