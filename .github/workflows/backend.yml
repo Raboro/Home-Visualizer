@@ -20,7 +20,7 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn -B package --file pom.xml
-        working-directory: backend
+        working-directory: Backend
 
   sonar:
     runs-on: ubuntu-latest
