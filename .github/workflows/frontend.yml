@@ -21,8 +21,6 @@ jobs:
       - name: test
         run: npm run test
         working-directory: Frontend
-      - name: all scripts
-        run: npm run
 
   linter:
     name: Linter
