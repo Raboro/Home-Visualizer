@@ -1,0 +1,60 @@
+name: Frontend CI
+
+on:
+  push:
+    branches:
+      - main
+      - frontend
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+        with:
+          projectBaseDir: frontend
+
+      - name: Run tests
+        run: npm run test:headless
+        with:
+          projectBaseDir: frontend
+
+      - name: Build
+        run: npm run build:prod
+        with:
+          projectBaseDir: frontend
+
+  linter:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+            node-version: 18
+      - run: npm ci
+      - run: npm run lint
+
+  sonar:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Frontend Scan
+        uses: SonarSource/sonarcloud-github-action@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: frontend
