@@ -19,8 +19,10 @@ jobs:
         run: npm ci
         working-directory: Frontend
       - name: test
-        run: npm run test:headless
+        run: npm run test
         working-directory: Frontend
+      - name: all scripts
+        run: npm run
 
   linter:
     name: Linter
