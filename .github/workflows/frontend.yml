@@ -15,10 +15,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "18"
-      - run: npm install
-      - run: npm run test:headless
-      - run: npm run build:prod
-      - working-directory: Frontend
+      - name: build    
+        run: npm install
+        run: npm run test:headless
+        run: npm run build:prod
+        working-directory: Frontend
 
   linter:
     name: Linter
@@ -28,6 +29,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-      - run: npm ci
-      - run: npm run lint
-      - working-directory: Frontend
+        run: npm ci
+        run: npm run lint
+        working-directory: Frontend
