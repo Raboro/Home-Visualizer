@@ -54,4 +54,4 @@ jobs:
           args: >
             -Dsonar.coverage.reportPaths=coverage.
             -Dsonar.organization=raboro
-            -Dsonar.projectKey=Raboro_home-visualizer-fontend
+            -Dsonar.projectKey=Raboro_Home-Visualizer
