@@ -51,3 +51,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: Frontend
+          args: >
+            -Dsonar.coverage.reportPaths=coverage.
+            -Dsonar.organization=raboro
+            -Dsonar.projectKey=Raboro_home-visualizer-fontend
