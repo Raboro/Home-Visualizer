@@ -1,0 +1,62 @@
+name: Frontend CI
+
+on:
+  push:
+    branches:
+      - main
+      - frontend
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "18"
+      - name: build
+        run: npm ci
+        working-directory: Frontend
+      - name: test
+        run: npm run test
+        working-directory: Frontend
+
+  linter:
+    name: Linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: build
+        run: npm ci
+        working-directory: Frontend
+      - name: lint
+        run: npm run lint
+        working-directory: Frontend
+
+  sonar:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+        - name: Install dependencies
+          run: yarn
+        - name: Test and coverage
+          run: yarn jest --coverage
+        - name: SonarCloud Scan
+          uses: SonarSource/sonarcloud-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            SONAR_TOKEN: ${{ secrets. SONAR_TOKEN_FRONTEND }}
+          with:
+            projectBaseDir: Frontend
+            args: >
+              -Dsonar.organization=raboro
+              -Dsonar.projectKey=raboro_Home-Visualizer_Frontend
+              -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
