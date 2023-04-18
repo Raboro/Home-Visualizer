@@ -11,7 +11,7 @@
 	<groupId>io.github.raboro</groupId>
 	<artifactId>home-visualizer-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Backend</name>
+	<name>raboro_Home-Visualizer_Backend</name>
 	<description>Backend for Home-Visualizer</description>
 	<properties>
 		<java.verion>17</java.verion>
