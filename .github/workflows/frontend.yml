@@ -46,8 +46,10 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         run: yarn
+        working-directory: Frontend
       - name: Test and coverage
         run: yarn jest --coverage
+        working-directory: Frontend
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
