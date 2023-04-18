@@ -41,21 +41,22 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Install dependencies
-        run: yarn
-      - name: Test and coverage
-        run: yarn jest --coverage
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets. SONAR_TOKEN_FRONTEND }}
-        with:
-          projectBaseDir: Frontend
-          args: >
-            -Dsonar.organization=raboro
-            -Dsonar.projectKey=raboro_Home-Visualizer_Frontend
-            -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+        - name: Install dependencies
+          run: yarn
+        - name: Test and coverage
+          run: yarn jest --coverage
+        - name: SonarCloud Scan
+          uses: SonarSource/sonarcloud-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            SONAR_TOKEN: ${{ secrets. SONAR_TOKEN_FRONTEND }}
+          with:
+            projectBaseDir: Frontend
+            args: >
+              -Dsonar.organization=raboro
+              -Dsonar.projectKey=raboro_Home-Visualizer_Frontend
+              -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
