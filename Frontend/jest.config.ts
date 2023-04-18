@@ -30,8 +30,8 @@ export default {
   //   "\\\\node_modules\\\\"
   // ],
 
-  // Indicates which provider should be used to instrument code for coverage
-  // coverageProvider: "babel",
+  //Indicates which provider should be used to instrument code for coverage
+  coverageProvider: "babel",
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
