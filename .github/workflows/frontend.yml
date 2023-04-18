@@ -61,4 +61,4 @@ jobs:
             -Dsonar.coverage.reportPaths=coverage.
             -Dsonar.organization=raboro
             -Dsonar.projectKey=raboro_Home-Visualizer_Frontend
-            -Dsonar.coverage.jacoco.xmlReportPaths="${project.buildDir}/reports/jacoco.xml"
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco-aggregate-all/jacoco.xml
