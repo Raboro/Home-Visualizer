@@ -23,7 +23,6 @@ jobs:
         working-directory: Frontend
 
   linter:
-    name: Linter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -38,7 +37,6 @@ jobs:
         working-directory: Frontend
 
   sonar:
-    name: SonarCloud
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -58,7 +56,7 @@ jobs:
         with:
           projectBaseDir: Frontend
           args: >
-            -Dsonar.coverage.reportPaths=coverage.
+            -Dsonar.coverage.reportPaths=coverage/frontend.
             -Dsonar.organization=raboro
             -Dsonar.projectKey=raboro_Home-Visualizer_Frontend
-            -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.typescript.lcov.reportPaths=coverage/frotnend
