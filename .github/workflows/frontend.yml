@@ -48,6 +48,9 @@ jobs:
       - name: build
         run: npm run build --if-present
         working-directory: Frontend
+      - name: coverage report
+        run: npm run coverage:report
+        working-directory: Frontend
       - name: SonarCloud Frontend
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -58,3 +61,4 @@ jobs:
           args: >
             -Dsonar.organization=raboro
             -Dsonar.projectKey=raboro_Home-Visualizer_Frontend
+            -Dsonar.junit.reportsPath=coverage/index.html
