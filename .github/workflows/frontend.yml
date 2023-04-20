@@ -52,7 +52,7 @@ jobs:
         run: npm run coverage:report
         working-directory: Frontend
       - name: SonarCloud Frontend
-        uses: sonarsource/sonarcloud-github-action@v1
+        uses: SonarSource/sonarcloud-github-action@v2.8.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONTEND }}
