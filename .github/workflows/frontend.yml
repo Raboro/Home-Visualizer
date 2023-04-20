@@ -52,7 +52,7 @@ jobs:
         run: npm run coverage:report
         working-directory: Frontend
       - name: SonarCloud Frontend
-        uses: sonarsource/sonarcloud-github-action@v1
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONTEND }}
@@ -61,6 +61,5 @@ jobs:
           args: >
             -Dsonar.organization=raboro
             -Dsonar.projectKey=raboro_Home-Visualizer_Frontend
-            -Dsonar.junit.reportsPath=.coverage/index.html
-            -Dsonar.testExecutionReportPaths=.coverage/index.html
-            -Dsonar.javascript.lcov.reportPaths: ./coverage/index.html
+            -Dsonar.junit.reportsPath=coverage/index.html
+            -Dsonar.testExecutionReportPaths=coverage/index.html
