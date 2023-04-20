@@ -63,4 +63,3 @@ jobs:
             -Dsonar.projectKey=raboro_Home-Visualizer_Frontend
             -Dsonar.junit.reportsPath=coverage/index.html
             -Dsonar.testExecutionReportPaths=coverage/index.html
-            -Dsonar.javascript.lcov.reportPaths: coverage/index.html
