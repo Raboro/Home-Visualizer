@@ -51,15 +51,15 @@ jobs:
       - name: coverage report
         run: npm run coverage:report
         working-directory: Frontend
-      - name sonar 
+      - name: sonar
         run: sonar-scanner \
-              -Dsonar.organization=raboro \
-              -Dsonar.projectKey=raboro_Home-Visualizer_Frontend \
-              -Dsonar.sources=. \
-              -Dsonar.login=< ${{ secrets.SONAR_TOKEN_FRONTEND }}> \
-              -Dsonar.test.inclusions=**/*.spec.ts \
-              -Dsonar.coverageReportPaths=./coverage/lcov.info \
-              -Dsonar.typescript.lcov.reportPaths=./coverage/lcov.info
+          -Dsonar.organization=raboro \
+          -Dsonar.projectKey=raboro_Home-Visualizer_Frontend \
+          -Dsonar.sources=. \
+          -Dsonar.login=< ${{ secrets.SONAR_TOKEN_FRONTEND }}> \
+          -Dsonar.test.inclusions=**/*.spec.ts \
+          -Dsonar.coverageReportPaths=./coverage/lcov.info \
+          -Dsonar.typescript.lcov.reportPaths=./coverage/lcov.info
         working-directory: Frontend
       - name: SonarCloud Frontend
         uses: SonarSource/sonarcloud-github-action@master
