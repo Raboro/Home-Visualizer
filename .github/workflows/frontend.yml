@@ -39,14 +39,16 @@ jobs:
   sonar:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-      - name: Install dependencies
-        run: yarn
-      - name: Test and coverage
-        run: yarn jest --coverage
-      - name: SonarCloud Scan
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: install dependencies
+        run: npm ci
+        working-directory: Frontend
+      - name: build
+        run: npm run build --if-present
+        working-directory: Frontend
+      - name: SonarCloud Frontend
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
