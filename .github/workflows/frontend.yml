@@ -15,10 +15,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "18"
-      - name: build
+      - name: Install dependencies
         run: npm ci
         working-directory: Frontend
-      - name: test
+      - name: Test
         run: npm run test
         working-directory: Frontend
 
@@ -29,10 +29,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-      - name: build
+      - name: Install dependencies
         run: npm ci
         working-directory: Frontend
-      - name: lint
+      - name: Lint
         run: npm run lint
         working-directory: Frontend
 
@@ -42,13 +42,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-      - name: install dependencies
+      - name: Install dependencies
         run: npm ci
         working-directory: Frontend
-      - name: build
+      - name: Build
         run: npm run build --if-present
         working-directory: Frontend
-      - name: SonarCloud Frontend
+      - name: Analyze with Sonar
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
